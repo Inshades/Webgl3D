@@ -63,8 +63,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\StallManager.cs" />
+    <Compile Include="Assets\Scripts\Api\ApiHandler.cs" />
+    <Compile Include="Assets\Scripts\Api\MiniJSON.cs" />
+    <Compile Include="Assets\Scripts\FPS\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\FPS\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Stall\StallManager.cs" />
+    <Compile Include="Assets\Scripts\Stall\TriggerPoint.cs" />
+    <Compile Include="Assets\Scripts\UI Movement\ButtonClicks.cs" />
+    <Compile Include="Assets\Scripts\UI Movement\Movement_Script.cs" />
+    <Compile Include="Assets\Scripts\Video\VideoPlay.cs" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>D:/INSHADES/3dWebglProject/3dWebglProject/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
