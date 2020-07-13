@@ -5,28 +5,28 @@ using UnityEngine.Video;
 
 public class TriggerPoint : MonoBehaviour
 {
-    private StallCanvasManager _stallCanvasManager;
-    public string name;
+    public StallManager _stallManager;
+   // public string name;
     private void Start()
     {
-        _stallCanvasManager = GameObject.Find(name).GetComponent<StallCanvasManager>(); 
+      //  _stallManager = GameObject.Find(name).GetComponent<StallManager>(); 
     }
     private void OnTriggerEnter(Collider other)
     {
 
-        _stallCanvasManager.mainVideoCanvas.SetActive(true);
+        _stallManager.mainVideoCanvas.SetActive(true);
        
 
     }
     private void OnTriggerExit(Collider other)
     {
-        _stallCanvasManager.mainVideoCanvas.SetActive(false);
-        _stallCanvasManager.videoSelectPanel.SetActive(false);
-        _stallCanvasManager.videoPlayPanel.SetActive(false);
-        _stallCanvasManager.infoPanel.SetActive(false);
-        _stallCanvasManager.businessCardPanel.SetActive(false);
-        _stallCanvasManager.docsPanel.SetActive(false);
-        _stallCanvasManager.webPaneel.SetActive(false);
-    _stallCanvasManager.videoPlayer.Stop();
+        _stallManager.mainVideoCanvas.SetActive(false);
+        _stallManager.videoSelectPanel.SetActive(false);
+        _stallManager.videoPlayPanel.SetActive(false);
+        _stallManager.infoPanel.SetActive(false);
+        _stallManager.businessCardPanel.SetActive(false);
+        _stallManager.docsPanel.SetActive(false);
+        _stallManager.webPaneel.SetActive(false);
+        _stallManager.videoPlayer.Stop();
     }
 }

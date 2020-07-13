@@ -70,10 +70,10 @@
     <Compile Include="Assets\Scripts\FPS\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\ButtonClicks.cs" />
     <Compile Include="Assets\Scripts\Movement\Movement_Script.cs" />
+    <Compile Include="Assets\Scripts\Stall\Manager.cs" />
     <Compile Include="Assets\Scripts\Stall\StallManager.cs" />
     <Compile Include="Assets\Scripts\Stall\TriggerPoint.cs" />
     <Compile Include="Assets\Scripts\Teleport.cs" />
-    <Compile Include="Assets\Scripts\UI Scripts\StallCanvasManager.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\UiManager.cs" />
     <Compile Include="Assets\Scripts\VideoTest.cs" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">
