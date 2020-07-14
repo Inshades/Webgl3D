@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
+
 public class UiManager : MonoBehaviour
 {
     public GameObject mainMenuPanel; // Contains Logout_Button and MenuSelector_Button
@@ -14,29 +16,38 @@ public class UiManager : MonoBehaviour
     public Sprite menuSprite;
     public Sprite closeSprite;
 
+    [Header("Exhibitor")]
     public GameObject exhibitorPanel;
-    public GameObject chatPanel;
-    public GameObject conferencePanel;
+    public GameObject buttonTemplate;
 
-    [Header("My Box Items")]
-    public GameObject myboxPanel;
+    [Header("Chat")]
+    public GameObject chatPanel;
+
+    [Header("Connect")]
+    public GameObject connectPanel;
+
+    [Header("My VirtualBag")]
+    public GameObject myvirtualBagPanel;
     public GameObject myconnectionPanel;
     public GameObject documentsPanel;
     public GameObject videoPanel;
 
+    public GameObject StallsContainer;
+    public GameObject FPS;
+
     bool x = true;
-   //Logout Button is clicked to open Logout Panel
-   public void LogoutButton()
-   {
+    //Logout Button is clicked to open Logout Panel
+    public void LogoutButton()
+    {
         logoutPanel.SetActive(true);
         mainMenuPanel.SetActive(false);
-   }
-   
-   //In logout panel, yes clicked to close application
-   public void Yes_LogoutButton()
-   {
+    }
+
+    //In logout panel, yes clicked to close application
+    public void Yes_LogoutButton()
+    {
         Application.Quit();
-   }
+    }
     //In Logout panel, no clicked to continue the application
     public void No_LogoutButton()
     {
@@ -46,7 +57,7 @@ public class UiManager : MonoBehaviour
 
     public void MenuSelectButton()
     {
-        if(x)
+        if (x)
         {
             menuSelectPanel.SetActive(true);
             menuSelectButton.GetComponent<Image>().sprite = closeSprite;
@@ -65,11 +76,37 @@ public class UiManager : MonoBehaviour
         logoutPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
+
+        for (int i = 0; i < ApiHandler.instance._metaDataUrlContent.exhibhitorsName.Count; i++)
+        {
+            GameObject button = Instantiate(buttonTemplate) as GameObject;
+            button.SetActive(true);
+
+            button.GetComponent<ButtonListButton>().setKey(i);
+            button.GetComponent<ButtonListButton>().setText(ApiHandler.instance._metaDataUrlContent.exhibhitorsName[i].ToString());
+            button.GetComponent<ButtonListButton>().setDescription(ApiHandler.instance._metaDataUrlContent.exhibhitorsDescription[i].ToString());
+            // button.GetComponent<ButtonListButton>().setImage("") ;
+            StartCoroutine(button.GetComponent<ButtonListButton>().downloadImage(ApiHandler.instance._metaDataUrlContent.exhibhitorsLogoUrl[i].ToString()));
+            button.transform.SetParent(buttonTemplate.transform.parent, false);
+
+        }
     }
+
+    public void ButtonClicked(int myKeystring)
+    {
+
+      //  GameObject selectedStall = StallsContainer.transform.GetChild(myKeystring).GetComponent<StallManager>().playerPosition;
+       // FPS.transform.position = selectedStall.transform.position;
+      //  FPS.transform.rotation = selectedStall.transform.rotation;
+        //script for teleport//
+        // GameObject stall = GameObject.Find();
+        Debug.Log(myKeystring);
+    }
+
     public void ExhibitorCloseButton()
     {
         exhibitorPanel.SetActive(false);
-       
+
         mainMenuPanel.SetActive(true);
         menuSelectPanel.SetActive(true);
     }
@@ -89,23 +126,23 @@ public class UiManager : MonoBehaviour
         menuSelectPanel.SetActive(true);
     }
 
-    public void ConferenceButton()
+    public void ConnectButton()
     {
-        conferencePanel.SetActive(true);
+        connectPanel.SetActive(true);
         logoutPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
     }
 
-    public void ConferenceCloseButton()
+    public void ConnectCloseButton()
     {
-        conferencePanel.SetActive(false);
+        connectPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
         menuSelectPanel.SetActive(true);
     }
     public void MyBoxButton()
     {
-        myboxPanel.SetActive(true);
+        myvirtualBagPanel.SetActive(true);
         logoutPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
@@ -130,8 +167,8 @@ public class UiManager : MonoBehaviour
     }
     public void MyBoxCloseButton()
     {
-        myboxPanel.SetActive(false);
-        
+        myvirtualBagPanel.SetActive(false);
+
         mainMenuPanel.SetActive(true);
         menuSelectPanel.SetActive(true);
     }

@@ -63,8 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Api\ApiHandler.cs" />
     <Compile Include="Assets\Scripts\Api\MiniJSON.cs" />
+    <Compile Include="Assets\Scripts\ApiHandler.cs" />
+    <Compile Include="Assets\Scripts\ButtonListButton.cs" />
+    <Compile Include="Assets\Scripts\ButtonListContrl.cs" />
     <Compile Include="Assets\Scripts\dropdownscript.cs" />
     <Compile Include="Assets\Scripts\FPS\MouseLook.cs" />
     <Compile Include="Assets\Scripts\FPS\PlayerMovement.cs" />

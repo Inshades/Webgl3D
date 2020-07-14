@@ -21,14 +21,14 @@ public class Manager : MonoBehaviour
     //public int gold2Count;
     
 
-    public GameObject FPS;
+   // public GameObject FPS;
 
-    public stallType _stallType;
-    public void TeleportTo(GameObject playerPos)
-    {
-        FPS.transform.position = playerPos.transform.position;
-        FPS.transform.rotation = playerPos.transform.rotation;
-    }
+   // public stallType _stallType;
+    //public void TeleportTo(GameObject playerPos)
+    //{
+    //    FPS.transform.position = playerPos.transform.position;
+    //    FPS.transform.rotation = playerPos.transform.rotation;
+    //}
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +43,12 @@ public class Manager : MonoBehaviour
         for (int i = 0; i < shopPositionContainer.transform.childCount; i++)
         {
             // int randomNumber = Random.Range(0, placeHolders.Length);
-            Debug.Log(i);
-            GameObject obj = Instantiate(stalls[(int)stallType.BASIC1], shopPositionContainer.transform.GetChild(i).position, shopPositionContainer.transform.GetChild(i).rotation) as GameObject;
+           // Debug.Log(i);
+            GameObject obj = Instantiate(stalls[i], shopPositionContainer.transform.GetChild(i).position, shopPositionContainer.transform.GetChild(i).rotation) as GameObject;
             obj.transform.parent = StallsContainer.transform;
         }
 
-        TeleportTo(StallsContainer.transform.GetChild(3).GetComponent<StallManager>().playerPosition);
+       // TeleportTo(StallsContainer.transform.GetChild(3).GetComponent<StallManager>().playerPosition);
          //generateGold1(gold1Count);
          //generateGold2(gold2Count);
     }

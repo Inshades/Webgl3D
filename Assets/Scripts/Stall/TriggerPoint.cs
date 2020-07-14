@@ -14,19 +14,19 @@ public class TriggerPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        _stallManager.mainVideoCanvas.SetActive(true);
+        //_stallManager.mainVideoCanvas.SetActive(true);
        
 
     }
     private void OnTriggerExit(Collider other)
     {
-        _stallManager.mainVideoCanvas.SetActive(false);
-        _stallManager.videoSelectPanel.SetActive(false);
-        _stallManager.videoPlayPanel.SetActive(false);
-        _stallManager.infoPanel.SetActive(false);
-        _stallManager.businessCardPanel.SetActive(false);
-        _stallManager.docsPanel.SetActive(false);
-        _stallManager.webPaneel.SetActive(false);
-        _stallManager.videoPlayer.Stop();
+        //_stallManager.mainVideoCanvas.SetActive(false);
+        //_stallManager.videoSelectPanel.SetActive(false);
+        //_stallManager.videoPlayPanel.SetActive(false);
+        //_stallManager.infoPanel.SetActive(false);
+        //_stallManager.businessCardPanel.SetActive(false);
+        //_stallManager.docsPanel.SetActive(false);
+        //_stallManager.webPaneel.SetActive(false);
+        //_stallManager.videoPlayer.Stop();
     }
 }

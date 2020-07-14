@@ -8,27 +8,24 @@ using UnityEngine;
 using UnityEngine.Video;
 public class StallManager : MonoBehaviour
 {
+
    
-    [Header("STALL POSTERS AND SPRITES")]
-    public SpriteRenderer[] _posterImage;
-    public Sprite[] testSprite;
+    //[Header("Video Player")]
+    //public VideoPlayer videoPlayer;
 
-    [Header("Video Player")]
-    public VideoPlayer videoPlayer;
+    //[Header("VideoCanvas and Panel")]
+    //public GameObject mainVideoCanvas; //Canvas that holds video components
+    //public GameObject videoSelectPanel; //Panel that contains Options to select Video
+    //public GameObject videoPlayPanel;   //Panel, Where the video Plays
 
-    [Header("VideoCanvas and Panel")]
-    public GameObject mainVideoCanvas; //Canvas that holds video components
-    public GameObject videoSelectPanel; //Panel that contains Options to select Video
-    public GameObject videoPlayPanel;   //Panel, Where the video Plays
+    //[Header("info GameObject Name")]
+    //public string name; //name of the clickable gameobject
 
-    [Header("info GameObject Name")]
-    public string name; //name of the clickable gameobject
-
-    [Header("Trigger Panels")]
-    public GameObject infoPanel;
-    public GameObject businessCardPanel;
-    public GameObject docsPanel;
-    public GameObject webPaneel;
+    //[Header("Trigger Panels")]
+    //public GameObject infoPanel;
+    //public GameObject businessCardPanel;
+    //public GameObject docsPanel;
+    //public GameObject webPaneel;
 
 
 
@@ -38,10 +35,7 @@ public class StallManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < _posterImage.Length; i++)
-        {
-            _posterImage[i].sprite = testSprite[i];
-        }
+      
 
     }
 
@@ -51,7 +45,7 @@ public class StallManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -61,103 +55,103 @@ public class StallManager : MonoBehaviour
             {
                 if (hit.transform != null)
                 {
-                   
+
                     if (hit.transform.gameObject.name == name)
                     {
                         Debug.Log(hit.transform.gameObject.name);
-                        VideoInfoButton();
+                       // VideoInfoButton();
                     }
                 }
             }
         }
     }
-    public void VideoInfoButton()
-    {
-      //  MainVideoCanvas.SetActive(true);
-        videoSelectPanel.SetActive(true);
-        videoPlayPanel.SetActive(false);
-        videoPlayer.Stop();
-    }
+    //public void VideoInfoButton()
+    //{
+    //    //  MainVideoCanvas.SetActive(true);
+    //    videoSelectPanel.SetActive(true);
+    //    videoPlayPanel.SetActive(false);
+    //    videoPlayer.Stop();
+    //}
 
-    public void Video1()
-    {
-        videoSelectPanel.SetActive(false);
-        videoPlayPanel.SetActive(true);
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Effort.mp4");
-        videoPlayer.Play();
-        
-    }
-    public void Video2()
-    {
-        videoSelectPanel.SetActive(false);
-        videoPlayPanel.SetActive(true);
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Best.mp4");
-        videoPlayer.Play();
-        
-    }
-    public void Video3()
-    {
-        videoSelectPanel.SetActive(false);
-        videoPlayPanel.SetActive(true);
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Motive.mp4");
-        videoPlayer.Play();
-       
-    }
-    public void Video4()
-    {
-        videoSelectPanel.SetActive(false);
-        videoPlayPanel.SetActive(true);
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Belive.mp4");
-        videoPlayer.Play();
-      
-    }
-    public void CloseMainButton()
-    {
-        // MainVideoCanvas.SetActive(false);
-        videoSelectPanel.SetActive(false);
-     
-    }
-    public void CloseVideoButton()
-    {
-        videoPlayer.Stop();
-        videoPlayPanel.SetActive(false);
-        videoSelectPanel.SetActive(true);
-    }
-   
-    public void InfoButton()
-    {
-        infoPanel.SetActive(true);
-        businessCardPanel.SetActive(false);
-        docsPanel.SetActive(false);
-        webPaneel.SetActive(false);
-    }
-    public void BusinessCardButton()
-    {
-        businessCardPanel.SetActive(true);
-        docsPanel.SetActive(false);
-        webPaneel.SetActive(false);
-        infoPanel.SetActive(false);
-    }
-    public void DocsButton()
-    {
-        docsPanel.SetActive(true);
-        businessCardPanel.SetActive(false);
-        infoPanel.SetActive(false);
-        webPaneel.SetActive(false);
-    }
-    public void WebButton()
-    {
-        webPaneel.SetActive(true);
-        businessCardPanel.SetActive(false);
-        docsPanel.SetActive(false);
-        infoPanel.SetActive(false);
-    }
+    //public void Video1()
+    //{
+    //    videoSelectPanel.SetActive(false);
+    //    videoPlayPanel.SetActive(true);
+    //    videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Effort.mp4");
+    //    videoPlayer.Play();
 
-    public void CloseTriggerButton()
-    {
-        businessCardPanel.SetActive(false);
-        docsPanel.SetActive(false);
-        webPaneel.SetActive(false);
-        infoPanel.SetActive(false);
-    }
+    //}
+    //public void Video2()
+    //{
+    //    videoSelectPanel.SetActive(false);
+    //    videoPlayPanel.SetActive(true);
+    //    videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Best.mp4");
+    //    videoPlayer.Play();
+
+    //}
+    //public void Video3()
+    //{
+    //    videoSelectPanel.SetActive(false);
+    //    videoPlayPanel.SetActive(true);
+    //    videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Motive.mp4");
+    //    videoPlayer.Play();
+
+    //}
+    //public void Video4()
+    //{
+    //    videoSelectPanel.SetActive(false);
+    //    videoPlayPanel.SetActive(true);
+    //    videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Belive.mp4");
+    //    videoPlayer.Play();
+
+    //}
+    //public void CloseMainButton()
+    //{
+    //    // MainVideoCanvas.SetActive(false);
+    //    videoSelectPanel.SetActive(false);
+
+    //}
+    //public void CloseVideoButton()
+    //{
+    //    videoPlayer.Stop();
+    //    videoPlayPanel.SetActive(false);
+    //    videoSelectPanel.SetActive(true);
+    //}
+
+    //public void InfoButton()
+    //{
+    //    infoPanel.SetActive(true);
+    //    businessCardPanel.SetActive(false);
+    //    docsPanel.SetActive(false);
+    //    webPaneel.SetActive(false);
+    //}
+    //public void BusinessCardButton()
+    //{
+    //    businessCardPanel.SetActive(true);
+    //    docsPanel.SetActive(false);
+    //    webPaneel.SetActive(false);
+    //    infoPanel.SetActive(false);
+    //}
+    //public void DocsButton()
+    //{
+    //    docsPanel.SetActive(true);
+    //    businessCardPanel.SetActive(false);
+    //    infoPanel.SetActive(false);
+    //    webPaneel.SetActive(false);
+    //}
+    //public void WebButton()
+    //{
+    //    webPaneel.SetActive(true);
+    //    businessCardPanel.SetActive(false);
+    //    docsPanel.SetActive(false);
+    //    infoPanel.SetActive(false);
+    //}
+
+    //public void CloseTriggerButton()
+    //{
+    //    businessCardPanel.SetActive(false);
+    //    docsPanel.SetActive(false);
+    //    webPaneel.SetActive(false);
+    //    infoPanel.SetActive(false);
+    //}
 }

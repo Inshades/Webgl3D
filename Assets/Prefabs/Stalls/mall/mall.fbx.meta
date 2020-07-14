@@ -1,0 +1,411 @@
+fileFormatVersion: 2
+guid: bfcf281e0c8bc074a9ca743d9fd52baa
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CONCRETE
+    100002: emission 1
+    100004: emission 2
+    100006: emission 3
+    100008: emission 4
+    100010: emission 5
+    100012: FLOOR.002
+    100014: front emission box
+    100016: glass
+    100018: interor light bottom
+    100020: intro wall
+    100022: LIGHT LAYER
+    100024: //RootNode
+    100026: outer glass
+    100028: path photo fram
+    100030: reception room
+    100032: round glass
+    100034: round glass cover
+    100036: screen 1
+    100038: screen 10
+    100040: screen 11
+    100042: SCREEN 12
+    100044: screen 12
+    100046: SCREEN 15
+    100048: screen 15 cover
+    100050: screen 16
+    100052: screen 16 cover
+    100054: screen 2
+    100056: screen 3
+    100058: screen 4
+    100060: screen 5
+    100062: screen 6
+    100064: screen 7
+    100066: screen 8
+    100068: screen 9
+    100070: screen cover
+    100072: screen cover 1
+    100074: SCREEN COVER 12
+    100076: screen cover 2
+    100078: screen cover 4
+    100080: screen cover 8
+    100082: screen cover 9
+    100084: silver layer
+    100086: sofa
+    100088: sofa.001
+    100090: sofa.002
+    100092: sofa.003
+    100094: sofa.004
+    100096: sofa.005
+    100098: sofa.006
+    100100: sofa.007
+    100102: sofa.008
+    100104: sofa.009
+    100106: sofa.010
+    100108: sofa.011
+    100110: sofa.012
+    100112: sofa.013
+    100114: spot light room
+    100116: SPOT LIGHT SCREEN 14
+    100118: texture path 1
+    100120: white layer
+    400000: CONCRETE
+    400002: emission 1
+    400004: emission 2
+    400006: emission 3
+    400008: emission 4
+    400010: emission 5
+    400012: FLOOR.002
+    400014: front emission box
+    400016: glass
+    400018: interor light bottom
+    400020: intro wall
+    400022: LIGHT LAYER
+    400024: //RootNode
+    400026: outer glass
+    400028: path photo fram
+    400030: reception room
+    400032: round glass
+    400034: round glass cover
+    400036: screen 1
+    400038: screen 10
+    400040: screen 11
+    400042: SCREEN 12
+    400044: screen 12
+    400046: SCREEN 15
+    400048: screen 15 cover
+    400050: screen 16
+    400052: screen 16 cover
+    400054: screen 2
+    400056: screen 3
+    400058: screen 4
+    400060: screen 5
+    400062: screen 6
+    400064: screen 7
+    400066: screen 8
+    400068: screen 9
+    400070: screen cover
+    400072: screen cover 1
+    400074: SCREEN COVER 12
+    400076: screen cover 2
+    400078: screen cover 4
+    400080: screen cover 8
+    400082: screen cover 9
+    400084: silver layer
+    400086: sofa
+    400088: sofa.001
+    400090: sofa.002
+    400092: sofa.003
+    400094: sofa.004
+    400096: sofa.005
+    400098: sofa.006
+    400100: sofa.007
+    400102: sofa.008
+    400104: sofa.009
+    400106: sofa.010
+    400108: sofa.011
+    400110: sofa.012
+    400112: sofa.013
+    400114: spot light room
+    400116: SPOT LIGHT SCREEN 14
+    400118: texture path 1
+    400120: white layer
+    2100000: concerte
+    2100002: white
+    2100004: emission blue.001
+    2100006: white marble
+    2100008: roof wood
+    2100010: silver
+    2100012: No Name
+    2100014: emission red
+    2100016: emission
+    2100018: black wood
+    2100020: glass sky blue
+    2100022: glass thick blue
+    2100024: GLASS
+    2100026: SQUARE FLOOR
+    2100028: floor white
+    2100030: outer floor
+    2100032: graw
+    2300000: CONCRETE
+    2300002: emission 1
+    2300004: emission 2
+    2300006: emission 3
+    2300008: emission 4
+    2300010: emission 5
+    2300012: FLOOR.002
+    2300014: front emission box
+    2300016: glass
+    2300018: interor light bottom
+    2300020: intro wall
+    2300022: LIGHT LAYER
+    2300024: outer glass
+    2300026: path photo fram
+    2300028: reception room
+    2300030: round glass
+    2300032: round glass cover
+    2300034: screen 1
+    2300036: screen 10
+    2300038: screen 11
+    2300040: SCREEN 12
+    2300042: screen 12
+    2300044: SCREEN 15
+    2300046: screen 15 cover
+    2300048: screen 16
+    2300050: screen 16 cover
+    2300052: screen 2
+    2300054: screen 3
+    2300056: screen 4
+    2300058: screen 5
+    2300060: screen 6
+    2300062: screen 7
+    2300064: screen 8
+    2300066: screen 9
+    2300068: screen cover
+    2300070: screen cover 1
+    2300072: SCREEN COVER 12
+    2300074: screen cover 2
+    2300076: screen cover 4
+    2300078: screen cover 8
+    2300080: screen cover 9
+    2300082: silver layer
+    2300084: sofa
+    2300086: sofa.001
+    2300088: sofa.002
+    2300090: sofa.003
+    2300092: sofa.004
+    2300094: sofa.005
+    2300096: sofa.006
+    2300098: sofa.007
+    2300100: sofa.008
+    2300102: sofa.009
+    2300104: sofa.010
+    2300106: sofa.011
+    2300108: sofa.012
+    2300110: sofa.013
+    2300112: spot light room
+    2300114: SPOT LIGHT SCREEN 14
+    2300116: texture path 1
+    2300118: white layer
+    3300000: CONCRETE
+    3300002: emission 1
+    3300004: emission 2
+    3300006: emission 3
+    3300008: emission 4
+    3300010: emission 5
+    3300012: FLOOR.002
+    3300014: front emission box
+    3300016: glass
+    3300018: interor light bottom
+    3300020: intro wall
+    3300022: LIGHT LAYER
+    3300024: outer glass
+    3300026: path photo fram
+    3300028: reception room
+    3300030: round glass
+    3300032: round glass cover
+    3300034: screen 1
+    3300036: screen 10
+    3300038: screen 11
+    3300040: SCREEN 12
+    3300042: screen 12
+    3300044: SCREEN 15
+    3300046: screen 15 cover
+    3300048: screen 16
+    3300050: screen 16 cover
+    3300052: screen 2
+    3300054: screen 3
+    3300056: screen 4
+    3300058: screen 5
+    3300060: screen 6
+    3300062: screen 7
+    3300064: screen 8
+    3300066: screen 9
+    3300068: screen cover
+    3300070: screen cover 1
+    3300072: SCREEN COVER 12
+    3300074: screen cover 2
+    3300076: screen cover 4
+    3300078: screen cover 8
+    3300080: screen cover 9
+    3300082: silver layer
+    3300084: sofa
+    3300086: sofa.001
+    3300088: sofa.002
+    3300090: sofa.003
+    3300092: sofa.004
+    3300094: sofa.005
+    3300096: sofa.006
+    3300098: sofa.007
+    3300100: sofa.008
+    3300102: sofa.009
+    3300104: sofa.010
+    3300106: sofa.011
+    3300108: sofa.012
+    3300110: sofa.013
+    3300112: spot light room
+    3300114: SPOT LIGHT SCREEN 14
+    3300116: texture path 1
+    3300118: white layer
+    4300000: intro wall
+    4300002: white layer
+    4300004: front emission box
+    4300006: reception room
+    4300008: screen cover 2
+    4300010: screen cover 1
+    4300012: silver layer
+    4300014: screen 3
+    4300016: screen 2
+    4300018: screen 1
+    4300020: emission 4
+    4300022: emission 5
+    4300024: emission 2
+    4300026: emission 3
+    4300028: emission 1
+    4300030: LIGHT LAYER
+    4300032: path photo fram
+    4300034: CONCRETE
+    4300036: glass
+    4300038: round glass
+    4300040: round glass cover
+    4300042: SPOT LIGHT SCREEN 14
+    4300044: texture path 1
+    4300046: outer glass
+    4300048: screen 12
+    4300050: spot light room
+    4300052: FLOOR.002
+    4300054: screen cover
+    4300056: SCREEN COVER 12
+    4300058: SCREEN 12
+    4300060: screen 15 cover
+    4300062: screen 16 cover
+    4300064: screen cover 8
+    4300066: screen cover 4
+    4300068: SCREEN 15
+    4300070: screen 16
+    4300072: screen cover 9
+    4300074: sofa
+    4300076: sofa.001
+    4300078: sofa.002
+    4300080: sofa.003
+    4300082: sofa.004
+    4300084: sofa.005
+    4300086: sofa.006
+    4300088: sofa.007
+    4300090: sofa.008
+    4300092: sofa.009
+    4300094: sofa.010
+    4300096: sofa.011
+    4300098: sofa.012
+    4300100: sofa.013
+    4300102: interor light bottom
+    4300104: screen 7
+    4300106: screen 6
+    4300108: screen 9
+    4300110: screen 11
+    4300112: screen 4
+    4300114: screen 5
+    4300116: screen 10
+    4300118: screen 8
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
