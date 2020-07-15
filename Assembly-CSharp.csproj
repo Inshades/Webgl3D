@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Teleport.cs" />
     <Compile Include="Assets\Scripts\TriggerIdentify.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\UiManager.cs" />
+    <Compile Include="Assets\Scripts\VideoPlay.cs" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>D:/INSHADES/3dWebglProject/3dWebglProject/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
