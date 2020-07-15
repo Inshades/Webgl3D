@@ -9,9 +9,9 @@ using System;
 
 public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    public float MoveSpeed;
+    public float MoveSpeed =16f;
     public CharacterController controller;
-    public float speed = 12f;
+    public float speed = 16f;
     [SerializeField] private AudioClip[] m_FootstepSounds;
     private AudioSource m_AudioSource;
 

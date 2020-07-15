@@ -77,16 +77,16 @@ public class UiManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
 
-        for (int i = 0; i < ApiHandler.instance._metaDataUrlContent.exhibhitorsName.Count; i++)
+        for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count; i++)
         {
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
 
             button.GetComponent<ButtonListButton>().setKey(i);
-            button.GetComponent<ButtonListButton>().setText(ApiHandler.instance._metaDataUrlContent.exhibhitorsName[i].ToString());
-            button.GetComponent<ButtonListButton>().setDescription(ApiHandler.instance._metaDataUrlContent.exhibhitorsDescription[i].ToString());
+            button.GetComponent<ButtonListButton>().setText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
+            button.GetComponent<ButtonListButton>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
             // button.GetComponent<ButtonListButton>().setImage("") ;
-            StartCoroutine(button.GetComponent<ButtonListButton>().downloadImage(ApiHandler.instance._metaDataUrlContent.exhibhitorsLogoUrl[i].ToString()));
+            StartCoroutine(button.GetComponent<ButtonListButton>().downloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
             button.transform.SetParent(buttonTemplate.transform.parent, false);
 
         }
@@ -95,11 +95,13 @@ public class UiManager : MonoBehaviour
     public void ButtonClicked(int myKeystring)
     {
 
-      //  GameObject selectedStall = StallsContainer.transform.GetChild(myKeystring).GetComponent<StallManager>().playerPosition;
-       // FPS.transform.position = selectedStall.transform.position;
-      //  FPS.transform.rotation = selectedStall.transform.rotation;
-        //script for teleport//
-        // GameObject stall = GameObject.Find();
+        GameObject selectedStall = StallsContainer.transform.GetChild(myKeystring).GetComponent<StallManager>().playerPosition;
+        FPS.transform.position = selectedStall.transform.position;
+        FPS.transform.rotation = selectedStall.transform.rotation;
+        exhibitorPanel.SetActive(false);
+        exhibitorPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+        menuSelectPanel.SetActive(true);
         Debug.Log(myKeystring);
     }
 
