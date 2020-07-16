@@ -85,7 +85,7 @@ public class UiManager : MonoBehaviour
             button.GetComponent<ButtonListButton>().setKey(i);
             button.GetComponent<ButtonListButton>().setText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
             button.GetComponent<ButtonListButton>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
-            // button.GetComponent<ButtonListButton>().setImage("") ;
+
             StartCoroutine(button.GetComponent<ButtonListButton>().downloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
             button.transform.SetParent(buttonTemplate.transform.parent, false);
 

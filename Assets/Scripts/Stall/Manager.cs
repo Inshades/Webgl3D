@@ -13,22 +13,29 @@ public class Manager : MonoBehaviour
     [Header("Position Holder")]
     [SerializeField]
     private GameObject shopPositionContainer;
-   
-    
+
     public GameObject StallsContainer;
+    public static Manager instance = null;
+    public static Manager Instance
+    {
+        get { return instance; }
+    }
 
-    //public int gold1Count;
-    //public int gold2Count;
-    
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
 
-   // public GameObject FPS;
-
-   // public stallType _stallType;
-    //public void TeleportTo(GameObject playerPos)
-    //{
-    //    FPS.transform.position = playerPos.transform.position;
-    //    FPS.transform.rotation = playerPos.transform.rotation;
-    //}
+        DontDestroyOnLoad(this.gameObject);
+    }
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -42,25 +49,13 @@ public class Manager : MonoBehaviour
 
         for (int i = 0; i < shopPositionContainer.transform.childCount; i++)
         {
-            // int randomNumber = Random.Range(0, placeHolders.Length);
-           // Debug.Log(i);
             GameObject obj = Instantiate(stalls[i], shopPositionContainer.transform.GetChild(i).position, shopPositionContainer.transform.GetChild(i).rotation) as GameObject;
             obj.transform.parent = StallsContainer.transform;
+            
         }
 
-       // TeleportTo(StallsContainer.transform.GetChild(3).GetComponent<StallManager>().playerPosition);
-         //generateGold1(gold1Count);
-         //generateGold2(gold2Count);
+       
     }
-
-    //void generateGold1(int goldStallCount)
-    //{
-    //    for (int i = 0; i < goldStallCount; i++)
-    //    {
-    //      Instantiate(stalls[(int)stallType.BASIC1], shopPositionContainer.transform.GetChild(i).position, shopPositionContainer.transform.GetChild(i).rotation);
-    //    }
-    //}
-    
 }
 public enum stallType
 {
