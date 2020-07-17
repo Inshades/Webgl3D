@@ -10,6 +10,8 @@ public class UiManager : MonoBehaviour
     public GameObject mainMenuPanel; // Contains Logout_Button and MenuSelector_Button
     public GameObject logoutPanel;   // User decides to quit by yes or No
 
+    public GameObject mobileUiPanel;
+
     [Header("Menu Selector")]
     public GameObject menuSelectPanel;
     public Button menuSelectButton;

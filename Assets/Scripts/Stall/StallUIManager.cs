@@ -7,10 +7,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+
 public class StallUIManager : MonoBehaviour
 {
 
     private int key;
+
+    private UiManager uiManager;
+
+   
+
 
     //[Header("Video Player")]
     //public VideoPlayer videoPlayer;
@@ -59,20 +66,21 @@ public class StallUIManager : MonoBehaviour
     public Text businessCardWeb;
     public Text businessCardAddress;
 
-    //public GameObject docsPanel;
+    public GameObject slideShowPanel;
+    public Image slideShowImage;
     //public GameObject webPanel;
 
 
-
-   
-
+    public void start()
+    {
+        uiManager = GameObject.Find("UI_Manager").GetComponent<UiManager>();
+    }
     
-
-
     public void Setkey(int key)
     {
         this.key = key;
         Debug.Log("Keys" + key);
+    
     }
     private void Start()
     {
@@ -106,7 +114,7 @@ public class StallUIManager : MonoBehaviour
                     if (hit.transform.gameObject.tag == "Product")
                     {
                         Debug.Log(hit.transform.gameObject.tag);
-                        BroucherButton();
+                        SlideShowButton();
 
                     }
                     if (hit.transform.gameObject.tag == "Video")
@@ -127,27 +135,37 @@ public class StallUIManager : MonoBehaviour
         exhibType.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsType.ToString();
         exhibDescp.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsTagLine.ToString();
         menuSelectPanel.SetActive(false);
-        
-        
+ 
     }
 
     public void BroucherButton()
     {
         broucherPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
+    
     }
 
     public void videoButton()
     {
         videoSelectPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-       
+   
     }
 
+    public void SlideShowButton()
+    {
+        slideShowPanel.SetActive(true);
+        menuSelectPanel.SetActive(false);
+      
+     
+    }
+
+    
     public void EmailButton()
     {
         emailPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
+      
 
     }
 
@@ -155,6 +173,7 @@ public class StallUIManager : MonoBehaviour
     {
         chatPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
+   
 
     }
     //public void CloseMainButton()
@@ -174,6 +193,7 @@ public class StallUIManager : MonoBehaviour
     public void BusinessCardButton()
     {
         menuSelectPanel.SetActive(false);
+     
         businessCardPanel.SetActive(true);
         businessCardName.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName.ToString();
         businessCardPhone.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsTagLine.ToString();
@@ -193,6 +213,8 @@ public class StallUIManager : MonoBehaviour
         infoPanel.SetActive(false);
         emailPanel.SetActive(false);
         chatPanel.SetActive(false);
+        slideShowPanel.SetActive(false);
+    
     }
 
 }

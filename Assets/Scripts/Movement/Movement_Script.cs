@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-
-
 public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     public float MoveSpeed =16f;
@@ -39,10 +37,10 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
 
 
         //keyboard control
-        //   transform.Translate(MoveSpeed*Input.GetAxis("Horizontal")Time.deltaTime,0f,MoveSpeed Input.GetAxis("Vertical") * Time.deltaTime);
+      // Vector3 mov = new Vector3(SimpleInput.GetAxis("Horizontal") * speed, 0, SimpleInput.GetAxis("Verticle") * speed);
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
+        
         if (Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right") || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             ProgressStepCycle(count);
@@ -85,7 +83,7 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
 
     private void ProgressStepCycle(int count1)
     {
-        if (count1 % 40 == 0)
+        if (count1 % 30 == 0)
         {
             count = 0;
             PlayFootStepAudio();
@@ -119,7 +117,7 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
     public void rotateLeft()
     {
         // transform.RotateAround(new Vector3(), new Vector3(0, 1, 0), transform.position.y * 180);
-        transform.Rotate(Vector3.down * 9);
+        transform.Rotate(Vector3.down * 2);
     }
 
     public void rotateRight()
@@ -127,31 +125,37 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
 
         // transform.RotateAround(new Vector3(), new Vector3(0, 1, 0), -transform.position.y * 180);
 
-        transform.Rotate(Vector3.up * 9);
+        transform.Rotate(Vector3.up * 2);
     }
 
     public void MoveForward()
     {
 
-        transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
+        //   transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
+        Vector3 move = transform.forward;
+        controller.Move(move * MoveSpeed * Time.deltaTime);
 
 
     }
     public void MoveBackward()
     {
-
-        transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime);
+        //  transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime);
+        Vector3 move = -transform.forward;
+        controller.Move(move * MoveSpeed * Time.deltaTime);
     }
 
     public void MoveLeftSide()
     {
 
-        transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
+        //  transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
+        Vector3 move = -transform.right;
+        controller.Move(move * MoveSpeed * Time.deltaTime);
     }
 
     public void MoveRightSide()
     {
-
-        transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
+        //  transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
+        Vector3 move = transform.right;
+        controller.Move(move * MoveSpeed * Time.deltaTime);
     }
 }
