@@ -63,22 +63,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bridge.cs" />
     <Compile Include="Assets\Scripts\Api\ApiHandler.cs" />
     <Compile Include="Assets\Scripts\Api\MiniJSON.cs" />
-    <Compile Include="Assets\Scripts\ButtonListButton.cs" />
-    <Compile Include="Assets\Scripts\ButtonListContrl.cs" />
+    <Compile Include="Assets\Scripts\BroucherButtonList.cs" />
     <Compile Include="Assets\Scripts\ChatControl.cs" />
     <Compile Include="Assets\Scripts\ChatList.cs" />
-    <Compile Include="Assets\Scripts\dropdownscript.cs" />
+    <Compile Include="Assets\Scripts\doc_controller.cs" />
+    <Compile Include="Assets\Scripts\doc_data.cs" />
+    <Compile Include="Assets\Scripts\ExhibitorButtonList.cs" />
     <Compile Include="Assets\Scripts\FPS\MouseLook.cs" />
     <Compile Include="Assets\Scripts\FPS\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\ButtonClicks.cs" />
     <Compile Include="Assets\Scripts\Movement\Movement_Script.cs" />
+    <Compile Include="Assets\Scripts\myconn_controller.cs" />
+    <Compile Include="Assets\Scripts\myconnection_data.cs" />
+    <Compile Include="Assets\Scripts\PressHandler.cs" />
+    <Compile Include="Assets\Scripts\SlideShowManager.cs" />
     <Compile Include="Assets\Scripts\Stall\Manager.cs" />
     <Compile Include="Assets\Scripts\Stall\StallManager.cs" />
     <Compile Include="Assets\Scripts\Stall\StallUIManager.cs" />
     <Compile Include="Assets\Scripts\Stall\TriggerPoint.cs" />
-    <Compile Include="Assets\Scripts\Teleport.cs" />
     <Compile Include="Assets\Scripts\TriggerIdentify.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\UiManager.cs" />
     <Compile Include="Assets\Scripts\VideoPlay.cs" />

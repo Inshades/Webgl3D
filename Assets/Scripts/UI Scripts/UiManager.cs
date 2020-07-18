@@ -21,6 +21,7 @@ public class UiManager : MonoBehaviour
     [Header("Exhibitor")]
     public GameObject exhibitorPanel;
     public GameObject buttonTemplate;
+    public InputField searchexhibitor;
 
     [Header("Chat")]
     public GameObject chatPanel;
@@ -30,12 +31,30 @@ public class UiManager : MonoBehaviour
 
     [Header("My VirtualBag")]
     public GameObject myvirtualBagPanel;
+    [Header("My VirtualBag-Connection")]
     public GameObject myconnectionPanel;
+    public GameObject Listtemplate;
+
+    public GameObject businessPanel;
+    public Text businessName;
+    public Text businessPhone;
+    public Text businessEmail;
+    public Text businessWeb;
+    public Text businessAddress;
+
+    public GameObject emailPanel;
+    public InputField subject;
+    public InputField bodyText;
+
+
     public GameObject documentsPanel;
     public GameObject videoPanel;
 
     public GameObject StallsContainer;
     public GameObject FPS;
+
+
+    private List<int> exhibator_list = new List<int>();
 
     bool x = true;
     //Logout Button is clicked to open Logout Panel
@@ -79,19 +98,60 @@ public class UiManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
 
-        for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count; i++)
+
+        ExhibitorDataPopulate("");
+
+
+
+    }
+
+    public void ExhibitorDataPopulate(string searchexhibitor)
+    {
+        if (exhibator_list.Count == 0)
         {
-            GameObject button = Instantiate(buttonTemplate) as GameObject;
-            button.SetActive(true);
+            for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count; i++)
+            {
+                var tagmatched = true;
 
-            button.GetComponent<ButtonListButton>().setKey(i);
-            button.GetComponent<ButtonListButton>().setText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
-            button.GetComponent<ButtonListButton>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
+                //get the taglists of "i" college
+                // var tags =  //api 
 
-            StartCoroutine(button.GetComponent<ButtonListButton>().downloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
-            button.transform.SetParent(buttonTemplate.transform.parent, false);
+                //foreach(var tag in tags)
+                //{
+                //    if(tag == searchexhibitor)
+                //    {
+                //        tagmatched = true;
+                //        break;
 
+                //    }
+                //}
+
+                if (tagmatched)
+                {
+                    exhibator_list.Add(i);
+                    GameObject button = Instantiate(buttonTemplate) as GameObject;
+                    button.SetActive(true);
+
+                    button.GetComponent<ExhibitorButtonList>().setKey(i);
+                    button.GetComponent<ExhibitorButtonList>().setText(i + "" + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
+                    button.GetComponent<ExhibitorButtonList>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
+
+                    StartCoroutine(button.GetComponent<ExhibitorButtonList>().downloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
+                    button.transform.SetParent(buttonTemplate.transform.parent, false);
+                }
+              
+
+            }
         }
+    }
+
+    public void ExhibitorSearch()
+    {
+        //Exhibitor panel - remove all child
+
+        exhibator_list = null;
+        ExhibitorDataPopulate(searchexhibitor.text);
+
     }
 
     public void ButtonClicked(int myKeystring)
@@ -156,6 +216,28 @@ public class UiManager : MonoBehaviour
         myconnectionPanel.SetActive(true);
         documentsPanel.SetActive(false);
         videoPanel.SetActive(false);
+
+        //reuse  ...................
+
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject listitem = Instantiate(Listtemplate) as GameObject;
+            listitem.SetActive(true);
+            listitem.GetComponent<myconnection_data>().setData(i+"", "boothname", "datetime");
+            listitem.transform.SetParent(Listtemplate.transform.parent, false);
+        }
+    }
+    public void BusinessCard_ConnectionPanel(int key)
+    {
+        businessPanel.SetActive(true);
+
+
+        Debug.Log(key);
+        businessName.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName.ToString();
+        businessPhone.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsTagLine.ToString();
+        businessEmail.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressStreet.ToString();
+        businessWeb.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressCity.ToString();
+        businessAddress.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressState.ToString();
     }
     public void DocumentsButton()
     {

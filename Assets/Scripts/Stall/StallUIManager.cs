@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System.Runtime.InteropServices;
 
 public class StallUIManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class StallUIManager : MonoBehaviour
 
     private UiManager uiManager;
 
-   
+
 
 
     //[Header("Video Player")]
@@ -41,6 +42,7 @@ public class StallUIManager : MonoBehaviour
 
     [Header("Broucher")]
     public GameObject broucherPanel;
+    public GameObject buttonTemplate;
 
     [Header("Video")]
     public GameObject videoSelectPanel;
@@ -75,13 +77,17 @@ public class StallUIManager : MonoBehaviour
     {
         uiManager = GameObject.Find("UI_Manager").GetComponent<UiManager>();
     }
-    
+
     public void Setkey(int key)
     {
         this.key = key;
         Debug.Log("Keys" + key);
-    
+
     }
+
+    [DllImport("__Internal")]
+    private static extern void openWindow(string url);
+
     private void Start()
     {
 
@@ -104,7 +110,7 @@ public class StallUIManager : MonoBehaviour
             {
                 if (hit.transform != null)
                 {
-                  // Debug.Log(hit.transform.gameObject.tag);
+                    // Debug.Log(hit.transform.gameObject.tag);
                     if (hit.transform.gameObject.tag == "Info")
                     {
                         Debug.Log(hit.transform.gameObject.tag);
@@ -135,37 +141,54 @@ public class StallUIManager : MonoBehaviour
         exhibType.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsType.ToString();
         exhibDescp.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsTagLine.ToString();
         menuSelectPanel.SetActive(false);
- 
+
     }
 
     public void BroucherButton()
     {
         broucherPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-    
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject button = Instantiate(buttonTemplate) as GameObject;
+            button.SetActive(true);
+
+            button.GetComponent<BroucherButtonList>().setBroucherKey(key);
+            button.GetComponent<BroucherButtonList>().setBroucherText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName);
+            button.transform.SetParent(buttonTemplate.transform.parent, false);
+
+        }
+    }
+    public void BroucherButtonClicked(int myKeystring)
+    {
+        //Application.ExternalEval("window.open('https://google.com');");
+#if !UNITY_EDITOR
+        openWindow("https://google.com");
+#endif
+        Debug.Log(myKeystring + "BroucherButtonClicked");
     }
 
     public void videoButton()
     {
         videoSelectPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-   
+
     }
 
     public void SlideShowButton()
     {
         slideShowPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-      
-     
+
+
     }
 
-    
+
     public void EmailButton()
     {
         emailPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-      
+
 
     }
 
@@ -173,7 +196,7 @@ public class StallUIManager : MonoBehaviour
     {
         chatPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-   
+
 
     }
     //public void CloseMainButton()
@@ -193,17 +216,17 @@ public class StallUIManager : MonoBehaviour
     public void BusinessCardButton()
     {
         menuSelectPanel.SetActive(false);
-     
+
         businessCardPanel.SetActive(true);
         businessCardName.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName.ToString();
         businessCardPhone.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsTagLine.ToString();
         businessCardEmail.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressStreet.ToString();
         businessCardWeb.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressCity.ToString();
         businessCardAddress.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressState.ToString();
-      
+
     }
-   
-   
+
+
     public void CloseTriggerButton()
     {
         businessCardPanel.SetActive(false);
@@ -214,7 +237,7 @@ public class StallUIManager : MonoBehaviour
         emailPanel.SetActive(false);
         chatPanel.SetActive(false);
         slideShowPanel.SetActive(false);
-    
+
     }
 
 }
