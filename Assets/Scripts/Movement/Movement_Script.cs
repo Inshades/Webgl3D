@@ -13,6 +13,8 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
     [SerializeField] private AudioClip[] m_FootstepSounds;
     private AudioSource m_AudioSource;
 
+   
+
     public static int Rot_Lft, Rot_Right, Move_Up, Move_Down, Move_Left, Move_Right, count;
     // public static bool StopForAWhile = true;
     bool movement;
@@ -20,6 +22,8 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
     void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();
+     
+      
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -37,7 +41,8 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
 
 
         //keyboard control
-      // Vector3 mov = new Vector3(SimpleInput.GetAxis("Horizontal") * speed, 0, SimpleInput.GetAxis("Verticle") * speed);
+      
+      //  Vector3 mov = new Vector3(joystick.Horizontal * speed, 0, joystick.Vertical * speed);
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         

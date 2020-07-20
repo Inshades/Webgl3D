@@ -35,26 +35,25 @@ public class Manager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
-  
+
     // Start is called before the first frame update
     void Start()
     {
-        GenarateStalls();
+        //  GenarateStalls();
     }
     /// <summary>
     /// Generate stalls in the position of shopPositionContainer
     /// </summary>
-    public void GenarateStalls()
+    public IEnumerator GenarateStalls()
     {
-
         for (int i = 0; i < shopPositionContainer.transform.childCount; i++)
         {
             GameObject obj = Instantiate(stalls[i], shopPositionContainer.transform.GetChild(i).position, shopPositionContainer.transform.GetChild(i).rotation) as GameObject;
             obj.transform.parent = StallsContainer.transform;
-            
-        }
+            obj.transform.GetComponent<StallManager>().currentIndex = i.ToString();
 
-       
+            yield return obj.transform.GetComponent<StallManager>().loadedStatus;
+        }
     }
 }
 public enum stallType

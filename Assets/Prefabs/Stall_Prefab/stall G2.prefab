@@ -151,7 +151,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 9136974401511915267}
-  sprites: []
+  slideShowimages: []
+  url: []
+  boothId: 
+  boothType: 0
+  spriteUrl: []
+  stallSpriteSource:
+  - {fileID: 9039566714337465512}
+  - {fileID: 4561406102759788763}
+  stallSprite: []
+  _meshRenderer:
+  - {fileID: 1253798833923195711}
+  - {fileID: 1253798833923195709}
+  - {fileID: 1253798833923195707}
+  - {fileID: 1253798833923195705}
+  currentIndex: 
 --- !u!1 &1253798833925135857
 GameObject:
   m_ObjectHideFlags: 0

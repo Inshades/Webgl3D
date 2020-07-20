@@ -33,7 +33,7 @@ public class UiManager : MonoBehaviour
     public GameObject myvirtualBagPanel;
     [Header("My VirtualBag-Connection")]
     public GameObject myconnectionPanel;
-    public GameObject Listtemplate;
+
 
     public GameObject businessPanel;
     public Text businessName;
@@ -53,8 +53,14 @@ public class UiManager : MonoBehaviour
     public GameObject StallsContainer;
     public GameObject FPS;
 
+    private List<GameObject> userActivityObjs = new List<GameObject>();
 
-    private List<int> exhibator_list = new List<int>();
+
+
+    [SerializeField]
+    private GameObject userActivityObj;
+    [SerializeField]
+    private GameObject usrActiveMyConnect, usrActiveMyDocument, usrActiveMyVideo;
 
     bool x = true;
     //Logout Button is clicked to open Logout Panel
@@ -99,58 +105,74 @@ public class UiManager : MonoBehaviour
         menuSelectPanel.SetActive(false);
 
 
-        ExhibitorDataPopulate("");
+        ExhibitorDataPopulate();
 
 
 
     }
 
-    public void ExhibitorDataPopulate(string searchexhibitor)
+    public void ExhibitorDataPopulate()
     {
-        if (exhibator_list.Count == 0)
+        if (buttonTemplate.transform.parent.childCount - 1 != ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count)
         {
+            for (int i = 1; i < buttonTemplate.transform.parent.childCount; i++)
+            {
+                Destroy(buttonTemplate.transform.parent.GetChild(i).gameObject);
+            }
+
             for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count; i++)
             {
-                var tagmatched = true;
 
-                //get the taglists of "i" college
-                // var tags =  //api 
+                GameObject button = Instantiate(buttonTemplate) as GameObject;
+                button.SetActive(true);
 
-                //foreach(var tag in tags)
-                //{
-                //    if(tag == searchexhibitor)
-                //    {
-                //        tagmatched = true;
-                //        break;
+                button.GetComponent<ExhibitorButtonList>().setKey(i);
+                button.GetComponent<ExhibitorButtonList>().setText(i + "" + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
+                button.GetComponent<ExhibitorButtonList>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
 
-                //    }
-                //}
+                button.GetComponent<ExhibitorButtonList>().Tags = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].searchTags;
 
-                if (tagmatched)
-                {
-                    exhibator_list.Add(i);
-                    GameObject button = Instantiate(buttonTemplate) as GameObject;
-                    button.SetActive(true);
+                StartCoroutine(button.GetComponent<ExhibitorButtonList>().downloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
+                button.transform.SetParent(buttonTemplate.transform.parent, false);
 
-                    button.GetComponent<ExhibitorButtonList>().setKey(i);
-                    button.GetComponent<ExhibitorButtonList>().setText(i + "" + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
-                    button.GetComponent<ExhibitorButtonList>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
-
-                    StartCoroutine(button.GetComponent<ExhibitorButtonList>().downloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
-                    button.transform.SetParent(buttonTemplate.transform.parent, false);
-                }
-              
 
             }
         }
     }
 
+
+
     public void ExhibitorSearch()
     {
         //Exhibitor panel - remove all child
+        for (int i = 1; i < buttonTemplate.transform.parent.childCount; i++)
+        {
+            buttonTemplate.transform.parent.GetChild(i).gameObject.SetActive(false);
+        }
 
-        exhibator_list = null;
-        ExhibitorDataPopulate(searchexhibitor.text);
+        if (searchexhibitor.text == "")
+            for (int i = 1; i < buttonTemplate.transform.parent.childCount; i++)
+            {
+                buttonTemplate.transform.parent.GetChild(i).gameObject.SetActive(true);
+            }
+
+        else
+        {
+            for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count; i++)
+            {
+                for (int j = 0; j < ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].searchTags.Count; j++)
+                {
+                    if (ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].searchTags[j].Contains(searchexhibitor.text))
+                    {
+                        buttonTemplate.transform.parent.GetChild(i + 1).gameObject.SetActive(true);
+                        break;
+                    }
+
+                }
+
+
+            }
+        }
 
     }
 
@@ -204,28 +226,48 @@ public class UiManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
         menuSelectPanel.SetActive(true);
     }
-    public void MyBoxButton()
+    public void MyBoxButton() //virtual bag
     {
+
+
         myvirtualBagPanel.SetActive(true);
+        MyConnectionButton();
         logoutPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
+
+        StartCoroutine(ApiHandler.instance.GetUserActivity());
+
+        if (ApiHandler.instance._userActivityList.Count != userActivityObjs.Count)
+        {
+            userActivityObjs = new List<GameObject>();
+
+            for (int i = 0; i < ApiHandler.instance._userActivityList.Count; i++)
+            {
+                GameObject listitem = Instantiate(userActivityObj) as GameObject;
+                userActivityObjs.Add(listitem);
+                listitem.SetActive(true);
+
+                switch (ApiHandler.instance._userActivityList[i].activityType)
+                {
+                    case "DOWNLOAD_BROUCHER":
+                        listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
+
+                        listitem.transform.parent = usrActiveMyConnect.transform;
+                        // listitem.transform.SetParent(Listtemplate.transform.parent, false);
+                        break;
+                }
+
+
+            }
+        }
     }
+
     public void MyConnectionButton()
     {
         myconnectionPanel.SetActive(true);
         documentsPanel.SetActive(false);
         videoPanel.SetActive(false);
-
-        //reuse  ...................
-
-        for (int i = 0; i < 10; i++)
-        {
-            GameObject listitem = Instantiate(Listtemplate) as GameObject;
-            listitem.SetActive(true);
-            listitem.GetComponent<myconnection_data>().setData(i+"", "boothname", "datetime");
-            listitem.transform.SetParent(Listtemplate.transform.parent, false);
-        }
     }
     public void BusinessCard_ConnectionPanel(int key)
     {

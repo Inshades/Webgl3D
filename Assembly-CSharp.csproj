@@ -64,6 +64,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Bridge.cs" />
+    <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
+    <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\MoveJoystick.cs" />
     <Compile Include="Assets\Scripts\Api\ApiHandler.cs" />
     <Compile Include="Assets\Scripts\Api\MiniJSON.cs" />
     <Compile Include="Assets\Scripts\BroucherButtonList.cs" />
@@ -86,6 +94,7 @@
     <Compile Include="Assets\Scripts\Stall\TriggerPoint.cs" />
     <Compile Include="Assets\Scripts\TriggerIdentify.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\UiManager.cs" />
+    <Compile Include="Assets\Scripts\VideoButtonList.cs" />
     <Compile Include="Assets\Scripts\VideoPlay.cs" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>D:/INSHADES/3dWebglProject/3dWebglProject/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>

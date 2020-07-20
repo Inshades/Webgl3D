@@ -19,6 +19,7 @@ public class ExhibitorButtonList : MonoBehaviour
     [SerializeField]
     private string ImgUrl;
 
+    public List<string> Tags = new List<string>();
 
     public void setKey(int key)
     {
@@ -27,7 +28,7 @@ public class ExhibitorButtonList : MonoBehaviour
     public void setText(string textString)
     {
         mytext.text = textString;
-      
+
     }
 
     public void setDescription(string textDescription)
@@ -47,6 +48,7 @@ public class ExhibitorButtonList : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Get(url);
 
         yield return www.SendWebRequest();
+        Debug.Log(www.downloadProgress);
         DownloadHandler handle = www.downloadHandler;
 
         if (www.isNetworkError)

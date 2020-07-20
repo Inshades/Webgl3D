@@ -9,6 +9,9 @@ public class BroucherButtonList : MonoBehaviour
     private Text broucherText;
 
     [SerializeField]
+    private Text broucherDesText;
+
+    [SerializeField]
     private StallUIManager buttonControl;
 
     private int myKey;
@@ -22,7 +25,11 @@ public class BroucherButtonList : MonoBehaviour
         broucherText.text = textString;
 
     }
+    public void setBroucherDesText(string textDesString)
+    {
+        broucherDesText.text = textDesString;
 
+    }
     public void onClick()
     {
          buttonControl.BroucherButtonClicked(myKey);

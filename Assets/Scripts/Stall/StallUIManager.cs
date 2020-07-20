@@ -46,6 +46,9 @@ public class StallUIManager : MonoBehaviour
 
     [Header("Video")]
     public GameObject videoSelectPanel;
+    public GameObject videoPlayPanel;
+    public VideoPlayer videoPlayer;
+    public GameObject videobuttonTemplate;
 
     [Header("Email")]
     public GameObject emailPanel;
@@ -72,12 +75,23 @@ public class StallUIManager : MonoBehaviour
     public Image slideShowImage;
     //public GameObject webPanel;
 
+    
+
 
     public void start()
     {
         uiManager = GameObject.Find("UI_Manager").GetComponent<UiManager>();
     }
-
+    //private void OnEnable()
+    //{
+    //    if (key != null)
+    //        setUserActivity(userActivityType.VISIT_BOOTH, "Visit Booth", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+    //}
+    //private void OnDisable()
+    //{
+    //    if (key !=null)
+    //        setUserActivity(userActivityType.VISIT_BOOTH, "Booth Exit", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+    //}
     public void Setkey(int key)
     {
         this.key = key;
@@ -120,7 +134,8 @@ public class StallUIManager : MonoBehaviour
                     if (hit.transform.gameObject.tag == "Product")
                     {
                         Debug.Log(hit.transform.gameObject.tag);
-                        SlideShowButton();
+                        //SlideShowButton();
+                        BroucherButton();
 
                     }
                     if (hit.transform.gameObject.tag == "Video")
@@ -146,35 +161,66 @@ public class StallUIManager : MonoBehaviour
 
     public void BroucherButton()
     {
+        for (int i = 1; i < buttonTemplate.transform.parent.childCount; i++)
+        {
+            Destroy(buttonTemplate.transform.parent.GetChild(i).gameObject);
+        }
         broucherPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject button = Instantiate(buttonTemplate) as GameObject;
-            button.SetActive(true);
+        //for (int i = 0; i < 2; i++)
+        //{
+        GameObject button = Instantiate(buttonTemplate) as GameObject;
+        button.SetActive(true);
 
-            button.GetComponent<BroucherButtonList>().setBroucherKey(key);
-            button.GetComponent<BroucherButtonList>().setBroucherText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName);
-            button.transform.SetParent(buttonTemplate.transform.parent, false);
+        button.GetComponent<BroucherButtonList>().setBroucherKey(key);
+        button.GetComponent<BroucherButtonList>().setBroucherText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[0].exhibhitorsBoothAmenitiesName);
+        button.GetComponent<BroucherButtonList>().setBroucherDesText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[0].exhibhitorsBoothAmenitiesType);
 
-        }
+        button.transform.SetParent(buttonTemplate.transform.parent, false);
+
+        //}
     }
     public void BroucherButtonClicked(int myKeystring)
     {
+
         //Application.ExternalEval("window.open('https://google.com');");
+        // openWindow(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl);
 #if !UNITY_EDITOR
-        openWindow("https://google.com");
+        openWindow(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl);
+
 #endif
+        Application.OpenURL(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl);
         Debug.Log(myKeystring + "BroucherButtonClicked");
+
+        setUserActivity(userActivityType.DOWNLOAD_BROUCHER, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
     }
 
     public void videoButton()
     {
+        for (int i = 1; i < videobuttonTemplate.transform.parent.childCount; i++)
+        {
+            Destroy(videobuttonTemplate.transform.parent.GetChild(i).gameObject);
+        }
         videoSelectPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
+        //for condition
+        GameObject videobutton = Instantiate(videobuttonTemplate) as GameObject;
+        videobutton.SetActive(true);
+        Debug.Log("Videeo");
+        videobutton.GetComponent<VideoButtonList>().setVideoKey(key);
+        videobutton.GetComponent<VideoButtonList>().setVideoText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[2].exhibhitorsBoothAmenitiesName);
+        videobutton.GetComponent<VideoButtonList>().setVideoDesText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[2].exhibhitorsBoothAmenitiesType);
+        videobutton.transform.SetParent(videobuttonTemplate.transform.parent, false);
 
     }
+    public void VideoPlayButton(int myKeyString)
+    {
+        videoPlayPanel.SetActive(true);
+        videoPlayer.url = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl;
+        videoPlayer.Play();
 
+        setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+    }
     public void SlideShowButton()
     {
         slideShowPanel.SetActive(true);
@@ -205,12 +251,12 @@ public class StallUIManager : MonoBehaviour
     //    videoSelectPanel.SetActive(false);
 
     //}
-    //public void CloseVideoButton()
-    //{
-    //    videoPlayer.Stop();
-    //    videoPlayPanel.SetActive(false);
-    //    videoSelectPanel.SetActive(true);
-    //}
+    public void CloseVideoButton()
+    {
+        videoPlayer.Stop();
+        videoPlayPanel.SetActive(false);
+        videoSelectPanel.SetActive(true);
+    }
 
 
     public void BusinessCardButton()
@@ -223,6 +269,8 @@ public class StallUIManager : MonoBehaviour
         businessCardEmail.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressStreet.ToString();
         businessCardWeb.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressCity.ToString();
         businessCardAddress.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressState.ToString();
+
+        setUserActivity(userActivityType.VIEW_BUSINESSCARD, "Businesscard viewed", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
 
     }
 
@@ -240,4 +288,8 @@ public class StallUIManager : MonoBehaviour
 
     }
 
+    void setUserActivity(userActivityType _userActivity, string activityData, string boothName, string boothId)
+    {
+        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId));
+    }
 }

@@ -520,7 +520,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 8000073103336533197}
-  sprites: []
+  slideShowimages: []
+  url: []
+  boothId: 
+  boothType: 0
+  spriteUrl: []
+  stallSpriteSource:
+  - {fileID: 967927883348767334}
+  - {fileID: 7095115230453756920}
+  - {fileID: 7237708555612418777}
+  stallSprite: []
+  _meshRenderer:
+  - {fileID: 1975211889063198078}
+  - {fileID: 1975211889063198076}
+  - {fileID: 1975211889063198074}
+  currentIndex: 
 --- !u!1 &1975211889061258162
 GameObject:
   m_ObjectHideFlags: 0

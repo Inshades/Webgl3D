@@ -10,7 +10,7 @@ public class myconnection_data : MonoBehaviour
     [SerializeField]
     private Text BoothName;
     [SerializeField]
-    private Text Datetime;
+    private Text ActivityType;
 
     public UiManager UiManager;
    
@@ -18,20 +18,19 @@ public class myconnection_data : MonoBehaviour
 
     private int myKeystring;
 
-    public void setData( string Boothid, string BoothName, string Datetime)
+    public void setData( string Boothid, string BoothName, string ActivityType)
     {
-        myKeystring = int.Parse( Boothid);
+      //  myKeystring = int.Parse( Boothid);
         this.Boothid.text = Boothid;
         this.BoothName.text = BoothName;
-        this.Datetime.text =  Datetime;
+        this.ActivityType.text = ActivityType;
 
-        Debug.Log(this.Boothid.text);
+      //  Debug.Log(this.Boothid.text);
     }
 
     public void bussiness_buttonClick()
     {
-
-        UiManager.BusinessCard_ConnectionPanel(myKeystring);
+        UiManager.BusinessCard_ConnectionPanel(transform.GetSiblingIndex());
     }
 
 

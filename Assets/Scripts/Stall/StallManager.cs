@@ -3,62 +3,100 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System;
 
 public class StallManager : MonoBehaviour
 {
     public GameObject playerPosition;
-    public List<Image> slideShowimages;
+    public List<Sprite> slideShowimages;
     public List<string> url;
     public string boothId;
     public stallType boothType;
 
+    public List<string> spriteUrl = new List<string>();
+    public List<SpriteRenderer> stallSpriteSource;
+    public List<Texture> stallSprite;
+
+    public List<MeshRenderer> _meshRenderer;
+
+    public string currentIndex;
+
+    public bool loadedStatus = false;
     public void slideShow()
     {
         for (int i = 0; i < url.Count; i++)
         {
-            StartCoroutine(downloadSlideShowImage(url[i], slideShowimages[i]));
+            //  StartCoroutine(downloadSlideShowImage(url[i], slideShowimages[i]));
         }
     }
-    public IEnumerator downloadSlideShowImage(string url, Image img)
+
+    private void Start()
     {
+        int currentStallIndex = 0;
 
-        UnityWebRequest www = UnityWebRequest.Get(url);
+        int.TryParse(currentIndex, out currentStallIndex);
 
-        yield return www.SendWebRequest();
-        DownloadHandler handle = www.downloadHandler;
-
-        if (www.isNetworkError)
+        for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList[currentStallIndex]._exhibhitorsMetaDataMediaClassList.Count; i++)
         {
-            UnityEngine.Debug.Log("Error while Receiving: " + www.error);
+            spriteUrl.Add(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[currentStallIndex]._exhibhitorsMetaDataMediaClassList[i].exhibhitorsMetaDataMediaUrl);
         }
-        else
+
+        applyTexture();
+    }
+
+    void applyTexture()
+    {
+
+        StartCoroutine(downloadSlideShowImage(spriteUrl, stallSprite, callBackHandler =>
         {
-            UnityEngine.Debug.Log("Success");
-            //Load Image
-            Texture2D texture2d = new Texture2D(8, 8);
-            Sprite sprite = null;
-            if (texture2d.LoadImage(handle.data))
+            if (stallSprite.Count == spriteUrl.Count)
             {
-                sprite = Sprite.Create(texture2d, new Rect(0, 0, texture2d.width, texture2d.height), Vector2.zero);
+                for (int i = 0; i < stallSpriteSource.Count; i++)
+                {
+                    _meshRenderer[i].material.mainTexture = callBackHandler.spriteList[i];
+                    loadedStatus = true;
+                }
             }
-            if (sprite != null)
+
+        }));
+
+    }
+
+    IEnumerator downloadSlideShowImage(List<string> url, List<Texture> spriteList, Action<downloadImagesData> callBackList)
+    {
+        for (int i = 0; i < url.Count; i++)
+        {
+            UnityWebRequest www = UnityWebRequestTexture.GetTexture(url[i]);
+
+            yield return www.SendWebRequest();
+            Debug.Log(www.downloadProgress);
+
+            if (www.isNetworkError)
             {
-                img.sprite = sprite;
+                Debug.Log("Error while Receiving: " + www.error);
+            }
+            else
+            {
+                Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+                spriteList.Add(myTexture);
+                Debug.Log("Success");
             }
         }
 
+        downloadImagesData _callBack = new downloadImagesData();
+
+        _callBack.spriteList = spriteList;
+        callBackList(_callBack);
+
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+}
+// StartCoroutine(SaveUserActivity(userActivityType.DOWNLOAD_BROUCHER, "https://helpx.adobe.com/acrobat/using/links-attachments-pdfs.html", "Brochure Download", "https://helpx.adobe.com/acrobat/using/links-attachments-pdfs.html"));
+// StartCoroutine(GetUserActivity());
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-   
+//(userActivityType activityType, string activityData, string boothName, string boothId)
+[SerializeField]
+public class downloadImagesData
+{
+    public List<Texture> spriteList;
 }
