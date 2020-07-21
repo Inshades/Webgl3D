@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System;
-
+using UnityEngine.Video;
 public class StallManager : MonoBehaviour
 {
     public GameObject playerPosition;
-    public List<Sprite> slideShowimages;
+  //  public List<Sprite> slideShowimages;
     public List<string> url;
     public string boothId;
     public stallType boothType;
@@ -22,17 +22,11 @@ public class StallManager : MonoBehaviour
     public string currentIndex;
 
     public bool loadedStatus = false;
-    public void slideShow()
-    {
-        for (int i = 0; i < url.Count; i++)
-        {
-            //  StartCoroutine(downloadSlideShowImage(url[i], slideShowimages[i]));
-        }
-    }
+   
 
     private void Start()
     {
-        int currentStallIndex = 0;
+        int currentStallIndex = 0; 
 
         int.TryParse(currentIndex, out currentStallIndex);
 
@@ -51,7 +45,7 @@ public class StallManager : MonoBehaviour
         {
             if (stallSprite.Count == spriteUrl.Count)
             {
-                for (int i = 0; i < stallSpriteSource.Count; i++)
+                for (int i = 0; i < _meshRenderer.Count; i++)
                 {
                     _meshRenderer[i].material.mainTexture = callBackHandler.spriteList[i];
                     loadedStatus = true;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TriggerIdentify : MonoBehaviour
 {
-    public GameObject trigger;
+   // public GameObject trigger;
 
     public StallUIManager stall_uimanager;
     public GameObject Canvas;

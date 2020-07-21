@@ -75,7 +75,7 @@ public class StallUIManager : MonoBehaviour
     public Image slideShowImage;
     //public GameObject webPanel;
 
-    
+
 
 
     public void start()
@@ -221,6 +221,7 @@ public class StallUIManager : MonoBehaviour
 
         setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
     }
+
     public void SlideShowButton()
     {
         slideShowPanel.SetActive(true);
