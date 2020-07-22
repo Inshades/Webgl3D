@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TriggerIdentify : MonoBehaviour
 {
-   // public GameObject trigger;
+    public GameObject trigger;
 
     public StallUIManager stall_uimanager;
     public GameObject Canvas;
@@ -31,11 +31,21 @@ public class TriggerIdentify : MonoBehaviour
        // int key = int.Parse(triggerName);
      //   key = key - 1;
         stall_uimanager.Setkey(key);
+        setUserActivity(userActivityType.VISIT_BOOTH, "Visit Booth", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+
 
     }
 
     private void OnTriggerExit(Collider other)
     {
         Canvas.SetActive(false);
+        int key = transform.parent.GetSiblingIndex();
+        stall_uimanager.Setkey(key);
+        setUserActivity(userActivityType.VISIT_BOOTH, "Booth Exit", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+
+    }
+    void setUserActivity(userActivityType _userActivity, string activityData, string boothName, string boothId)
+    {
+        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId));
     }
 }

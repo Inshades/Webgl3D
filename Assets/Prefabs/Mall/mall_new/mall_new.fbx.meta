@@ -1,0 +1,633 @@
+fileFormatVersion: 2
+guid: dfa28c96f54568c49ac3f8976948b2b2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CONCRETE
+    100002: emission
+    100004: FLOOR
+    100006: front emission
+    100008: glass
+    100010: interor light bottom
+    100012: intro wall
+    100014: LIGHT LAYER
+    100016: //RootNode
+    100018: outer glass
+    100020: path photo fram
+    100022: photo 1
+    100024: photo 2
+    100026: photo 3
+    100028: photo 4
+    100030: photo 5
+    100032: reception room
+    100034: round glass
+    100036: round glass cover
+    100038: screen 1
+    100040: screen 10
+    100042: screen 11
+    100044: screen 12
+    100046: screen 13
+    100048: screen 14
+    100050: screen 15
+    100052: screen 15 cover
+    100054: screen 16
+    100056: screen 16 cover
+    100058: screen 2
+    100060: screen 3
+    100062: screen 4
+    100064: screen 5
+    100066: screen 6
+    100068: screen 7
+    100070: screen 8
+    100072: screen 9
+    100074: screen cover
+    100076: screen cover 1
+    100078: SCREEN COVER 12
+    100080: screen cover 2
+    100082: screen cover 4
+    100084: screen cover 9
+    100086: silver layer
+    100088: sofa
+    100090: sofa.001
+    100092: sofa.002
+    100094: sofa.003
+    100096: sofa.004
+    100098: sofa.005
+    100100: sofa.006
+    100102: sofa.007
+    100104: sofa.008
+    100106: sofa.009
+    100108: sofa.010
+    100110: sofa.011
+    100112: sofa.012
+    100114: sofa.013
+    100116: spot light room
+    100118: texture path 1
+    100120: texture path 1.001
+    100122: white layer
+    400000: CONCRETE
+    400002: emission
+    400004: FLOOR
+    400006: front emission
+    400008: glass
+    400010: interor light bottom
+    400012: intro wall
+    400014: LIGHT LAYER
+    400016: //RootNode
+    400018: outer glass
+    400020: path photo fram
+    400022: photo 1
+    400024: photo 2
+    400026: photo 3
+    400028: photo 4
+    400030: photo 5
+    400032: reception room
+    400034: round glass
+    400036: round glass cover
+    400038: screen 1
+    400040: screen 10
+    400042: screen 11
+    400044: screen 12
+    400046: screen 13
+    400048: screen 14
+    400050: screen 15
+    400052: screen 15 cover
+    400054: screen 16
+    400056: screen 16 cover
+    400058: screen 2
+    400060: screen 3
+    400062: screen 4
+    400064: screen 5
+    400066: screen 6
+    400068: screen 7
+    400070: screen 8
+    400072: screen 9
+    400074: screen cover
+    400076: screen cover 1
+    400078: SCREEN COVER 12
+    400080: screen cover 2
+    400082: screen cover 4
+    400084: screen cover 9
+    400086: silver layer
+    400088: sofa
+    400090: sofa.001
+    400092: sofa.002
+    400094: sofa.003
+    400096: sofa.004
+    400098: sofa.005
+    400100: sofa.006
+    400102: sofa.007
+    400104: sofa.008
+    400106: sofa.009
+    400108: sofa.010
+    400110: sofa.011
+    400112: sofa.012
+    400114: sofa.013
+    400116: spot light room
+    400118: texture path 1
+    400120: texture path 1.001
+    400122: white layer
+    2100000: concerte
+    2100002: wall wood
+    2100004: white marble
+    2100006: roof wood
+    2100008: silver
+    2100010: screen 3
+    2100012: screen 2
+    2100014: screen 1
+    2100016: emission red
+    2100018: black wood
+    2100020: glass sky blue
+    2100022: glass thick blue
+    2100024: outer glass
+    2100026: screen 15
+    2100028: SQUARE FLOOR
+    2100030: sccreen 12
+    2100032: floor wood
+    2100034: floor white
+    2100036: outer floor
+    2100038: carpet
+    2100040: photo 4
+    2100042: photo 2
+    2100044: photo 1
+    2100046: photo 3
+    2100048: photo 5
+    2100050: emission
+    2100052: emission blue
+    2100054: screen 16
+    2100056: screen 14
+    2100058: screen 13
+    2100060: sofa
+    2100062: screen 7
+    2100064: screen 6
+    2100066: screen 9
+    2100068: screen 11
+    2100070: screen 4
+    2100072: screen 5
+    2100074: screen 10
+    2100076: screen 8
+    2300000: CONCRETE
+    2300002: emission
+    2300004: FLOOR
+    2300006: front emission
+    2300008: glass
+    2300010: interor light bottom
+    2300012: intro wall
+    2300014: LIGHT LAYER
+    2300016: outer glass
+    2300018: path photo fram
+    2300020: photo 1
+    2300022: photo 2
+    2300024: photo 3
+    2300026: photo 4
+    2300028: photo 5
+    2300030: reception room
+    2300032: round glass
+    2300034: round glass cover
+    2300036: screen 1
+    2300038: screen 10
+    2300040: screen 11
+    2300042: screen 12
+    2300044: screen 13
+    2300046: screen 14
+    2300048: screen 15
+    2300050: screen 15 cover
+    2300052: screen 16
+    2300054: screen 16 cover
+    2300056: screen 2
+    2300058: screen 3
+    2300060: screen 4
+    2300062: screen 5
+    2300064: screen 6
+    2300066: screen 7
+    2300068: screen 8
+    2300070: screen 9
+    2300072: screen cover
+    2300074: screen cover 1
+    2300076: SCREEN COVER 12
+    2300078: screen cover 2
+    2300080: screen cover 4
+    2300082: screen cover 9
+    2300084: silver layer
+    2300086: sofa
+    2300088: sofa.001
+    2300090: sofa.002
+    2300092: sofa.003
+    2300094: sofa.004
+    2300096: sofa.005
+    2300098: sofa.006
+    2300100: sofa.007
+    2300102: sofa.008
+    2300104: sofa.009
+    2300106: sofa.010
+    2300108: sofa.011
+    2300110: sofa.012
+    2300112: sofa.013
+    2300114: spot light room
+    2300116: texture path 1
+    2300118: texture path 1.001
+    2300120: white layer
+    3300000: CONCRETE
+    3300002: emission
+    3300004: FLOOR
+    3300006: front emission
+    3300008: glass
+    3300010: interor light bottom
+    3300012: intro wall
+    3300014: LIGHT LAYER
+    3300016: outer glass
+    3300018: path photo fram
+    3300020: photo 1
+    3300022: photo 2
+    3300024: photo 3
+    3300026: photo 4
+    3300028: photo 5
+    3300030: reception room
+    3300032: round glass
+    3300034: round glass cover
+    3300036: screen 1
+    3300038: screen 10
+    3300040: screen 11
+    3300042: screen 12
+    3300044: screen 13
+    3300046: screen 14
+    3300048: screen 15
+    3300050: screen 15 cover
+    3300052: screen 16
+    3300054: screen 16 cover
+    3300056: screen 2
+    3300058: screen 3
+    3300060: screen 4
+    3300062: screen 5
+    3300064: screen 6
+    3300066: screen 7
+    3300068: screen 8
+    3300070: screen 9
+    3300072: screen cover
+    3300074: screen cover 1
+    3300076: SCREEN COVER 12
+    3300078: screen cover 2
+    3300080: screen cover 4
+    3300082: screen cover 9
+    3300084: silver layer
+    3300086: sofa
+    3300088: sofa.001
+    3300090: sofa.002
+    3300092: sofa.003
+    3300094: sofa.004
+    3300096: sofa.005
+    3300098: sofa.006
+    3300100: sofa.007
+    3300102: sofa.008
+    3300104: sofa.009
+    3300106: sofa.010
+    3300108: sofa.011
+    3300110: sofa.012
+    3300112: sofa.013
+    3300114: spot light room
+    3300116: texture path 1
+    3300118: texture path 1.001
+    3300120: white layer
+    4300000: intro wall
+    4300002: white layer
+    4300004: reception room
+    4300006: screen cover 2
+    4300008: screen cover 1
+    4300010: silver layer
+    4300012: screen 3
+    4300014: screen 2
+    4300016: screen 1
+    4300018: emission
+    4300020: path photo fram
+    4300022: CONCRETE
+    4300024: glass
+    4300026: round glass
+    4300028: round glass cover
+    4300030: screen 15
+    4300032: texture path 1
+    4300034: outer glass
+    4300036: screen 12
+    4300038: spot light room
+    4300040: FLOOR
+    4300042: photo 4
+    4300044: photo 2
+    4300046: photo 1
+    4300048: photo 3
+    4300050: photo 5
+    4300052: LIGHT LAYER
+    4300054: texture path 1.001
+    4300056: front emission
+    4300058: screen cover
+    4300060: SCREEN COVER 12
+    4300062: screen 16
+    4300064: screen 15 cover
+    4300066: screen 16 cover
+    4300068: screen cover 4
+    4300070: screen 14
+    4300072: screen 13
+    4300074: screen cover 9
+    4300076: sofa
+    4300078: sofa.001
+    4300080: sofa.002
+    4300082: sofa.003
+    4300084: sofa.004
+    4300086: sofa.005
+    4300088: sofa.006
+    4300090: sofa.007
+    4300092: sofa.008
+    4300094: sofa.009
+    4300096: sofa.010
+    4300098: sofa.011
+    4300100: sofa.012
+    4300102: sofa.013
+    4300104: interor light bottom
+    4300106: screen 7
+    4300108: screen 6
+    4300110: screen 9
+    4300112: screen 11
+    4300114: screen 4
+    4300116: screen 5
+    4300118: screen 10
+    4300120: screen 8
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SQUARE FLOOR
+    second: {fileID: 2100000, guid: 0102df58fcb533249b0bb09571bf195a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black wood
+    second: {fileID: 2100000, guid: 0a2ce6945bd77af46aec1ff2d3700aa1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carpet
+    second: {fileID: 2100000, guid: 592c1303c69b9ee4eacb032d9dd65806, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concerte
+    second: {fileID: 2100000, guid: 4719ac2a7ae2dcb4481e64ed26b96d15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emission
+    second: {fileID: 2100000, guid: 788d5390efc8f1049ac1e391d36449c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emission blue
+    second: {fileID: 2100000, guid: c59afb7f49abb9642ba4f64ae64cb6ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emission red
+    second: {fileID: 2100000, guid: 7ce8a7282c2c85c4e922041f51f41250, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor white
+    second: {fileID: 2100000, guid: 091e3c3e544699345b6e3f15caac5fa0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor wood
+    second: {fileID: 2100000, guid: ada1be832ed98cb4380876b7795e6ccf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass sky blue
+    second: {fileID: 2100000, guid: 8f4bbbd29028e9848bc93509d8966847, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass thick blue
+    second: {fileID: 2100000, guid: 9b55c837f40c02c4fad777a6ab4cd1a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outer floor
+    second: {fileID: 2100000, guid: fb53f9ad78fd1aa408160d35512fbad6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outer glass
+    second: {fileID: 2100000, guid: 8a654fc7e7208a94bb13f8489c82ddb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo 1
+    second: {fileID: 2100000, guid: 1363459494be3f34da0ac876cbb5f485, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo 2
+    second: {fileID: 2100000, guid: 9fc3476ea985a5f47a9883c90c29014b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo 3
+    second: {fileID: 2100000, guid: 5f788f4233d8b4540acd34047a07bfbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo 4
+    second: {fileID: 2100000, guid: f33068d6ba8159341a94614d78c3bb67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo 5
+    second: {fileID: 2100000, guid: a9784a81e3fdbd04ea561b9ac5dc82ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof wood
+    second: {fileID: 2100000, guid: aea5d1c32429c094db61f2adf755a5bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sccreen 12
+    second: {fileID: 2100000, guid: c6c49103afe04ae4887a266248d1fb7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 1
+    second: {fileID: 2100000, guid: a3122f275caaaf943a2c557e2881d708, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 10
+    second: {fileID: 2100000, guid: 474d20aac3631dc4a9e0da3e15a38948, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 11
+    second: {fileID: 2100000, guid: 338949ae27bec904fb2749deed0f4811, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 13
+    second: {fileID: 2100000, guid: 5ee2ec95d7da7f24c9ffd72615677eaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 14
+    second: {fileID: 2100000, guid: 63b338282b4f3014fb020b411cd6aa0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 15
+    second: {fileID: 2100000, guid: 66e02065e901ecd49b158ce238c63bf7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 16
+    second: {fileID: 2100000, guid: c5e450c92e5726d4baaa5a7d366ab5ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 2
+    second: {fileID: 2100000, guid: e3bd57059f5754945a23cd35fbebeb33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 3
+    second: {fileID: 2100000, guid: 74772f2aebf65f14cbcb7e72452b9eb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 4
+    second: {fileID: 2100000, guid: ac3e27ccace366140bc2bfe712da1b6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 5
+    second: {fileID: 2100000, guid: 6fcb16cc1bdd426439138d3007e4197e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 6
+    second: {fileID: 2100000, guid: f9f116345d7984d4898e9e644942fdec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 7
+    second: {fileID: 2100000, guid: 9b74e0887ed16944c85a4ac9d2c20826, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 8
+    second: {fileID: 2100000, guid: 8119f57b975c7b347914331d227ff536, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen 9
+    second: {fileID: 2100000, guid: bab7c99a53452eb409b8ceac887cce8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: silver
+    second: {fileID: 2100000, guid: 82a6e29d8d8214b43897d4c65056bada, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sofa
+    second: {fileID: 2100000, guid: c7489b3838e951843bfcc1c308662c96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall wood
+    second: {fileID: 2100000, guid: dbb182904dfac244690cb9ffd2248a34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white marble
+    second: {fileID: 2100000, guid: 1a8d1271cc4359142a92ae83852d997e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

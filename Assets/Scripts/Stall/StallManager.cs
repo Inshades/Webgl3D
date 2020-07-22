@@ -8,7 +8,7 @@ using UnityEngine.Video;
 public class StallManager : MonoBehaviour
 {
     public GameObject playerPosition;
-  //  public List<Sprite> slideShowimages;
+    //  public List<Sprite> slideShowimages;
     public List<string> url;
     public string boothId;
     public stallType boothType;
@@ -22,11 +22,11 @@ public class StallManager : MonoBehaviour
     public string currentIndex;
 
     public bool loadedStatus = false;
-   
+
 
     private void Start()
     {
-        int currentStallIndex = 0; 
+        int currentStallIndex = 0;
 
         int.TryParse(currentIndex, out currentStallIndex);
 
@@ -45,10 +45,13 @@ public class StallManager : MonoBehaviour
         {
             if (stallSprite.Count == spriteUrl.Count)
             {
-                for (int i = 0; i < _meshRenderer.Count; i++)
+                for (int i = 0; i < spriteUrl.Count; i++)
                 {
-                    _meshRenderer[i].material.mainTexture = callBackHandler.spriteList[i];
-                    loadedStatus = true;
+                    if (callBackHandler.spriteList[i] != null && _meshRenderer[i] != null)
+                    {
+                        _meshRenderer[i].material.mainTexture = callBackHandler.spriteList[i];
+                        loadedStatus = true;
+                    }
                 }
             }
 
@@ -58,7 +61,7 @@ public class StallManager : MonoBehaviour
 
     IEnumerator downloadSlideShowImage(List<string> url, List<Texture> spriteList, Action<downloadImagesData> callBackList)
     {
-        for (int i = 0; i < url.Count; i++)
+        for (int i = 0; i < spriteUrl.Count; i++)
         {
             UnityWebRequest www = UnityWebRequestTexture.GetTexture(url[i]);
 
@@ -71,17 +74,18 @@ public class StallManager : MonoBehaviour
             }
             else
             {
-                Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
-                spriteList.Add(myTexture);
-                Debug.Log("Success");
+                if (www.downloadHandler.isDone)
+                {
+                    Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+                    spriteList.Add(myTexture);
+                    Debug.Log("Success");
+                }
             }
         }
 
         downloadImagesData _callBack = new downloadImagesData();
-
         _callBack.spriteList = spriteList;
         callBackList(_callBack);
-
     }
 
 }

@@ -26,11 +26,24 @@ public class myconnection_data : MonoBehaviour
         this.ActivityType.text = ActivityType;
 
       //  Debug.Log(this.Boothid.text);
+
+
     }
 
     public void bussiness_buttonClick()
     {
-        UiManager.BusinessCard_ConnectionPanel(transform.GetSiblingIndex());
+
+       
+
+        //H1-2
+        string triggerName = this.Boothid.text;
+        triggerName = triggerName.Substring(triggerName.IndexOf("-") + 1, triggerName.Length - (triggerName.IndexOf("-") + 1));
+        int key = int.Parse(triggerName);
+        key = key - 1;
+       
+        UiManager.BusinessCard_ConnectionPanel(key);
+
+         
     }
 
 

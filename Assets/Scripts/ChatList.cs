@@ -7,19 +7,23 @@ public class ChatList : MonoBehaviour
 {
     [SerializeField]
     private Text mytext;
+    [SerializeField]
+    private Image image;
 
     public void setText(string myChatText)
     {
         mytext.text = myChatText;
         mytext.alignment = TextAnchor.MiddleRight;
-        mytext.color = Color.red;
+        mytext.color = Color.white;
+        image.color = Color.gray;
     }
 
     public void setAPIText(string myChatText)
     {
         mytext.text = myChatText;
         mytext.alignment = TextAnchor.MiddleLeft;
-        mytext.color = Color.blue;
+        mytext.color = Color.black;
+        image.color = new Color32(217,212,207,255);
     }
 
 

@@ -75,7 +75,7 @@ public class StallUIManager : MonoBehaviour
     public Image slideShowImage;
     //public GameObject webPanel;
 
-
+    
 
 
     public void start()
@@ -144,6 +144,13 @@ public class StallUIManager : MonoBehaviour
                         videoButton();
 
                     }
+                    if (hit.transform.gameObject.tag == "ReceptionInfo")
+                    {
+                        Debug.Log(hit.transform.gameObject.tag);
+                        //  videoButton();
+                        UiManager.instance.ReceptionInfoPanel();
+
+                    }
 
                 }
             }
@@ -189,7 +196,7 @@ public class StallUIManager : MonoBehaviour
         openWindow(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl);
 
 #endif
-        Application.OpenURL(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl);
+        //Application.OpenURL(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl);
         Debug.Log(myKeystring + "BroucherButtonClicked");
 
         setUserActivity(userActivityType.DOWNLOAD_BROUCHER, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
@@ -221,7 +228,6 @@ public class StallUIManager : MonoBehaviour
 
         setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
     }
-
     public void SlideShowButton()
     {
         slideShowPanel.SetActive(true);

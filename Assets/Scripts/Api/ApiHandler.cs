@@ -366,6 +366,9 @@ public class ApiHandler : MonoBehaviour
         }
 
         StartCoroutine(Manager.instance.GenarateStalls());
+       // StartCoroutine(Manager.instance.GenarateHall_1_Stalls());
+        //StartCoroutine(Manager.instance.GenarateHall_2_Stalls());
+        //StartCoroutine(Manager.instance.GenarateHall_3_Stalls());
     }
 
 

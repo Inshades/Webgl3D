@@ -23,6 +23,10 @@ public class UiManager : MonoBehaviour
     public GameObject buttonTemplate;
     public InputField searchexhibitor;
 
+    [Header("Reception Info")]
+    public GameObject receptionInfoPanel;
+    public GameObject receptionButtonTemplate;
+
     [Header("Chat")]
     public GameObject chatPanel;
 
@@ -58,12 +62,33 @@ public class UiManager : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject userActivityObj;
+    private GameObject userActivityObj , userActivityObjBrouch;
     [SerializeField]
     private GameObject usrActiveMyConnect, usrActiveMyDocument, usrActiveMyVideo;
 
     bool x = true;
     //Logout Button is clicked to open Logout Panel
+
+    public static UiManager instance = null;
+    public static UiManager Instance
+    {
+        get { return instance; }
+    }
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
     public void LogoutButton()
     {
         logoutPanel.SetActive(true);
@@ -97,6 +122,44 @@ public class UiManager : MonoBehaviour
             x = !x;
         }
     }
+
+    public void ReceptionInfoPanel()
+    {
+        receptionInfoPanel.SetActive(true);
+        ReceptionDataPopulate();
+    }
+    public void CloseReception()
+    {
+        receptionInfoPanel.SetActive(false);
+    }
+    public void ReceptionDataPopulate()
+    {
+        if (receptionButtonTemplate.transform.parent.childCount - 1 != ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count)
+        {
+            for (int i = 1; i < receptionButtonTemplate.transform.parent.childCount; i++)
+            {
+                Destroy(receptionButtonTemplate.transform.parent.GetChild(i).gameObject);
+            }
+
+            for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList.Count; i++)
+            {
+
+                GameObject button = Instantiate(receptionButtonTemplate) as GameObject;
+                button.SetActive(true);
+
+                button.GetComponent<ReceptionInfoList>().setInfoKey(i);
+                button.GetComponent<ReceptionInfoList>().setInfoText(i+1 + "  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
+                button.GetComponent<ReceptionInfoList>().setInfoDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
+
+              
+
+                StartCoroutine(button.GetComponent<ReceptionInfoList>().InfodownloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
+                button.transform.SetParent(receptionButtonTemplate.transform.parent, false);
+
+
+            }
+        }
+    }
     public void ExhibitorButton()
     {
         exhibitorPanel.SetActive(true);
@@ -127,7 +190,7 @@ public class UiManager : MonoBehaviour
                 button.SetActive(true);
 
                 button.GetComponent<ExhibitorButtonList>().setKey(i);
-                button.GetComponent<ExhibitorButtonList>().setText(i + "" + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
+                button.GetComponent<ExhibitorButtonList>().setText(i+1 + "  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
                 button.GetComponent<ExhibitorButtonList>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
 
                 button.GetComponent<ExhibitorButtonList>().Tags = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].searchTags;
@@ -184,6 +247,7 @@ public class UiManager : MonoBehaviour
         FPS.transform.rotation = selectedStall.transform.rotation;
         exhibitorPanel.SetActive(false);
         exhibitorPanel.SetActive(false);
+        receptionInfoPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
         menuSelectPanel.SetActive(true);
         Debug.Log(myKeystring);
@@ -242,18 +306,37 @@ public class UiManager : MonoBehaviour
         {
             userActivityObjs = new List<GameObject>();
 
-            for (int i = 0; i < ApiHandler.instance._userActivityList.Count; i++)
+            int ind = userActivityObjs.Count;
+            for (int i = ind+1; i < ApiHandler.instance._userActivityList.Count; i++)
             {
-                GameObject listitem = Instantiate(userActivityObj) as GameObject;
-                userActivityObjs.Add(listitem);
-                listitem.SetActive(true);
+               
 
                 switch (ApiHandler.instance._userActivityList[i].activityType)
                 {
-                    case "DOWNLOAD_BROUCHER":
+                    case "VIEW_BUSINESSCARD":
+                    case "VISIT_BOOTH":
+                    case "CHAT":
+                        GameObject listitem = Instantiate(userActivityObj) as GameObject;
+                        userActivityObjs.Add(listitem);
+                        listitem.SetActive(true);
                         listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
-
-                        listitem.transform.parent = usrActiveMyConnect.transform;
+                         listitem.transform.parent = usrActiveMyConnect.transform;
+                        // listitem.transform.SetParent(Listtemplate.transform.parent, false);
+                        break;
+                    case "DOWNLOAD_BROUCHER":
+                         listitem = Instantiate(userActivityObjBrouch) as GameObject;
+                        userActivityObjs.Add(listitem);
+                        listitem.SetActive(true);
+                        listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
+                        listitem.transform.parent = usrActiveMyDocument.transform;
+                        // listitem.transform.SetParent(Listtemplate.transform.parent, false);
+                        break;
+                    case "VIEW_VIDEO":
+                         listitem = Instantiate(userActivityObjBrouch) as GameObject;
+                        userActivityObjs.Add(listitem);
+                        listitem.SetActive(true);
+                        listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
+                        listitem.transform.parent = usrActiveMyVideo.transform;
                         // listitem.transform.SetParent(Listtemplate.transform.parent, false);
                         break;
                 }
