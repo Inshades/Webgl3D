@@ -1,0 +1,1159 @@
+fileFormatVersion: 2
+guid: a12687468865a7a44899d3f5f2688678
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: 1l.001
+    100002: 1l.002
+    100004: 1l.003
+    100006: 1l.004
+    100008: 1l.005
+    100010: 1l.006
+    100012: 1l.007
+    100014: 1l.008
+    100016: 1l.009
+    100018: 1l.010
+    100020: 1l.011
+    100022: 1l.012
+    100024: 1l.013
+    100026: 1l.014
+    100028: 1l.015
+    100030: 1l.016
+    100032: 1l.017
+    100034: BACK FLOOR
+    100036: BACK SCREEN
+    100038: back screen stand
+    100040: BACK SCREEN.001
+    100042: BLACKSEEP LOGO
+    100044: column
+    100046: hall 1
+    100048: HALL 1 FLOOR
+    100050: HALL 1 GLASS
+    100052: HALL 1 ROOF
+    100054: HALL 1 ROOF WOOD
+    100056: HALL 1 SILVER LAYER
+    100058: hall 2
+    100060: HALL 2 BOARD
+    100062: HALL 2 FLOOR
+    100064: HALL 2 GLASS
+    100066: HALL 2 MAP
+    100068: hall 2 right
+    100070: HALL 2 ROOF
+    100072: HALL 2 ROOF WOOD
+    100074: HALL 2 SILVER LAYER
+    100076: hall 3
+    100078: hall 3 right
+    100080: hall 4
+    100082: HALL 4 BOAED
+    100084: HALL 4 MAP
+    100086: LIGHT
+    100088: logo
+    100090: logo.1
+    100092: //RootNode
+    100094: OUTER COUCH
+    100096: OUTER COUCH.001
+    100098: OUTER COUCH.002
+    100100: OUTER COUCH.003
+    100102: OUTER COUCH.004
+    100104: OUTER COUCH.005
+    100106: OUTER COUCH.006
+    100108: OUTER COUCH.007
+    100110: OUTER GLASS
+    100112: OUTER STREET LIGHT LAYER
+    100114: OUTER STREET LIGHT LAYER.001
+    100116: OUTER STREET LIGHT LAYER.002
+    100118: OUTER STREET LIGHT LAYER.003
+    100120: OUTER STREET LIGHT LAYER.004
+    100122: OUTER STREET LIGHT LAYER.005
+    100124: OUTER STREET LIGHT LAYER.006
+    100126: OUTER STREET LIGHT LAYER.007
+    100128: OUTER STREET LIGHT POST
+    100130: OUTER STREET LIGHT POST.001
+    100132: OUTER STREET LIGHT POST.002
+    100134: OUTER STREET LIGHT POST.003
+    100136: OUTER STREET LIGHT POST.004
+    100138: OUTER STREET LIGHT POST.005
+    100140: OUTER STREET LIGHT POST.006
+    100142: OUTER STREET LIGHT POST.007
+    100144: PASSAGE
+    100146: PASSAGE 1
+    100148: photo 1
+    100150: photo 2
+    100152: photo 3
+    100154: photo 4
+    100156: photo 5
+    100158: photo 6
+    100160: photo emission
+    100162: PLANT TILES
+    100164: RECEPTION BLACK GLASS
+    100166: RECEPTION FLOOR
+    100168: RECEPTION GLASS
+    100170: RECEPTION LIGHT LAYER
+    100172: RECEPTION MAP
+    100174: RECEPTION OUTER GLASS
+    100176: RECEPTION OUTER STAND
+    100178: RECEPTION PLANT 1
+    100180: RECEPTION PLANT 2
+    100182: RECEPTION PLANT 3
+    100184: RECEPTION PLANT 4
+    100186: RECEPTION ROOF
+    100188: RECEPTION ROOF LIGHT
+    100190: RECEPTION SCREEN 1
+    100192: RECEPTION SCREEN 2
+    100194: RECEPTION SCREEN 3
+    100196: RECEPTION WALL
+    100198: red carpet
+    100200: ROUND GLASS
+    100202: ROUND GLASS FLOOR
+    100204: ROUND GLASS SILVER LAYER
+    100206: SILVER LAYER
+    100208: SOFA 1
+    100210: SOFA 2
+    100212: SOFA 3
+    100214: SOFA 4
+    100216: SOFA 5
+    100218: SOFA 6
+    100220: SOFA 7
+    100222: SOFA 8
+    100224: SPOT LIGHT FLOOR
+    100226: SPOT LIGHT HALL LIGHT
+    100228: SPOT LIGHT HANDER
+    100230: SPOT LIGHT LAYER
+    100232: SPOT LIGHT SCREEN
+    100234: SPOT LIGHT STAGE
+    100236: SPOT LIGHT WALL
+    100238: SPOTLIGHT MAP
+    100240: WAY
+    100242: WAY 1
+    100244: WAY 2
+    100246: WAY 3
+    100248: WAY 4
+    100250: WAY 5
+    100252: WAY 6
+    100254: WAY 7
+    100256: WELCOME
+    400000: 1l.001
+    400002: 1l.002
+    400004: 1l.003
+    400006: 1l.004
+    400008: 1l.005
+    400010: 1l.006
+    400012: 1l.007
+    400014: 1l.008
+    400016: 1l.009
+    400018: 1l.010
+    400020: 1l.011
+    400022: 1l.012
+    400024: 1l.013
+    400026: 1l.014
+    400028: 1l.015
+    400030: 1l.016
+    400032: 1l.017
+    400034: BACK FLOOR
+    400036: BACK SCREEN
+    400038: back screen stand
+    400040: BACK SCREEN.001
+    400042: BLACKSEEP LOGO
+    400044: column
+    400046: hall 1
+    400048: HALL 1 FLOOR
+    400050: HALL 1 GLASS
+    400052: HALL 1 ROOF
+    400054: HALL 1 ROOF WOOD
+    400056: HALL 1 SILVER LAYER
+    400058: hall 2
+    400060: HALL 2 BOARD
+    400062: HALL 2 FLOOR
+    400064: HALL 2 GLASS
+    400066: HALL 2 MAP
+    400068: hall 2 right
+    400070: HALL 2 ROOF
+    400072: HALL 2 ROOF WOOD
+    400074: HALL 2 SILVER LAYER
+    400076: hall 3
+    400078: hall 3 right
+    400080: hall 4
+    400082: HALL 4 BOAED
+    400084: HALL 4 MAP
+    400086: LIGHT
+    400088: logo
+    400090: logo.1
+    400092: //RootNode
+    400094: OUTER COUCH
+    400096: OUTER COUCH.001
+    400098: OUTER COUCH.002
+    400100: OUTER COUCH.003
+    400102: OUTER COUCH.004
+    400104: OUTER COUCH.005
+    400106: OUTER COUCH.006
+    400108: OUTER COUCH.007
+    400110: OUTER GLASS
+    400112: OUTER STREET LIGHT LAYER
+    400114: OUTER STREET LIGHT LAYER.001
+    400116: OUTER STREET LIGHT LAYER.002
+    400118: OUTER STREET LIGHT LAYER.003
+    400120: OUTER STREET LIGHT LAYER.004
+    400122: OUTER STREET LIGHT LAYER.005
+    400124: OUTER STREET LIGHT LAYER.006
+    400126: OUTER STREET LIGHT LAYER.007
+    400128: OUTER STREET LIGHT POST
+    400130: OUTER STREET LIGHT POST.001
+    400132: OUTER STREET LIGHT POST.002
+    400134: OUTER STREET LIGHT POST.003
+    400136: OUTER STREET LIGHT POST.004
+    400138: OUTER STREET LIGHT POST.005
+    400140: OUTER STREET LIGHT POST.006
+    400142: OUTER STREET LIGHT POST.007
+    400144: PASSAGE
+    400146: PASSAGE 1
+    400148: photo 1
+    400150: photo 2
+    400152: photo 3
+    400154: photo 4
+    400156: photo 5
+    400158: photo 6
+    400160: photo emission
+    400162: PLANT TILES
+    400164: RECEPTION BLACK GLASS
+    400166: RECEPTION FLOOR
+    400168: RECEPTION GLASS
+    400170: RECEPTION LIGHT LAYER
+    400172: RECEPTION MAP
+    400174: RECEPTION OUTER GLASS
+    400176: RECEPTION OUTER STAND
+    400178: RECEPTION PLANT 1
+    400180: RECEPTION PLANT 2
+    400182: RECEPTION PLANT 3
+    400184: RECEPTION PLANT 4
+    400186: RECEPTION ROOF
+    400188: RECEPTION ROOF LIGHT
+    400190: RECEPTION SCREEN 1
+    400192: RECEPTION SCREEN 2
+    400194: RECEPTION SCREEN 3
+    400196: RECEPTION WALL
+    400198: red carpet
+    400200: ROUND GLASS
+    400202: ROUND GLASS FLOOR
+    400204: ROUND GLASS SILVER LAYER
+    400206: SILVER LAYER
+    400208: SOFA 1
+    400210: SOFA 2
+    400212: SOFA 3
+    400214: SOFA 4
+    400216: SOFA 5
+    400218: SOFA 6
+    400220: SOFA 7
+    400222: SOFA 8
+    400224: SPOT LIGHT FLOOR
+    400226: SPOT LIGHT HALL LIGHT
+    400228: SPOT LIGHT HANDER
+    400230: SPOT LIGHT LAYER
+    400232: SPOT LIGHT SCREEN
+    400234: SPOT LIGHT STAGE
+    400236: SPOT LIGHT WALL
+    400238: SPOTLIGHT MAP
+    400240: WAY
+    400242: WAY 1
+    400244: WAY 2
+    400246: WAY 3
+    400248: WAY 4
+    400250: WAY 5
+    400252: WAY 6
+    400254: WAY 7
+    400256: WELCOME
+    2100000: GRAY BOX
+    2100002: WHITE PATTERN
+    2100004: BACK LINE
+    2100006: GOLD PATTEN
+    2100008: RECEPTION OUTER GLASS
+    2100010: SILVER LAYER
+    2100012: RECEPTION BLACK GLASS
+    2100014: WOOD
+    2100016: RECEPTION WOOD
+    2100018: BLACK WHITE
+    2100020: ROOF GRAY
+    2100022: ROOF WOOD
+    2100024: GOLD
+    2100026: RECEPTION LIGHT
+    2100028: PLANT TILES
+    2100030: COLUMN
+    2100032: RECEPTION SCREEN 1
+    2100034: RECEPTION SCREEN 2
+    2100036: RECEPTION SCREEN 3
+    2100038: PBR_Plant_leafs.001
+    2100040: SOFA GREEN
+    2100042: SOFA BLACK
+    2100044: PASSAGE
+    2100046: SPOT LIGHT FLOOR
+    2100048: SPOT LIGHT EMISSION
+    2100050: FLOOR
+    2100052: SPOT LIGHT SCREEN
+    2100054: GLASS
+    2100056: ARROW
+    2100058: CONCRETE
+    2100060: SKY BLUE GLASS
+    2100062: BLUE GLASS
+    2100064: BLACK TILES
+    2100066: OUTER GLASS
+    2100068: OUTER EMISSION
+    2100070: BLACK
+    2100072: BACK SCREEN
+    2100074: RED CARPET
+    2100076: OUTER SCREEN 1
+    2100078: OUTER SCREEN 3
+    2100080: OUTER SCREEN 5
+    2100082: OUTER SCREEN 2
+    2100084: OUTER SCREEN 4
+    2100086: OUTER SCREEN 6
+    2100088: OUTER SCREEN 7
+    2100090: OUTER SCREEN 8
+    2100092: white
+    2100094: HALL 2 BOARD
+    2100096: hall 1
+    2100098: hall 2
+    2100100: hall 2 right
+    2100102: hall 3
+    2100104: hall 3 right
+    2100106: hall 4
+    2100108: PHOTO 1
+    2100110: PHOTO 2
+    2100112: PHOTO 3
+    2100114: No Name
+    2100116: HALL 4 BOAED
+    2100118: PHOTO 4
+    2100120: PHOTO 5
+    2100122: PHOTO 7
+    2100124: BLACKSEEP LOGO
+    2100126: HALL 2 MAP
+    2100128: logo
+    2100130: RECEPTION MAP
+    2100132: HALL 4 MAP
+    2100134: gold emission
+    2100136: welcome emission
+    2100138: WAY
+    2100140: SPOTLIGHT MAP
+    2300000: 1l.001
+    2300002: 1l.002
+    2300004: 1l.003
+    2300006: 1l.004
+    2300008: 1l.005
+    2300010: 1l.006
+    2300012: 1l.007
+    2300014: 1l.008
+    2300016: 1l.009
+    2300018: 1l.010
+    2300020: 1l.011
+    2300022: 1l.012
+    2300024: 1l.013
+    2300026: 1l.014
+    2300028: 1l.015
+    2300030: 1l.016
+    2300032: 1l.017
+    2300034: BACK FLOOR
+    2300036: BACK SCREEN
+    2300038: back screen stand
+    2300040: BACK SCREEN.001
+    2300042: BLACKSEEP LOGO
+    2300044: column
+    2300046: hall 1
+    2300048: HALL 1 FLOOR
+    2300050: HALL 1 GLASS
+    2300052: HALL 1 ROOF
+    2300054: HALL 1 ROOF WOOD
+    2300056: HALL 1 SILVER LAYER
+    2300058: hall 2
+    2300060: HALL 2 BOARD
+    2300062: HALL 2 FLOOR
+    2300064: HALL 2 GLASS
+    2300066: HALL 2 MAP
+    2300068: hall 2 right
+    2300070: HALL 2 ROOF
+    2300072: HALL 2 ROOF WOOD
+    2300074: HALL 2 SILVER LAYER
+    2300076: hall 3
+    2300078: hall 3 right
+    2300080: hall 4
+    2300082: HALL 4 BOAED
+    2300084: HALL 4 MAP
+    2300086: LIGHT
+    2300088: logo
+    2300090: logo.1
+    2300092: OUTER COUCH
+    2300094: OUTER COUCH.001
+    2300096: OUTER COUCH.002
+    2300098: OUTER COUCH.003
+    2300100: OUTER COUCH.004
+    2300102: OUTER COUCH.005
+    2300104: OUTER COUCH.006
+    2300106: OUTER COUCH.007
+    2300108: OUTER GLASS
+    2300110: OUTER STREET LIGHT LAYER
+    2300112: OUTER STREET LIGHT LAYER.001
+    2300114: OUTER STREET LIGHT LAYER.002
+    2300116: OUTER STREET LIGHT LAYER.003
+    2300118: OUTER STREET LIGHT LAYER.004
+    2300120: OUTER STREET LIGHT LAYER.005
+    2300122: OUTER STREET LIGHT LAYER.006
+    2300124: OUTER STREET LIGHT LAYER.007
+    2300126: OUTER STREET LIGHT POST
+    2300128: OUTER STREET LIGHT POST.001
+    2300130: OUTER STREET LIGHT POST.002
+    2300132: OUTER STREET LIGHT POST.003
+    2300134: OUTER STREET LIGHT POST.004
+    2300136: OUTER STREET LIGHT POST.005
+    2300138: OUTER STREET LIGHT POST.006
+    2300140: OUTER STREET LIGHT POST.007
+    2300142: PASSAGE
+    2300144: PASSAGE 1
+    2300146: photo 1
+    2300148: photo 2
+    2300150: photo 3
+    2300152: photo 4
+    2300154: photo 5
+    2300156: photo 6
+    2300158: photo emission
+    2300160: PLANT TILES
+    2300162: RECEPTION BLACK GLASS
+    2300164: RECEPTION FLOOR
+    2300166: RECEPTION GLASS
+    2300168: RECEPTION LIGHT LAYER
+    2300170: RECEPTION MAP
+    2300172: RECEPTION OUTER GLASS
+    2300174: RECEPTION OUTER STAND
+    2300176: RECEPTION PLANT 1
+    2300178: RECEPTION PLANT 2
+    2300180: RECEPTION PLANT 3
+    2300182: RECEPTION PLANT 4
+    2300184: RECEPTION ROOF
+    2300186: RECEPTION ROOF LIGHT
+    2300188: RECEPTION SCREEN 1
+    2300190: RECEPTION SCREEN 2
+    2300192: RECEPTION SCREEN 3
+    2300194: RECEPTION WALL
+    2300196: red carpet
+    2300198: ROUND GLASS
+    2300200: ROUND GLASS FLOOR
+    2300202: ROUND GLASS SILVER LAYER
+    2300204: SILVER LAYER
+    2300206: SOFA 1
+    2300208: SOFA 2
+    2300210: SOFA 3
+    2300212: SOFA 4
+    2300214: SOFA 5
+    2300216: SOFA 6
+    2300218: SOFA 7
+    2300220: SOFA 8
+    2300222: SPOT LIGHT FLOOR
+    2300224: SPOT LIGHT HALL LIGHT
+    2300226: SPOT LIGHT HANDER
+    2300228: SPOT LIGHT LAYER
+    2300230: SPOT LIGHT SCREEN
+    2300232: SPOT LIGHT STAGE
+    2300234: SPOT LIGHT WALL
+    2300236: SPOTLIGHT MAP
+    2300238: WAY
+    2300240: WAY 1
+    2300242: WAY 2
+    2300244: WAY 3
+    2300246: WAY 4
+    2300248: WAY 5
+    2300250: WAY 6
+    2300252: WAY 7
+    2300254: WELCOME
+    3300000: 1l.001
+    3300002: 1l.002
+    3300004: 1l.003
+    3300006: 1l.004
+    3300008: 1l.005
+    3300010: 1l.006
+    3300012: 1l.007
+    3300014: 1l.008
+    3300016: 1l.009
+    3300018: 1l.010
+    3300020: 1l.011
+    3300022: 1l.012
+    3300024: 1l.013
+    3300026: 1l.014
+    3300028: 1l.015
+    3300030: 1l.016
+    3300032: 1l.017
+    3300034: BACK FLOOR
+    3300036: BACK SCREEN
+    3300038: back screen stand
+    3300040: BACK SCREEN.001
+    3300042: BLACKSEEP LOGO
+    3300044: column
+    3300046: hall 1
+    3300048: HALL 1 FLOOR
+    3300050: HALL 1 GLASS
+    3300052: HALL 1 ROOF
+    3300054: HALL 1 ROOF WOOD
+    3300056: HALL 1 SILVER LAYER
+    3300058: hall 2
+    3300060: HALL 2 BOARD
+    3300062: HALL 2 FLOOR
+    3300064: HALL 2 GLASS
+    3300066: HALL 2 MAP
+    3300068: hall 2 right
+    3300070: HALL 2 ROOF
+    3300072: HALL 2 ROOF WOOD
+    3300074: HALL 2 SILVER LAYER
+    3300076: hall 3
+    3300078: hall 3 right
+    3300080: hall 4
+    3300082: HALL 4 BOAED
+    3300084: HALL 4 MAP
+    3300086: LIGHT
+    3300088: logo
+    3300090: logo.1
+    3300092: OUTER COUCH
+    3300094: OUTER COUCH.001
+    3300096: OUTER COUCH.002
+    3300098: OUTER COUCH.003
+    3300100: OUTER COUCH.004
+    3300102: OUTER COUCH.005
+    3300104: OUTER COUCH.006
+    3300106: OUTER COUCH.007
+    3300108: OUTER GLASS
+    3300110: OUTER STREET LIGHT LAYER
+    3300112: OUTER STREET LIGHT LAYER.001
+    3300114: OUTER STREET LIGHT LAYER.002
+    3300116: OUTER STREET LIGHT LAYER.003
+    3300118: OUTER STREET LIGHT LAYER.004
+    3300120: OUTER STREET LIGHT LAYER.005
+    3300122: OUTER STREET LIGHT LAYER.006
+    3300124: OUTER STREET LIGHT LAYER.007
+    3300126: OUTER STREET LIGHT POST
+    3300128: OUTER STREET LIGHT POST.001
+    3300130: OUTER STREET LIGHT POST.002
+    3300132: OUTER STREET LIGHT POST.003
+    3300134: OUTER STREET LIGHT POST.004
+    3300136: OUTER STREET LIGHT POST.005
+    3300138: OUTER STREET LIGHT POST.006
+    3300140: OUTER STREET LIGHT POST.007
+    3300142: PASSAGE
+    3300144: PASSAGE 1
+    3300146: photo 1
+    3300148: photo 2
+    3300150: photo 3
+    3300152: photo 4
+    3300154: photo 5
+    3300156: photo 6
+    3300158: photo emission
+    3300160: PLANT TILES
+    3300162: RECEPTION BLACK GLASS
+    3300164: RECEPTION FLOOR
+    3300166: RECEPTION GLASS
+    3300168: RECEPTION LIGHT LAYER
+    3300170: RECEPTION MAP
+    3300172: RECEPTION OUTER GLASS
+    3300174: RECEPTION OUTER STAND
+    3300176: RECEPTION PLANT 1
+    3300178: RECEPTION PLANT 2
+    3300180: RECEPTION PLANT 3
+    3300182: RECEPTION PLANT 4
+    3300184: RECEPTION ROOF
+    3300186: RECEPTION ROOF LIGHT
+    3300188: RECEPTION SCREEN 1
+    3300190: RECEPTION SCREEN 2
+    3300192: RECEPTION SCREEN 3
+    3300194: RECEPTION WALL
+    3300196: red carpet
+    3300198: ROUND GLASS
+    3300200: ROUND GLASS FLOOR
+    3300202: ROUND GLASS SILVER LAYER
+    3300204: SILVER LAYER
+    3300206: SOFA 1
+    3300208: SOFA 2
+    3300210: SOFA 3
+    3300212: SOFA 4
+    3300214: SOFA 5
+    3300216: SOFA 6
+    3300218: SOFA 7
+    3300220: SOFA 8
+    3300222: SPOT LIGHT FLOOR
+    3300224: SPOT LIGHT HALL LIGHT
+    3300226: SPOT LIGHT HANDER
+    3300228: SPOT LIGHT LAYER
+    3300230: SPOT LIGHT SCREEN
+    3300232: SPOT LIGHT STAGE
+    3300234: SPOT LIGHT WALL
+    3300236: SPOTLIGHT MAP
+    3300238: WAY
+    3300240: WAY 1
+    3300242: WAY 2
+    3300244: WAY 3
+    3300246: WAY 4
+    3300248: WAY 5
+    3300250: WAY 6
+    3300252: WAY 7
+    3300254: WELCOME
+    4300000: RECEPTION FLOOR
+    4300002: RECEPTION GLASS
+    4300004: SILVER LAYER
+    4300006: RECEPTION BLACK GLASS
+    4300008: RECEPTION OUTER GLASS
+    4300010: RECEPTION OUTER STAND
+    4300012: RECEPTION WALL
+    4300014: RECEPTION ROOF
+    4300016: RECEPTION ROOF LIGHT
+    4300018: RECEPTION LIGHT LAYER
+    4300020: PLANT TILES
+    4300022: column
+    4300024: RECEPTION SCREEN 1
+    4300026: RECEPTION SCREEN 2
+    4300028: RECEPTION SCREEN 3
+    4300030: RECEPTION PLANT 1
+    4300032: RECEPTION PLANT 2
+    4300034: RECEPTION PLANT 3
+    4300036: RECEPTION PLANT 4
+    4300038: SOFA 4
+    4300040: SOFA 3
+    4300042: SOFA 2
+    4300044: SOFA 1
+    4300046: SOFA 5
+    4300048: SOFA 6
+    4300050: SOFA 7
+    4300052: SOFA 8
+    4300054: PASSAGE
+    4300056: PASSAGE 1
+    4300058: SPOT LIGHT WALL
+    4300060: SPOT LIGHT FLOOR
+    4300062: SPOT LIGHT LAYER
+    4300064: SPOT LIGHT HALL LIGHT
+    4300066: SPOT LIGHT HANDER
+    4300068: SPOT LIGHT STAGE
+    4300070: SPOT LIGHT SCREEN
+    4300072: ROUND GLASS SILVER LAYER
+    4300074: ROUND GLASS
+    4300076: ROUND GLASS FLOOR
+    4300078: HALL 1 ROOF
+    4300080: HALL 1 ROOF WOOD
+    4300082: HALL 1 GLASS
+    4300084: HALL 1 SILVER LAYER
+    4300086: HALL 1 FLOOR
+    4300088: HALL 2 ROOF
+    4300090: HALL 2 ROOF WOOD
+    4300092: HALL 2 GLASS
+    4300094: HALL 2 SILVER LAYER
+    4300096: HALL 2 FLOOR
+    4300098: BACK FLOOR
+    4300100: OUTER COUCH
+    4300102: OUTER GLASS
+    4300104: OUTER STREET LIGHT LAYER
+    4300106: OUTER STREET LIGHT POST
+    4300108: OUTER COUCH.001
+    4300110: OUTER STREET LIGHT LAYER.001
+    4300112: OUTER STREET LIGHT POST.001
+    4300114: OUTER COUCH.002
+    4300116: OUTER STREET LIGHT LAYER.002
+    4300118: OUTER STREET LIGHT POST.002
+    4300120: OUTER COUCH.003
+    4300122: OUTER STREET LIGHT LAYER.003
+    4300124: OUTER STREET LIGHT POST.003
+    4300126: OUTER COUCH.004
+    4300128: OUTER STREET LIGHT LAYER.004
+    4300130: OUTER STREET LIGHT POST.004
+    4300132: OUTER COUCH.005
+    4300134: OUTER STREET LIGHT LAYER.005
+    4300136: OUTER STREET LIGHT POST.005
+    4300138: OUTER COUCH.006
+    4300140: OUTER STREET LIGHT LAYER.006
+    4300142: OUTER STREET LIGHT POST.006
+    4300144: OUTER COUCH.007
+    4300146: OUTER STREET LIGHT LAYER.007
+    4300148: OUTER STREET LIGHT POST.007
+    4300150: BACK SCREEN
+    4300152: BACK SCREEN.001
+    4300154: back screen stand
+    4300156: red carpet
+    4300158: 1l.012
+    4300160: 1l.001
+    4300162: 1l.002
+    4300164: 1l.003
+    4300166: 1l.004
+    4300168: 1l.005
+    4300170: 1l.006
+    4300172: 1l.007
+    4300174: 1l.008
+    4300176: 1l.009
+    4300178: 1l.010
+    4300180: 1l.011
+    4300182: 1l.014
+    4300184: 1l.013
+    4300186: 1l.015
+    4300188: 1l.016
+    4300190: 1l.017
+    4300192: HALL 2 BOARD
+    4300194: hall 1
+    4300196: hall 2
+    4300198: hall 2 right
+    4300200: hall 3
+    4300202: hall 3 right
+    4300204: hall 4
+    4300206: photo 1
+    4300208: photo 2
+    4300210: photo 3
+    4300212: photo emission
+    4300214: HALL 4 BOAED
+    4300216: photo 4
+    4300218: photo 5
+    4300220: photo 6
+    4300222: BLACKSEEP LOGO
+    4300224: HALL 2 MAP
+    4300226: logo
+    4300228: logo.1
+    4300230: RECEPTION MAP
+    4300232: HALL 4 MAP
+    4300234: LIGHT
+    4300236: WELCOME
+    4300238: WAY
+    4300240: WAY 1
+    4300242: WAY 2
+    4300244: WAY 3
+    4300246: WAY 4
+    4300248: WAY 5
+    4300250: WAY 6
+    4300252: WAY 7
+    4300254: SPOTLIGHT MAP
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ARROW
+    second: {fileID: 2100000, guid: 636456b0ac9bdfd49a1b591700a42604, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BACK LINE
+    second: {fileID: 2100000, guid: 9ba836583ad8d2a418dede99cf36ce4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BACK SCREEN
+    second: {fileID: 2100000, guid: 8fc86bb2109677646ad46683086acaf2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLACK
+    second: {fileID: 2100000, guid: 3098cc993bcf09949b7824fee59f80ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLACK TILES
+    second: {fileID: 2100000, guid: 225e2674d50f2ae48b4e669c4568f478, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLACK WHITE
+    second: {fileID: 2100000, guid: 2fedf386fd826cb4e82d8ae018164952, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLACKSEEP LOGO
+    second: {fileID: 2100000, guid: d45f829b44f1207498a4bafaa30ddb46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLUE GLASS
+    second: {fileID: 2100000, guid: f0625e28578676443a413b6a434b2e0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: COLUMN
+    second: {fileID: 2100000, guid: b292edd5e6d346c47b4c9fb579307df9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CONCRETE
+    second: {fileID: 2100000, guid: 51dfefa03e3b1db44a1e2ccb7e016296, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FLOOR
+    second: {fileID: 2100000, guid: 3ecae8cc74958d44083a7ce9e45b91b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GLASS
+    second: {fileID: 2100000, guid: a5985a624af5bbf4c8b41e674deb4eb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GOLD
+    second: {fileID: 2100000, guid: 3e0199302b617104eb9f3353dd36b6f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GOLD PATTEN
+    second: {fileID: 2100000, guid: 558025585bec7794c8aa98f8c01ac177, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GRAY BOX
+    second: {fileID: 2100000, guid: 870413b05b3cb0046a7cb93181344bcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HALL 2 BOARD
+    second: {fileID: 2100000, guid: 0a963151e48c63440a7dfc7d86bbdff5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HALL 2 MAP
+    second: {fileID: 2100000, guid: 003069ee52ca4bd4aa2da7317ac20d9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HALL 4 BOAED
+    second: {fileID: 2100000, guid: e823928e43639dc42954f4d813d5374f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HALL 4 MAP
+    second: {fileID: 2100000, guid: 910de8a71903ba543b9ba34edba78dd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 3dea1a8e95dc5774e8204451e06bf855, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER EMISSION
+    second: {fileID: 2100000, guid: 7813ffff8e63de14bab366fc6349a48b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER GLASS
+    second: {fileID: 2100000, guid: 14b20775ef1687247bdbe7b111cc99f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 1
+    second: {fileID: 2100000, guid: d655e55c3b6d1844db10856fc3e338ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 2
+    second: {fileID: 2100000, guid: cad476b32204ce74f847736b96b78188, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 3
+    second: {fileID: 2100000, guid: 38b875c45f99a9f45a309616c6cf9aa8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 4
+    second: {fileID: 2100000, guid: b537d2484f83559439dae60950542fa9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 5
+    second: {fileID: 2100000, guid: 486a764a046b77c44b395cff09031336, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 6
+    second: {fileID: 2100000, guid: 994af969c16fd084b86e021b0cdc910e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 7
+    second: {fileID: 2100000, guid: 6c1650f81a317e64ca1f0616203de94b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OUTER SCREEN 8
+    second: {fileID: 2100000, guid: 1051a91aae70e954593070e3dc7883b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PASSAGE
+    second: {fileID: 2100000, guid: b4e6666d58f3f95448e88da9eff7d656, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PBR_Plant_leafs.001
+    second: {fileID: 2100000, guid: 472aec60d8d7169439d92476d2cb386c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PHOTO 1
+    second: {fileID: 2100000, guid: 2dca0e5233094914eb0e969dd2f216eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PHOTO 2
+    second: {fileID: 2100000, guid: db37f1a4910112b4ca4fe1cf84670229, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PHOTO 3
+    second: {fileID: 2100000, guid: 7198261dc587f8d4297bba2fb68363eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PHOTO 4
+    second: {fileID: 2100000, guid: ab22cef89b828234c8ebae0d5bd7590d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PHOTO 5
+    second: {fileID: 2100000, guid: e20872daad6784e43b5986471c6ef858, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PHOTO 7
+    second: {fileID: 2100000, guid: 6ffde307d2815c649a4e895eaef410bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PLANT TILES
+    second: {fileID: 2100000, guid: 9e4a820568a2b8e4fa397cd9e7523067, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION BLACK GLASS
+    second: {fileID: 2100000, guid: 3c7ae7daa5990c74c96a0ddb226942ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION LIGHT
+    second: {fileID: 2100000, guid: bbdcad8e56d228c48ba21aa2397d02cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION MAP
+    second: {fileID: 2100000, guid: 8b78776d2da9c7648a41762a3be546c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION OUTER GLASS
+    second: {fileID: 2100000, guid: 153eebda250303a4aa316359602d0656, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION SCREEN 1
+    second: {fileID: 2100000, guid: ca326857273e6614cb75c03550a029ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION SCREEN 2
+    second: {fileID: 2100000, guid: f7e3a9af48e66414cb169546fa46ff29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION SCREEN 3
+    second: {fileID: 2100000, guid: 52850f18450027d42b2fd1f16ea2eac7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECEPTION WOOD
+    second: {fileID: 2100000, guid: 189847ecf52ef124caa80db668fb2cb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RED CARPET
+    second: {fileID: 2100000, guid: f69a5ff1df8c9ba429b63ad4f11b5545, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROOF GRAY
+    second: {fileID: 2100000, guid: 006b95fb03b2e9f44a33114a8e82ded8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROOF WOOD
+    second: {fileID: 2100000, guid: 6016f0441630e974f952bf579e507c40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SILVER LAYER
+    second: {fileID: 2100000, guid: 54f79c18d5fbb5144b240917d0e5bb63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SKY BLUE GLASS
+    second: {fileID: 2100000, guid: f3b9c8ee4bedb4345a72dd99fdc4e7d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SOFA BLACK
+    second: {fileID: 2100000, guid: b2965db7d6d01044a9220162030275c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SOFA GREEN
+    second: {fileID: 2100000, guid: 30e08973934851041b5a3895458be13d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPOT LIGHT EMISSION
+    second: {fileID: 2100000, guid: 3139ec40cba56804794d5d6a0e8d3aaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPOT LIGHT FLOOR
+    second: {fileID: 2100000, guid: 236eea0be9d2a70479d367ebe95221d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPOT LIGHT SCREEN
+    second: {fileID: 2100000, guid: d9f273da61e03764182c66181c769fd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPOTLIGHT MAP
+    second: {fileID: 2100000, guid: 26dc07febe9c37a419f155a9d43b187c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WAY
+    second: {fileID: 2100000, guid: accdf4ecea660fd4b85355b4c629fdc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WHITE PATTERN
+    second: {fileID: 2100000, guid: fa5dc8d6534f3714e8c26f997442a7d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WOOD
+    second: {fileID: 2100000, guid: a4f7b549be747d04b93fc466090ec0a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gold emission
+    second: {fileID: 2100000, guid: 402df993839296e47a4a745394b61458, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hall 1
+    second: {fileID: 2100000, guid: ec877d6e2dbe42b4d9056e11b0905d43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hall 2
+    second: {fileID: 2100000, guid: 20fae8586987bb847b081e44939f408e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hall 2 right
+    second: {fileID: 2100000, guid: a023a02d5c3912c4184024288c669dbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hall 3
+    second: {fileID: 2100000, guid: 20c4f4f49e07cc94bb464bc6cf5f4a00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hall 3 right
+    second: {fileID: 2100000, guid: c19d12e1a4ee1b0419728609aaf8d68d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hall 4
+    second: {fileID: 2100000, guid: b5a4bcf87beb7dc4d87476ae93cc079a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: logo
+    second: {fileID: 2100000, guid: 5803b559eb7a631479b16819f2a7b0c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: welcome emission
+    second: {fileID: 2100000, guid: 95ae6210edaa61e49ba46bc1b1ece962, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white
+    second: {fileID: 2100000, guid: de805538c4371474cb0ec04383083092, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
