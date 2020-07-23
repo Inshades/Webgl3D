@@ -23,6 +23,8 @@ public class ApiHandler : MonoBehaviour
     [SerializeField]
     private string SaveUserActivityUrl = urlHeader + "/v1/activity";
     [SerializeField]
+    private string emailUrl = urlHeader + "/v1/sendEmail";
+    [SerializeField]
     private string metaDataUrl = urlHeader + "/v2/getEventMetaData?eventId=eduFair2020";
     [SerializeField]
     private string userTokeId;
@@ -124,13 +126,14 @@ public class ApiHandler : MonoBehaviour
         }
     }
 
-    public IEnumerator SaveUserActivity(userActivityType activityType, string activityData, string boothName, string boothId)
+    public IEnumerator SaveUserActivity(userActivityType activityType, string activityData, string boothName, string boothId, string exhibitorId)
     {
         Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
         urlHeaderKeys.Add("activityType", activityType.ToString());
         urlHeaderKeys.Add("activityData", activityData);
         urlHeaderKeys.Add("boothName", boothName);
         urlHeaderKeys.Add("boothId", boothId);
+        urlHeaderKeys.Add("exhibitorId", exhibitorId);
         urlHeaderKeys.Add("token", userTokeId);
 
         UnityWebRequest apiRequest = UnityWebRequest.Post(SaveUserActivityUrl, urlHeaderKeys);
@@ -196,6 +199,32 @@ public class ApiHandler : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator sendEmail(string emailSubject, string emailMessage, string eventId, string exhibitorId)
+    {
+        Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
+        urlHeaderKeys.Add("subject", emailSubject);
+        urlHeaderKeys.Add("message", emailMessage);
+        urlHeaderKeys.Add("eventId", eventId);
+        urlHeaderKeys.Add("exhibitorId", exhibitorId);
+        urlHeaderKeys.Add("token", userTokeId);
+
+        UnityWebRequest apiRequest = UnityWebRequest.Post(registerUserUrl, urlHeaderKeys);
+
+        yield return apiRequest.SendWebRequest();
+
+        if (apiRequest.isNetworkError || apiRequest.isHttpError)
+        {
+            Debug.Log(apiRequest.error);
+        }
+        else
+        {
+            Dictionary<string, object> registerUserDataDict = new Dictionary<string, object>();
+            registerUserDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
+
+            Debug.Log("RegisterUSer  " + registerUserDataDict["success"]);
+        }
+    }
     IEnumerator stallDetaitsParser()
     {
         UnityWebRequest apiRequest = UnityWebRequest.Get(metaDataUrl);
@@ -217,6 +246,8 @@ public class ApiHandler : MonoBehaviour
 
             _metaDataUrlContent.eventName = registrationResponse["name"].ToString();
             _metaDataUrlContent.eventId = registrationResponse["eventId"].ToString();
+
+
             _metaDataUrlContent.eventType = registrationResponse["type"].ToString();
             _metaDataUrlContent.eventDestription = registrationResponse["description"].ToString();
             _metaDataUrlContent.eventLogoUrl = registrationResponse["logo"].ToString();
@@ -281,6 +312,7 @@ public class ApiHandler : MonoBehaviour
                 collegeDatas _collegeDataClass = new collegeDatas();
                 _collegeDataClass.exhibhitorsName = innerDict["name"].ToString();
                 _collegeDataClass.exhibhitorsEventId = innerDict["eventId"].ToString();
+                _collegeDataClass.exhibhitorsId = innerDict["exhibitorId"].ToString();
                 _collegeDataClass.exhibhitorsType = innerDict["type"].ToString();
                 _collegeDataClass.exhibhitorsDescription = innerDict["description"].ToString();
                 _collegeDataClass.exhibhitorsPhoneNumber = innerDict["phoneNo"].ToString();
@@ -407,6 +439,7 @@ public class collegeDatas
 {
     public string exhibhitorsName;
     public string exhibhitorsEventId;
+    public string exhibhitorsId;
     public string exhibhitorsType;
     public string exhibhitorsDescription;
     public string exhibhitorsPhoneNumber;
@@ -443,6 +476,7 @@ public class metaDataUlData
 {
     public string eventName;
     public string eventId;
+  
     public string eventType;
     public string eventDestription;
 

@@ -1,6 +1,7 @@
 ﻿/// <summary>
 /// This script is for stall instantiation and management
 /// </summary>
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -81,26 +82,26 @@ public class Manager : MonoBehaviour
     /// </summary>
     public IEnumerator GenarateStalls()
     {
+
         for (int i = 0; i < shopPositionContainer.transform.childCount; i++)
         {
-            // stallName.Add();
-            for (int j = 0; j < ApiHandler.instance._metaDataUrlContent._collegeDataClassList[j].exhibhitorsBoothId.Count; j++)
+            foreach (Transform item in shopPositionContainer.transform)
             {
-                if(shopPositionContainer.transform.GetChild(i).gameObject.name == ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[j])
+                Debug.Log("Item Name " + item.name + " Booth Id  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[0]);
+                if (item.name == ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[0])
                 {
-                    GameObject obj = Instantiate(stalls[i], shopPositionContainer.transform.GetChild(i).position, shopPositionContainer.transform.GetChild(i).rotation) as GameObject;
+                    stallType _stlType = (stallType)Enum.Parse(typeof(stallType), ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothModel[0]);
+                    GameObject obj = Instantiate(stalls[(int)_stlType], shopPositionContainer.transform.GetChild(item.GetSiblingIndex()).position, shopPositionContainer.transform.GetChild(item.GetSiblingIndex()).rotation) as GameObject;
                     obj.transform.parent = h1_Holder.transform;
-                    obj.transform.GetComponent<StallManager>().currentIndex = i.ToString();
-
+                    obj.transform.GetComponent<StallManager>().currentIndex = item.GetSiblingIndex().ToString();
+                    obj.name = item.name;
                     yield return obj.transform.GetComponent<StallManager>().loadedStatus;
                 }
+
             }
-
-            //if(shopPositionContainer.transform.GetChild(i).gameObject.name == ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId)
-
-           
         }
     }
+
 
     //public IEnumerator GenarateHall_1_Stalls()
     //{
@@ -150,6 +151,7 @@ public enum stallType
     BASIC2,
     GOLD1,
     GOLD2,
-    PLATINUM1,
-    PLATINUM2
+    ASSOCIATE,
+    POWEREDBY,
+    PRESENTING
 }

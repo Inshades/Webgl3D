@@ -52,6 +52,10 @@ public class StallUIManager : MonoBehaviour
 
     [Header("Email")]
     public GameObject emailPanel;
+    public InputField subjectField;
+    public InputField bodyField;
+    private string subject;
+    private string bodyText;
 
     [Header("Chat")]
     public GameObject chatPanel;
@@ -175,7 +179,7 @@ public class StallUIManager : MonoBehaviour
         broucherPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
         //for (int i = 0; i < 2; i++)
-        //{
+        //{}
         GameObject button = Instantiate(buttonTemplate) as GameObject;
         button.SetActive(true);
 
@@ -199,7 +203,7 @@ public class StallUIManager : MonoBehaviour
         //Application.OpenURL(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl);
         Debug.Log(myKeystring + "BroucherButtonClicked");
 
-        setUserActivity(userActivityType.DOWNLOAD_BROUCHER, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+        setUserActivity(userActivityType.DOWNLOAD_BROUCHER, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
     }
 
     public void videoButton()
@@ -226,7 +230,7 @@ public class StallUIManager : MonoBehaviour
         videoPlayer.url = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl;
         videoPlayer.Play();
 
-        setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+        setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
     }
     public void SlideShowButton()
     {
@@ -241,10 +245,23 @@ public class StallUIManager : MonoBehaviour
     {
         emailPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
-
-
     }
 
+    public void emailSendButton()
+    {
+        subject = subjectField.text;
+        bodyText = bodyField.text;
+        StartCoroutine(ApiHandler.instance.sendEmail(subject, bodyText, ApiHandler.instance._metaDataUrlContent.eventId, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId));
+        Debug.Log(subject);
+
+        clearText();
+        //sendEmail(string emailSubject, string emailMessage, string eventId, string exhibitorId)
+    }
+    public void clearText()
+    {
+        subjectField.text = "";
+        bodyField.text = "";
+    }
     public void ChatButton()
     {
         chatPanel.SetActive(true);
@@ -277,7 +294,7 @@ public class StallUIManager : MonoBehaviour
         businessCardWeb.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressCity.ToString();
         businessCardAddress.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressState.ToString();
 
-        setUserActivity(userActivityType.VIEW_BUSINESSCARD, "Businesscard viewed", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0]);
+        setUserActivity(userActivityType.VIEW_BUSINESSCARD, "Businesscard viewed", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
 
     }
 
@@ -295,8 +312,8 @@ public class StallUIManager : MonoBehaviour
 
     }
 
-    void setUserActivity(userActivityType _userActivity, string activityData, string boothName, string boothId)
+    void setUserActivity(userActivityType _userActivity, string activityData, string boothName, string boothId, string exhibitorId)
     {
-        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId));
+        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId, exhibitorId));
     }
 }

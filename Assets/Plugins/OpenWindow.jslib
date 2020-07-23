@@ -8,6 +8,8 @@ var OpenWindowPlugin = {
         	document.onmouseup = null;
         }
     }
+  
+ 
 };
 
 mergeInto(LibraryManager.library, OpenWindowPlugin);

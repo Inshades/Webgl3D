@@ -87,11 +87,19 @@
     <Compile Include="Assets\Scripts\Stall\Manager.cs" />
     <Compile Include="Assets\Scripts\Stall\StallManager.cs" />
     <Compile Include="Assets\Scripts\Stall\StallUIManager.cs" />
-    <Compile Include="Assets\Scripts\Stall\TriggerPoint.cs" />
-    <Compile Include="Assets\Scripts\TriggerIdentify.cs" />
+    <Compile Include="Assets\Scripts\Stall\TriggerIdentify.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\UiManager.cs" />
     <Compile Include="Assets\Scripts\VideoButtonList.cs" />
     <Compile Include="Assets\Scripts\VideoPlay.cs" />
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/unityprojects/VirtualFair_2020_WebGL/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/unityprojects/VirtualFair_2020_WebGL/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/unityprojects/VirtualFair_2020_WebGL/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/unityprojects/VirtualFair_2020_WebGL/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>

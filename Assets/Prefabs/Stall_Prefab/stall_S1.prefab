@@ -471,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 393402605607638958}
   m_LocalRotation: {x: -0, y: -0.9435248, z: -0, w: 0.3313022}
   m_LocalPosition: {x: 183, y: 14.64, z: -130.4}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 393402605607537540}
   - {fileID: 393402605607537542}
@@ -7718,5 +7718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bcc6c599ecfe5540afa9264edbffaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: {fileID: 0}
   stall_uimanager: {fileID: 0}
   Canvas: {fileID: 0}
