@@ -67,9 +67,11 @@
     <Compile Include="Assets\Hall1.cs" />
     <Compile Include="Assets\Hall2.cs" />
     <Compile Include="Assets\Hall3.cs" />
+    <Compile Include="Assets\luckydraw.cs" />
     <Compile Include="Assets\Scripts\Api\ApiHandler.cs" />
     <Compile Include="Assets\Scripts\Api\MiniJSON.cs" />
     <Compile Include="Assets\Scripts\BroucherButtonList.cs" />
+    <Compile Include="Assets\Scripts\BrowserCommunication\BrowserCommunicationManager.cs" />
     <Compile Include="Assets\Scripts\ChatControl.cs" />
     <Compile Include="Assets\Scripts\ChatList.cs" />
     <Compile Include="Assets\Scripts\doc_controller.cs" />

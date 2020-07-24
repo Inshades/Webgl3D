@@ -214,6 +214,7 @@ public class StallUIManager : MonoBehaviour
         }
         videoSelectPanel.SetActive(true);
         menuSelectPanel.SetActive(false);
+
         //for condition
         GameObject videobutton = Instantiate(videobuttonTemplate) as GameObject;
         videobutton.SetActive(true);

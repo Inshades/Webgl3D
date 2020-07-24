@@ -57,6 +57,9 @@ public class UiManager : MonoBehaviour
     public GameObject StallsContainer;
     public GameObject FPS;
 
+    [Header("Lucky draw")]
+    public GameObject luckydrawpanel;
+
     private List<GameObject> userActivityObjs = new List<GameObject>();
 
 
@@ -384,4 +387,18 @@ public class UiManager : MonoBehaviour
         menuSelectPanel.SetActive(true);
     }
 
+    public void LuckyDrawButton()
+    {
+        luckydrawpanel.SetActive(true);
+        logoutPanel.SetActive(false);
+        mainMenuPanel.SetActive(false);
+        menuSelectPanel.SetActive(false);
+    }
+
+    public void LuckyDrawCloseButton()
+    {
+        luckydrawpanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+        menuSelectPanel.SetActive(true);
+    }
 }

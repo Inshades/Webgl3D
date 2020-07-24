@@ -8,6 +8,7 @@ public class TriggerIdentify : MonoBehaviour
     public GameObject trigger;
 
     public StallUIManager stall_uimanager;
+    public luckydraw luckydraw_key;
     public GameObject Canvas;
 
     private void OnEnable()
@@ -15,6 +16,7 @@ public class TriggerIdentify : MonoBehaviour
 
         Canvas = GameObject.Find("Canvas");
         stall_uimanager = GameObject.Find("StallUIManager").GetComponent<StallUIManager>();
+        luckydraw_key = GameObject.Find("StallUIManager").GetComponent<luckydraw>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,10 +28,12 @@ public class TriggerIdentify : MonoBehaviour
         Debug.Log(transform.parent.GetSiblingIndex() + "get sibiling");
 
         int key = transform.parent.GetSiblingIndex();
-      //  string triggerName = trigger.name;
-      //  triggerName = triggerName.Substring(triggerName.IndexOf("_") + 1, triggerName.IndexOf("(") - (triggerName.IndexOf("_") + 1));
-       // int key = int.Parse(triggerName);
-     //   key = key - 1;
+        luckydraw_key.checker(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName.ToString());
+
+        //  string triggerName = trigger.name;
+        //  triggerName = triggerName.Substring(triggerName.IndexOf("_") + 1, triggerName.IndexOf("(") - (triggerName.IndexOf("_") + 1));
+        // int key = int.Parse(triggerName);
+        //   key = key - 1;
         stall_uimanager.Setkey(key);
         setUserActivity(userActivityType.VISIT_BOOTH, "Visit Booth", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
 
