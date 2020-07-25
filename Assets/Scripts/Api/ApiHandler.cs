@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -26,6 +27,21 @@ public class ApiHandler : MonoBehaviour
     private string emailUrl = urlHeader + "/v1/sendEmail";
     [SerializeField]
     private string metaDataUrl = urlHeader + "/v2/getEventMetaData?eventId=eduFair2020";
+
+    [SerializeField]
+    private string logoutUrl = urlHeader + "/v1/logout";
+    [SerializeField]
+    private string generateTokenUrl = urlHeader + "/v1/getLuckyDrawCoupon";
+    [SerializeField]
+    private string getLuckyDrayExhibitorsUrl = urlHeader + "/v1/getLuckDrawExhibitors";
+
+    [SerializeField]
+    public List<LuckyDrawExhibitorCollege> _listLuckyDrawExhibitorCollege = new List<LuckyDrawExhibitorCollege>();
+
+    public string luckyCupon;
+
+
+
     [SerializeField]
     private string userTokeId;
 
@@ -35,7 +51,7 @@ public class ApiHandler : MonoBehaviour
     [SerializeField]
     public metaDataUlData _metaDataUrlContent;
 
-
+    [SerializeField]
     public List<UserActivity> _userActivityList = new List<UserActivity>();
 
     public static ApiHandler instance = null;
@@ -118,10 +134,11 @@ public class ApiHandler : MonoBehaviour
             {
                 userTokeId = authenticationDataDict["token"].ToString();
             }
-
+            StartCoroutine(LuckyDrawExhibhitorList());
             StartCoroutine(stallDetaitsParser());
+
             //  StartCoroutine(SaveUserActivity(userActivityType.DOWNLOAD_BROUCHER, "https://helpx.adobe.com/acrobat/using/links-attachments-pdfs.html", "Brochure Download", "https://helpx.adobe.com/acrobat/using/links-attachments-pdfs.html"));
-              StartCoroutine(GetUserActivity());
+            StartCoroutine(GetUserActivity());
 
         }
     }
@@ -197,6 +214,73 @@ public class ApiHandler : MonoBehaviour
 
                 _userActivityList.Add(_userActivity);
             }
+        }
+    }
+    //Get luckydraw stalls
+    public IEnumerator LuckyDrawExhibhitorList()
+    {
+        UnityWebRequest apiRequest = UnityWebRequest.Get(getLuckyDrayExhibitorsUrl);
+        apiRequest.SetRequestHeader("Content-Type", "application/json");
+        apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
+        yield return apiRequest.SendWebRequest();
+
+        if (apiRequest.isNetworkError || apiRequest.isHttpError)
+        {
+            Debug.Log(apiRequest.error);
+        }
+        else
+        {
+            Debug.Log("metaDataUrl Response : " + apiRequest.downloadHandler.text);
+
+            Dictionary<string, object> registerUserDataDict = new Dictionary<string, object>();
+            registerUserDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
+
+            Debug.Log("Logout  " + registerUserDataDict["success"]);
+
+            List<object> listObj = new List<object>();
+            listObj = registerUserDataDict["exhibitors"] as List<object>;
+
+            Dictionary<string, object> innerDict = new Dictionary<string, object>();
+
+            _listLuckyDrawExhibitorCollege = new List<LuckyDrawExhibitorCollege>();
+
+            foreach (object item in listObj)
+            {
+                innerDict = item as Dictionary<string, object>;
+
+                Debug.Log("LuckyDrawExhibhitorList  " + innerDict["name"]);
+                LuckyDrawExhibitorCollege _luckyDrawDetails = new LuckyDrawExhibitorCollege();
+                _luckyDrawDetails.luckyDrawExhibitorId = innerDict["name"].ToString();
+                _luckyDrawDetails.boothId = innerDict["boothId"].ToString();
+                _listLuckyDrawExhibitorCollege.Add(_luckyDrawDetails);
+            }
+        }
+    }
+    // Generate Cupon once all stalls reached
+    public IEnumerator GenerateLuckyCupon(Action<string> cuponCode)
+    {
+        UnityWebRequest apiRequest = UnityWebRequest.Get(generateTokenUrl);
+        apiRequest.SetRequestHeader("Content-Type", "application/json");
+        apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
+        yield return apiRequest.SendWebRequest();
+
+        if (apiRequest.isNetworkError || apiRequest.isHttpError)
+        {
+            Debug.Log(apiRequest.error);
+        }
+        else
+        {
+            Dictionary<string, object> registerUserDataDict = new Dictionary<string, object>();
+            registerUserDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
+
+            Debug.Log("Logout  " + registerUserDataDict["success"]);
+
+            luckyCupon = registerUserDataDict["couponCode"].ToString();
+
+            cuponCode(luckyCupon);
+
+
+            Debug.Log("luckyCupon  " + luckyCupon);
         }
     }
 
@@ -396,9 +480,10 @@ public class ApiHandler : MonoBehaviour
                 _metaDataUrlContent._collegeDataClassList.Add(_collegeDataClass);
             }
         }
-
         StartCoroutine(Manager.instance.GenarateStalls());
-       // StartCoroutine(Manager.instance.GenarateHall_1_Stalls());
+        BrowserCommunicationManager.instance.callLoaded();
+       
+        // StartCoroutine(Manager.instance.GenarateHall_1_Stalls());
         //StartCoroutine(Manager.instance.GenarateHall_2_Stalls());
         //StartCoroutine(Manager.instance.GenarateHall_3_Stalls());
     }
@@ -476,7 +561,7 @@ public class metaDataUlData
 {
     public string eventName;
     public string eventId;
-  
+
     public string eventType;
     public string eventDestription;
 
@@ -498,4 +583,10 @@ public class metaDataUlData
 
     [SerializeField]
     public List<collegeDatas> _collegeDataClassList = new List<collegeDatas>();
+}
+[System.Serializable]
+public class LuckyDrawExhibitorCollege
+{
+    public string luckyDrawExhibitorId;
+    public string boothId;
 }

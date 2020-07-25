@@ -180,14 +180,20 @@ public class StallUIManager : MonoBehaviour
         menuSelectPanel.SetActive(false);
         //for (int i = 0; i < 2; i++)
         //{}
-        GameObject button = Instantiate(buttonTemplate) as GameObject;
-        button.SetActive(true);
+        
+      //  for (int i = 0; i < ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities.Count; i++)
+      //  {
+            GameObject button = Instantiate(buttonTemplate) as GameObject;
+            button.SetActive(true);
 
-        button.GetComponent<BroucherButtonList>().setBroucherKey(key);
-        button.GetComponent<BroucherButtonList>().setBroucherText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[0].exhibhitorsBoothAmenitiesName);
-        button.GetComponent<BroucherButtonList>().setBroucherDesText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[0].exhibhitorsBoothAmenitiesType);
+            button.GetComponent<BroucherButtonList>().setBroucherKey(key);
+            button.GetComponent<BroucherButtonList>().setBroucherText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[0].exhibhitorsBoothAmenitiesName);
+            button.GetComponent<BroucherButtonList>().setBroucherDesText(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key]._collegeAmenities[0].exhibhitorsBoothAmenitiesType);
 
-        button.transform.SetParent(buttonTemplate.transform.parent, false);
+            button.transform.SetParent(buttonTemplate.transform.parent, false);
+
+      //  }u
+       
 
         //}
     }

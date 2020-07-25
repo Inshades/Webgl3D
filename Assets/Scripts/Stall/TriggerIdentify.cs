@@ -28,7 +28,8 @@ public class TriggerIdentify : MonoBehaviour
         Debug.Log(transform.parent.GetSiblingIndex() + "get sibiling");
 
         int key = transform.parent.GetSiblingIndex();
-        luckydraw_key.checker(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName.ToString());
+        
+        luckydraw_key.checker(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId.ToString());
 
         //  string triggerName = trigger.name;
         //  triggerName = triggerName.Substring(triggerName.IndexOf("_") + 1, triggerName.IndexOf("(") - (triggerName.IndexOf("_") + 1));

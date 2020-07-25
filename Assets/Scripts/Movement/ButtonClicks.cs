@@ -12,8 +12,8 @@ public class ButtonClicks : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         flag = true;
         s = EventSystem.current.currentSelectedGameObject.name;
-        Debug.Log(this.gameObject.name + " Was Clicked.");
-        Debug.Log(s);
+     //   Debug.Log(this.gameObject.name + " Was Clicked.");
+     //   Debug.Log(s);
     }
     public void OnPointerUp(PointerEventData eventData)
     {

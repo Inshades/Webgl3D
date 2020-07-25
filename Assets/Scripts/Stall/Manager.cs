@@ -87,7 +87,7 @@ public class Manager : MonoBehaviour
         {
             foreach (Transform item in shopPositionContainer.transform)
             {
-                Debug.Log("Item Name " + item.name + " Booth Id  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[0]);
+                //Debug.Log("Item Name " + item.name + " Booth Id  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[0]);
                 if (item.name == ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[0])
                 {
                     stallType _stlType = (stallType)Enum.Parse(typeof(stallType), ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothModel[0]);
@@ -95,7 +95,9 @@ public class Manager : MonoBehaviour
                     obj.transform.parent = h1_Holder.transform;
                     obj.transform.GetComponent<StallManager>().currentIndex = item.GetSiblingIndex().ToString();
                     obj.name = item.name;
-                    yield return obj.transform.GetComponent<StallManager>().loadedStatus;
+                    yield return obj.transform.GetComponent<StallManager>().currentIndex;
+
+
                 }
 
             }
