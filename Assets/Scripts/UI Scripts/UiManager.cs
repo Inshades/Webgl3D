@@ -65,7 +65,9 @@ public class UiManager : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject userActivityObj, userActivityObjBrouch;
+    private GameObject userActivityObj;
+    [SerializeField]
+    private GameObject userActivityObjBrouch;
     [SerializeField]
     private GameObject usrActiveMyConnect, usrActiveMyDocument, usrActiveMyVideo;
 
@@ -313,17 +315,17 @@ public class UiManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
 
-        StartCoroutine(ApiHandler.instance.GetUserActivity());
+        StartCoroutine(ApiHandler.instance.GetUserActivity());    //1300
 
         if (ApiHandler.instance._userActivityList.Count != userActivityObjs.Count)
         {
-            userActivityObjs = new List<GameObject>();
+            // userActivityObjs = new List<GameObject>();   //0
 
             int ind = userActivityObjs.Count;
-            for (int i = ind + 1; i < ApiHandler.instance._userActivityList.Count; i++)
+            for (int i = ind; i < ApiHandler.instance._userActivityList.Count; i++)
             {
 
-
+                Debug.Log("Switch Check : " + ApiHandler.instance._userActivityList[i].activityType);
                 switch (ApiHandler.instance._userActivityList[i].activityType)
                 {
                     case "VIEW_BUSINESSCARD":

@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class myconnection_data : MonoBehaviour
 {
-    [SerializeField]
-    private Text Boothid;
+    
     [SerializeField]
     private Text BoothName;
     [SerializeField]
@@ -16,16 +15,18 @@ public class myconnection_data : MonoBehaviour
    
 
 
-    private int myKeystring;
+    private string myKeystring;
 
     public void setData( string Boothid, string BoothName, string ActivityType)
     {
       //  myKeystring = int.Parse( Boothid);
-        this.Boothid.text = Boothid;
-        this.BoothName.text = BoothName;
+        myKeystring = Boothid;
+        
         this.ActivityType.text = ActivityType;
+       this.BoothName.text = BoothName;
+            
 
-      //  Debug.Log(this.Boothid.text);
+       // Debug.Log(this..text);
 
 
     }
@@ -36,7 +37,7 @@ public class myconnection_data : MonoBehaviour
        
 
         //H1-2
-        string triggerName = this.Boothid.text;
+        string triggerName = myKeystring;
         triggerName = triggerName.Substring(triggerName.IndexOf("-") + 1, triggerName.Length - (triggerName.IndexOf("-") + 1));
         int key = int.Parse(triggerName);
         key = key - 1;

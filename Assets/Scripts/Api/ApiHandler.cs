@@ -14,6 +14,7 @@ public enum userActivityType
     CHAT,
 }
 
+
 public class ApiHandler : MonoBehaviour
 {
     private static string urlHeader = "https://vxrvenue.herokuapp.com";
@@ -49,10 +50,16 @@ public class ApiHandler : MonoBehaviour
     private string registerUserUrl = "https://vxrvenue.herokuapp.com/v1/registerUser";
 
     [SerializeField]
+    private string getRefferalCode = urlHeader + "/v1/getRefferalCode";
+
+    [SerializeField]
     public metaDataUlData _metaDataUrlContent;
 
     [SerializeField]
     public List<UserActivity> _userActivityList = new List<UserActivity>();
+
+
+    public List<string> usersActivityMaintainList = new List<string>();
 
     public static ApiHandler instance = null;
     public static ApiHandler Instance
@@ -77,10 +84,16 @@ public class ApiHandler : MonoBehaviour
     private void Start()
     {
         StartCoroutine(authenticateUser());
+        // StartCoroutine(ApiHandler.instance.GetUserActivity());
+
+        //for (int i = 0; i < ApiHandler.instance._userActivityList.Count; i++)
+        //{
+        //    usersActivityMaintainList.Add(ApiHandler.instance._userActivityList[i].userToken + ApiHandler.instance._userActivityList[i].activityType + ApiHandler.instance._userActivityList[i].boothName);
+        //}
         // StartCoroutine(stallDetaitsParser());
     }
 
-    IEnumerator RegisterNewUser()
+        IEnumerator RegisterNewUser()
     {
         Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
         urlHeaderKeys.Add("name", "VigneshG");
@@ -145,32 +158,40 @@ public class ApiHandler : MonoBehaviour
 
     public IEnumerator SaveUserActivity(userActivityType activityType, string activityData, string boothName, string boothId, string exhibitorId)
     {
-        Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
-        urlHeaderKeys.Add("activityType", activityType.ToString());
-        urlHeaderKeys.Add("activityData", activityData);
-        urlHeaderKeys.Add("boothName", boothName);
-        urlHeaderKeys.Add("boothId", boothId);
-        urlHeaderKeys.Add("exhibitorId", exhibitorId);
-        urlHeaderKeys.Add("token", userTokeId);
-
-        UnityWebRequest apiRequest = UnityWebRequest.Post(SaveUserActivityUrl, urlHeaderKeys);
-        //apiRequest.SetRequestHeader("Content-Type", "application/json");
-        //apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
-
-        yield return apiRequest.SendWebRequest();
-
-        if (apiRequest.isNetworkError || apiRequest.isHttpError)
+      //  string str = userTokeId + activityType + boothName;
+      //  if (!usersActivityMaintainList.Contains(str))
         {
-            Debug.Log(apiRequest.error);
-        }
-        else
-        {
-            Dictionary<string, object> registrationResponse = new Dictionary<string, object>();
-            registrationResponse = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
-            Debug.Log(registrationResponse["successs"]);
+         //   usersActivityMaintainList.Add(userTokeId + activityType + boothName);
+            Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
+            urlHeaderKeys.Add("activityType", activityType.ToString());
+            urlHeaderKeys.Add("activityData", activityData);
+            urlHeaderKeys.Add("boothName", boothName);
+            urlHeaderKeys.Add("boothId", boothId);
+            urlHeaderKeys.Add("exhibitorId", exhibitorId);
+            urlHeaderKeys.Add("token", userTokeId);
+
+            UnityWebRequest apiRequest = UnityWebRequest.Post(SaveUserActivityUrl, urlHeaderKeys);
+            //apiRequest.SetRequestHeader("Content-Type", "application/json");
+            //apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
+
+            yield return apiRequest.SendWebRequest();
+
+            if (apiRequest.isNetworkError || apiRequest.isHttpError)
+            {
+                Debug.Log(apiRequest.error);
+            }
+            else
+            {
+                Dictionary<string, object> registrationResponse = new Dictionary<string, object>();
+                registrationResponse = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
+                Debug.Log(registrationResponse["successs"]);
 
 
+            }
+
         }
+
+        
     }
 
     public IEnumerator GetUserActivity()
@@ -282,6 +303,40 @@ public class ApiHandler : MonoBehaviour
 
             Debug.Log("luckyCupon  " + luckyCupon);
         }
+    }
+
+    public IEnumerator GenerateRefferalCode(Action<string> refferalCode)
+    {
+        UnityWebRequest apiRequest = UnityWebRequest.Get(getRefferalCode);
+        apiRequest.SetRequestHeader("Content-Type", "application/json");
+        apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
+        yield return apiRequest.SendWebRequest();
+
+        if (apiRequest.isNetworkError || apiRequest.isHttpError)
+        {
+            Debug.Log(apiRequest.error);
+        }
+        else
+        {
+            Dictionary<string, object> registerUserDataDict = new Dictionary<string, object>();
+            registerUserDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
+
+            Debug.Log("Logout  " + registerUserDataDict["success"]);
+
+            string GeneratedRefferalCode = registerUserDataDict["refferalCode"].ToString();
+
+            refferalCode(GeneratedRefferalCode);
+
+
+            Debug.Log("refferalCode  " + GeneratedRefferalCode);
+        }
+
+        //Use this method to call 
+        //StartCoroutine(ApiHandler.instance.GenerateRefferalCode((callBack) =>
+        //{
+        //    Debug.Log("My Refferal Code is :  " + callBack);
+
+        //}));
     }
 
     public IEnumerator logoutApiCall()

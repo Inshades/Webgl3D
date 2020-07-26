@@ -12,14 +12,14 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private GameObject[] stalls;
 
-    [SerializeField]
-    private GameObject[] h1_Stalls;
+    //[SerializeField]
+    //private GameObject[] h1_Stalls;
 
-    [SerializeField]
-    private GameObject[] h2_Stalls;
+    //[SerializeField]
+    //private GameObject[] h2_Stalls;
 
-    [SerializeField]
-    private GameObject[] h3_Stalls;
+    //[SerializeField]
+    //private GameObject[] h3_Stalls;
 
     private List<string> stallName;
 

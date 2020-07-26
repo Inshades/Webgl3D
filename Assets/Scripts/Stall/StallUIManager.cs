@@ -37,8 +37,10 @@ public class StallUIManager : MonoBehaviour
     [Header("Exhibitor Info")]
     public GameObject infoPanel;
     public Text exhibName;
-    public Text exhibType;
+    public Text exhibId;
     public Text exhibDescp;
+    public Text exhibContact;
+    public Text exhibTag;
 
     [Header("Broucher")]
     public GameObject broucherPanel;
@@ -164,8 +166,11 @@ public class StallUIManager : MonoBehaviour
     {
         infoPanel.SetActive(true);
         exhibName.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName.ToString();
-        exhibType.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsType.ToString();
-        exhibDescp.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsTagLine.ToString();
+        exhibId.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId.ToString();
+        exhibDescp.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsDescription.ToString();
+        exhibContact.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressState.ToString();
+        exhibTag.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsTagLine.ToString();
+
         menuSelectPanel.SetActive(false);
 
     }

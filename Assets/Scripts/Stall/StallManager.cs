@@ -34,8 +34,11 @@ public class StallManager : MonoBehaviour
         {
             spriteUrl.Add(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[currentStallIndex]._exhibhitorsMetaDataMediaClassList[i].exhibhitorsMetaDataMediaUrl);
         }
-
-        applyTexture();
+        //To stop image load again and again
+        if (stallSprite.Count != spriteUrl.Count)
+        {
+            applyTexture();
+        }
     }
 
     void applyTexture()
