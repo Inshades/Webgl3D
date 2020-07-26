@@ -27,6 +27,7 @@ public class BrowserCommunicationManager : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
     [DllImport("__Internal")]
     private static extern void logout(string logout);
+    [DllImport("__Internal")]
     private static extern void loaded();
 #endif
     // Then create a function that is going to trigger

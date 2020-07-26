@@ -278,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   stall_uimanager: {fileID: 0}
+  luckydraw_key: {fileID: 0}
   Canvas: {fileID: 0}
 --- !u!1 &256366537357537641
 GameObject:
@@ -955,7 +956,6 @@ MonoBehaviour:
   boothId: 
   boothType: 2
   spriteUrl: []
-  stallSpriteSource: []
   stallSprite: []
   _meshRenderer:
   - {fileID: 8676713247999656174}
@@ -7528,7 +7528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8914768578622184040}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.129, z: 2.49}
+  m_LocalPosition: {x: 0, y: 1.55, z: 2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4962782668547408213}

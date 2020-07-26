@@ -46,7 +46,7 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         
-        if (Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right") || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right") || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             ProgressStepCycle(count);
             count += 1;
@@ -54,9 +54,14 @@ public class Movement_Script : MonoBehaviour, IPointerUpHandler, IPointerDownHan
 
             controller.Move(move * speed * Time.deltaTime);
         }
+        if(Input.GetKey(KeyCode.A))
+            rotateLeft();
 
-            //UI Control
-            if (Rot_Lft != 0)
+        if (Input.GetKey(KeyCode.D))
+            rotateRight();
+
+        //UI Control
+        if (Rot_Lft != 0)
             {
                 rotateLeft();
             }

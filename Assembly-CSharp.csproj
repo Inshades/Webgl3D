@@ -63,13 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Bridge.cs" />
-    <Compile Include="Assets\Hall1.cs" />
-    <Compile Include="Assets\Hall2.cs" />
-    <Compile Include="Assets\Hall3.cs" />
-    <Compile Include="Assets\luckydraw.cs" />
     <Compile Include="Assets\Scripts\Api\ApiHandler.cs" />
     <Compile Include="Assets\Scripts\Api\MiniJSON.cs" />
+    <Compile Include="Assets\Scripts\Bridge.cs" />
     <Compile Include="Assets\Scripts\BroucherButtonList.cs" />
     <Compile Include="Assets\Scripts\BrowserCommunication\BrowserCommunicationManager.cs" />
     <Compile Include="Assets\Scripts\ChatControl.cs" />
@@ -79,6 +75,8 @@
     <Compile Include="Assets\Scripts\ExhibitorButtonList.cs" />
     <Compile Include="Assets\Scripts\FPS\MouseLook.cs" />
     <Compile Include="Assets\Scripts\FPS\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\luckydraw.cs" />
+    <Compile Include="Assets\Scripts\MallManager.cs" />
     <Compile Include="Assets\Scripts\Movement\ButtonClicks.cs" />
     <Compile Include="Assets\Scripts\Movement\Movement_Script.cs" />
     <Compile Include="Assets\Scripts\myconn_controller.cs" />

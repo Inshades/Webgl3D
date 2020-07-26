@@ -65,7 +65,7 @@ public class UiManager : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject userActivityObj , userActivityObjBrouch;
+    private GameObject userActivityObj, userActivityObjBrouch;
     [SerializeField]
     private GameObject usrActiveMyConnect, usrActiveMyDocument, usrActiveMyVideo;
 
@@ -92,6 +92,14 @@ public class UiManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
+    public void Start()
+    {
+        //Check if the device running this is a handheld
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            mobileUiPanel.SetActive(true);
+        }
+    }
     public void LogoutButton()
     {
         logoutPanel.SetActive(true);
@@ -101,7 +109,9 @@ public class UiManager : MonoBehaviour
     //In logout panel, yes clicked to close application
     public void Yes_LogoutButton()
     {
-        Application.Quit();
+        BrowserCommunicationManager.instance.CallLogout();
+        StartCoroutine(ApiHandler.instance.logoutApiCall());
+        //Application.Quit();
     }
     //In Logout panel, no clicked to continue the application
     public void No_LogoutButton()
@@ -151,10 +161,10 @@ public class UiManager : MonoBehaviour
                 button.SetActive(true);
 
                 button.GetComponent<ReceptionInfoList>().setInfoKey(i);
-                button.GetComponent<ReceptionInfoList>().setInfoText(i+1 + "  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
+                button.GetComponent<ReceptionInfoList>().setInfoText(i + 1 + "  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
                 button.GetComponent<ReceptionInfoList>().setInfoDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
 
-              
+
 
                 StartCoroutine(button.GetComponent<ReceptionInfoList>().InfodownloadImage(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsLogoUrl));
                 button.transform.SetParent(receptionButtonTemplate.transform.parent, false);
@@ -193,7 +203,7 @@ public class UiManager : MonoBehaviour
                 button.SetActive(true);
 
                 button.GetComponent<ExhibitorButtonList>().setKey(i);
-                button.GetComponent<ExhibitorButtonList>().setText(i+1 + "  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
+                button.GetComponent<ExhibitorButtonList>().setText(i + 1 + "  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsName);
                 button.GetComponent<ExhibitorButtonList>().setDescription(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsDescription);
 
                 button.GetComponent<ExhibitorButtonList>().Tags = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].searchTags;
@@ -310,9 +320,9 @@ public class UiManager : MonoBehaviour
             userActivityObjs = new List<GameObject>();
 
             int ind = userActivityObjs.Count;
-            for (int i = ind+1; i < ApiHandler.instance._userActivityList.Count; i++)
+            for (int i = ind + 1; i < ApiHandler.instance._userActivityList.Count; i++)
             {
-               
+
 
                 switch (ApiHandler.instance._userActivityList[i].activityType)
                 {
@@ -323,11 +333,11 @@ public class UiManager : MonoBehaviour
                         userActivityObjs.Add(listitem);
                         listitem.SetActive(true);
                         listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
-                         listitem.transform.parent = usrActiveMyConnect.transform;
+                        listitem.transform.parent = usrActiveMyConnect.transform;
                         // listitem.transform.SetParent(Listtemplate.transform.parent, false);
                         break;
                     case "DOWNLOAD_BROUCHER":
-                         listitem = Instantiate(userActivityObjBrouch) as GameObject;
+                        listitem = Instantiate(userActivityObjBrouch) as GameObject;
                         userActivityObjs.Add(listitem);
                         listitem.SetActive(true);
                         listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
@@ -335,7 +345,7 @@ public class UiManager : MonoBehaviour
                         // listitem.transform.SetParent(Listtemplate.transform.parent, false);
                         break;
                     case "VIEW_VIDEO":
-                         listitem = Instantiate(userActivityObjBrouch) as GameObject;
+                        listitem = Instantiate(userActivityObjBrouch) as GameObject;
                         userActivityObjs.Add(listitem);
                         listitem.SetActive(true);
                         listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);

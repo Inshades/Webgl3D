@@ -29,7 +29,9 @@ public class TriggerIdentify : MonoBehaviour
 
         int key = transform.parent.GetSiblingIndex();
         
-        luckydraw_key.checker(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId.ToString());
+
+        luckydraw_key.checker(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0].ToString());
+        Debug.Log("key" + key + "boothid" + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0].ToString());
 
         //  string triggerName = trigger.name;
         //  triggerName = triggerName.Substring(triggerName.IndexOf("_") + 1, triggerName.IndexOf("(") - (triggerName.IndexOf("_") + 1));

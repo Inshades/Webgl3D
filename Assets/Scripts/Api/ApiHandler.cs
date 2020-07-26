@@ -284,6 +284,26 @@ public class ApiHandler : MonoBehaviour
         }
     }
 
+    public IEnumerator logoutApiCall()
+    {
+        UnityWebRequest apiRequest = UnityWebRequest.Get(logoutUrl);
+        apiRequest.SetRequestHeader("Content-Type", "application/json");
+        apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
+        yield return apiRequest.SendWebRequest();
+
+        if (apiRequest.isNetworkError || apiRequest.isHttpError)
+        {
+            Debug.Log(apiRequest.error);
+        }
+        else
+        {
+            Dictionary<string, object> registerUserDataDict = new Dictionary<string, object>();
+            registerUserDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
+
+            Debug.Log("Logout  " + registerUserDataDict["success"]);
+        }
+    }
+
     public IEnumerator sendEmail(string emailSubject, string emailMessage, string eventId, string exhibitorId)
     {
         Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
@@ -480,9 +500,11 @@ public class ApiHandler : MonoBehaviour
                 _metaDataUrlContent._collegeDataClassList.Add(_collegeDataClass);
             }
         }
-        StartCoroutine(Manager.instance.GenarateStalls());
+#if UNITY_WEBGL && !UNITY_EDITOR
         BrowserCommunicationManager.instance.callLoaded();
-       
+#endif
+
+        StartCoroutine(Manager.instance.GenarateStalls());
         // StartCoroutine(Manager.instance.GenarateHall_1_Stalls());
         //StartCoroutine(Manager.instance.GenarateHall_2_Stalls());
         //StartCoroutine(Manager.instance.GenarateHall_3_Stalls());

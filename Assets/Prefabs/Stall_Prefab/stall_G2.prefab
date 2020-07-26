@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569487948743199341}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.129, z: 2.49}
+  m_LocalPosition: {x: 0, y: 1.55, z: 2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 697999765399029459}
@@ -178,7 +178,6 @@ MonoBehaviour:
   boothId: 
   boothType: 3
   spriteUrl: []
-  stallSpriteSource: []
   stallSprite: []
   _meshRenderer:
   - {fileID: 697999765397259321}
@@ -553,6 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   stall_uimanager: {fileID: 0}
+  luckydraw_key: {fileID: 0}
   Canvas: {fileID: 0}
 --- !u!1 &4674419773915546944
 GameObject:

@@ -14,7 +14,7 @@ public class StallManager : MonoBehaviour
     public stallType boothType;
 
     public List<string> spriteUrl = new List<string>();
-    public List<SpriteRenderer> stallSpriteSource;
+   
     public List<Texture> stallSprite;
 
     public List<MeshRenderer> _meshRenderer;
