@@ -1,0 +1,1200 @@
+fileFormatVersion: 2
+guid: 9a023f2174f92f0429db708c294694b2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ball_l
+    100002: ball_l 1
+    100004: ball_l 2
+    100006: ball_r
+    100008: ball_r 1
+    100010: ball_r 2
+    100012: box
+    100014: box 1
+    100016: brochure button
+    100018: eye_end_l
+    100020: eye_end_l 1
+    100022: eye_end_l 2
+    100024: eye_end_l_end
+    100026: eye_end_l_end 1
+    100028: eye_end_l_end 2
+    100030: eye_end_l_end_end
+    100032: eye_end_l_end_end 1
+    100034: eye_end_l_end_end 2
+    100036: eye_end_l_end_end_end
+    100038: eye_end_l_end_end_end_end
+    100040: eye_end_r
+    100042: eye_end_r 1
+    100044: eye_end_r 2
+    100046: eye_end_r_end
+    100048: eye_end_r_end 1
+    100050: eye_end_r_end 2
+    100052: eye_end_r_end_end
+    100054: eye_end_r_end_end 1
+    100056: eye_end_r_end_end 2
+    100058: eye_end_r_end_end_end
+    100060: eye_end_r_end_end_end_end
+    100062: eye_l
+    100064: eye_l 1
+    100066: eye_l 2
+    100068: eye_r
+    100070: eye_r 1
+    100072: eye_r 2
+    100074: eyebrow_l
+    100076: eyebrow_l 1
+    100078: eyebrow_l 2
+    100080: eyebrow_l_end
+    100082: eyebrow_l_end 1
+    100084: eyebrow_l_end 2
+    100086: eyebrow_l_end_end
+    100088: eyebrow_l_end_end 1
+    100090: eyebrow_l_end_end 2
+    100092: eyebrow_l_end_end_end
+    100094: eyebrow_l_end_end_end_end
+    100096: eyebrow_r
+    100098: eyebrow_r 1
+    100100: eyebrow_r 2
+    100102: eyebrow_r_end
+    100104: eyebrow_r_end 1
+    100106: eyebrow_r_end 2
+    100108: eyebrow_r_end_end
+    100110: eyebrow_r_end_end 1
+    100112: eyebrow_r_end_end 2
+    100114: eyebrow_r_end_end_end
+    100116: eyebrow_r_end_end_end_end
+    100118: eyelid_end_l
+    100120: eyelid_end_l 1
+    100122: eyelid_end_l 2
+    100124: eyelid_end_l_end
+    100126: eyelid_end_l_end 1
+    100128: eyelid_end_l_end 2
+    100130: eyelid_end_l_end_end
+    100132: eyelid_end_l_end_end 1
+    100134: eyelid_end_l_end_end 2
+    100136: eyelid_end_l_end_end_end
+    100138: eyelid_end_l_end_end_end_end
+    100140: eyelid_end_r
+    100142: eyelid_end_r 1
+    100144: eyelid_end_r 2
+    100146: eyelid_end_r_end
+    100148: eyelid_end_r_end 1
+    100150: eyelid_end_r_end 2
+    100152: eyelid_end_r_end_end
+    100154: eyelid_end_r_end_end 1
+    100156: eyelid_end_r_end_end 2
+    100158: eyelid_end_r_end_end_end
+    100160: eyelid_end_r_end_end_end_end
+    100162: eyelid_l
+    100164: eyelid_l 1
+    100166: eyelid_l 2
+    100168: eyelid_r
+    100170: eyelid_r 1
+    100172: eyelid_r 2
+    100174: foot_end_l
+    100176: foot_end_l 1
+    100178: foot_end_l 2
+    100180: foot_end_l_end
+    100182: foot_end_l_end 1
+    100184: foot_end_l_end 2
+    100186: foot_end_l_end_end
+    100188: foot_end_l_end_end 1
+    100190: foot_end_l_end_end 2
+    100192: foot_end_l_end_end_end
+    100194: foot_end_l_end_end_end_end
+    100196: foot_end_r
+    100198: foot_end_r 1
+    100200: foot_end_r 2
+    100202: foot_end_r_end
+    100204: foot_end_r_end 1
+    100206: foot_end_r_end 2
+    100208: foot_end_r_end_end
+    100210: foot_end_r_end_end 1
+    100212: foot_end_r_end_end 2
+    100214: foot_end_r_end_end_end
+    100216: foot_end_r_end_end_end_end
+    100218: foot_l
+    100220: foot_l 1
+    100222: foot_l 2
+    100224: foot_r
+    100226: foot_r 1
+    100228: foot_r 2
+    100230: hand_l
+    100232: hand_l 1
+    100234: hand_l 2
+    100236: hand_r
+    100238: hand_r 1
+    100240: hand_r 2
+    100242: head
+    100244: head 1
+    100246: head 2
+    100248: head_end
+    100250: head_end 1
+    100252: head_end 2
+    100254: head_end_end
+    100256: head_end_end 1
+    100258: head_end_end 2
+    100260: head_end_end_end
+    100262: head_end_end_end 1
+    100264: head_end_end_end 2
+    100266: head_end_end_end_end
+    100268: head_end_end_end_end_end
+    100270: hip
+    100272: hip 1
+    100274: hip 2
+    100276: index_01_l
+    100278: index_01_l 1
+    100280: index_01_l 2
+    100282: index_01_r
+    100284: index_01_r 1
+    100286: index_01_r 2
+    100288: index_02_l
+    100290: index_02_l 1
+    100292: index_02_l 2
+    100294: index_02_r
+    100296: index_02_r 1
+    100298: index_02_r 2
+    100300: index_03_l
+    100302: index_03_l 1
+    100304: index_03_l 2
+    100306: index_03_r
+    100308: index_03_r 1
+    100310: index_03_r 2
+    100312: index_end_l
+    100314: index_end_l 1
+    100316: index_end_l 2
+    100318: index_end_l_end
+    100320: index_end_l_end 1
+    100322: index_end_l_end 2
+    100324: index_end_l_end_end
+    100326: index_end_l_end_end 1
+    100328: index_end_l_end_end 2
+    100330: index_end_l_end_end_end
+    100332: index_end_l_end_end_end_end
+    100334: index_end_r
+    100336: index_end_r 1
+    100338: index_end_r 2
+    100340: index_end_r_end
+    100342: index_end_r_end 1
+    100344: index_end_r_end 2
+    100346: index_end_r_end_end
+    100348: index_end_r_end_end 1
+    100350: index_end_r_end_end 2
+    100352: index_end_r_end_end_end
+    100354: index_end_r_end_end_end_end
+    100356: info button
+    100358: //RootNode
+    100360: jaw
+    100362: jaw 1
+    100364: jaw 2
+    100366: jaw_end
+    100368: jaw_end 1
+    100370: jaw_end 2
+    100372: jaw_end_end
+    100374: jaw_end_end 1
+    100376: jaw_end_end 2
+    100378: jaw_end_end_end
+    100380: jaw_end_end_end 1
+    100382: jaw_end_end_end 2
+    100384: jaw_end_end_end_end
+    100386: jaw_end_end_end_end_end
+    100388: Leafs
+    100390: lowerarm_l
+    100392: lowerarm_l 1
+    100394: lowerarm_l 2
+    100396: lowerarm_r
+    100398: lowerarm_r 1
+    100400: lowerarm_r 2
+    100402: lowerarm_twist_l
+    100404: lowerarm_twist_l 1
+    100406: lowerarm_twist_l 2
+    100408: lowerarm_twist_l_end
+    100410: lowerarm_twist_l_end 1
+    100412: lowerarm_twist_l_end 2
+    100414: lowerarm_twist_l_end_end
+    100416: lowerarm_twist_l_end_end 1
+    100418: lowerarm_twist_l_end_end 2
+    100420: lowerarm_twist_l_end_end_end
+    100422: lowerarm_twist_l_end_end_end_end
+    100424: lowerarm_twist_r
+    100426: lowerarm_twist_r 1
+    100428: lowerarm_twist_r 2
+    100430: lowerarm_twist_r_end
+    100432: lowerarm_twist_r_end 1
+    100434: lowerarm_twist_r_end 2
+    100436: lowerarm_twist_r_end_end
+    100438: lowerarm_twist_r_end_end 1
+    100440: lowerarm_twist_r_end_end 2
+    100442: lowerarm_twist_r_end_end_end
+    100444: lowerarm_twist_r_end_end_end_end
+    100446: lowerleg_l
+    100448: lowerleg_l 1
+    100450: lowerleg_l 2
+    100452: lowerleg_r
+    100454: lowerleg_r 1
+    100456: lowerleg_r 2
+    100458: lowerleg_twist_l
+    100460: lowerleg_twist_l 1
+    100462: lowerleg_twist_l 2
+    100464: lowerleg_twist_l_end
+    100466: lowerleg_twist_l_end 1
+    100468: lowerleg_twist_l_end 2
+    100470: lowerleg_twist_l_end_end
+    100472: lowerleg_twist_l_end_end 1
+    100474: lowerleg_twist_l_end_end 2
+    100476: lowerleg_twist_l_end_end_end
+    100478: lowerleg_twist_l_end_end_end_end
+    100480: lowerleg_twist_r
+    100482: lowerleg_twist_r 1
+    100484: lowerleg_twist_r 2
+    100486: lowerleg_twist_r_end
+    100488: lowerleg_twist_r_end 1
+    100490: lowerleg_twist_r_end 2
+    100492: lowerleg_twist_r_end_end
+    100494: lowerleg_twist_r_end_end 1
+    100496: lowerleg_twist_r_end_end 2
+    100498: lowerleg_twist_r_end_end_end
+    100500: lowerleg_twist_r_end_end_end_end
+    100502: middle_01_l
+    100504: middle_01_l 1
+    100506: middle_01_l 2
+    100508: middle_01_r
+    100510: middle_01_r 1
+    100512: middle_01_r 2
+    100514: middle_02_l
+    100516: middle_02_l 1
+    100518: middle_02_l 2
+    100520: middle_02_r
+    100522: middle_02_r 1
+    100524: middle_02_r 2
+    100526: middle_03_l
+    100528: middle_03_l 1
+    100530: middle_03_l 2
+    100532: middle_03_r
+    100534: middle_03_r 1
+    100536: middle_03_r 2
+    100538: middle_end_l
+    100540: middle_end_l 1
+    100542: middle_end_l 2
+    100544: middle_end_l_end
+    100546: middle_end_l_end 1
+    100548: middle_end_l_end 2
+    100550: middle_end_l_end_end
+    100552: middle_end_l_end_end 1
+    100554: middle_end_l_end_end 2
+    100556: middle_end_l_end_end_end
+    100558: middle_end_l_end_end_end_end
+    100560: middle_end_r
+    100562: middle_end_r 1
+    100564: middle_end_r 2
+    100566: middle_end_r_end
+    100568: middle_end_r_end 1
+    100570: middle_end_r_end 2
+    100572: middle_end_r_end_end
+    100574: middle_end_r_end_end 1
+    100576: middle_end_r_end_end 2
+    100578: middle_end_r_end_end_end
+    100580: middle_end_r_end_end_end_end
+    100582: mouth_l
+    100584: mouth_l 1
+    100586: mouth_l 2
+    100588: mouth_l_end
+    100590: mouth_l_end 1
+    100592: mouth_l_end 2
+    100594: mouth_l_end_end
+    100596: mouth_l_end_end 1
+    100598: mouth_l_end_end 2
+    100600: mouth_l_end_end_end
+    100602: mouth_l_end_end_end_end
+    100604: mouth_r
+    100606: mouth_r 1
+    100608: mouth_r 2
+    100610: mouth_r_end
+    100612: mouth_r_end 1
+    100614: mouth_r_end 2
+    100616: mouth_r_end_end
+    100618: mouth_r_end_end 1
+    100620: mouth_r_end_end 2
+    100622: mouth_r_end_end_end
+    100624: mouth_r_end_end_end_end
+    100626: neck
+    100628: neck 1
+    100630: neck 2
+    100632: pinky_01_l
+    100634: pinky_01_l 1
+    100636: pinky_01_l 2
+    100638: pinky_01_r
+    100640: pinky_01_r 1
+    100642: pinky_01_r 2
+    100644: pinky_02_l
+    100646: pinky_02_l 1
+    100648: pinky_02_l 2
+    100650: pinky_02_r
+    100652: pinky_02_r 1
+    100654: pinky_02_r 2
+    100656: pinky_03_l
+    100658: pinky_03_l 1
+    100660: pinky_03_l 2
+    100662: pinky_03_r
+    100664: pinky_03_r 1
+    100666: pinky_03_r 2
+    100668: pinky_end_l
+    100670: pinky_end_l 1
+    100672: pinky_end_l 2
+    100674: pinky_end_l_end
+    100676: pinky_end_l_end 1
+    100678: pinky_end_l_end 2
+    100680: pinky_end_l_end_end
+    100682: pinky_end_l_end_end 1
+    100684: pinky_end_l_end_end 2
+    100686: pinky_end_l_end_end_end
+    100688: pinky_end_l_end_end_end_end
+    100690: pinky_end_r
+    100692: pinky_end_r 1
+    100694: pinky_end_r 2
+    100696: pinky_end_r_end
+    100698: pinky_end_r_end 1
+    100700: pinky_end_r_end 2
+    100702: pinky_end_r_end_end
+    100704: pinky_end_r_end_end 1
+    100706: pinky_end_r_end_end 2
+    100708: pinky_end_r_end_end_end
+    100710: pinky_end_r_end_end_end_end
+    100712: pot
+    100714: ring_01_l
+    100716: ring_01_l 1
+    100718: ring_01_l 2
+    100720: ring_01_r
+    100722: ring_01_r 1
+    100724: ring_01_r 2
+    100726: ring_02_l
+    100728: ring_02_l 1
+    100730: ring_02_l 2
+    100732: ring_02_r
+    100734: ring_02_r 1
+    100736: ring_02_r 2
+    100738: ring_03_l
+    100740: ring_03_l 1
+    100742: ring_03_l 2
+    100744: ring_03_r
+    100746: ring_03_r 1
+    100748: ring_03_r 2
+    100750: ring_end_l
+    100752: ring_end_l 1
+    100754: ring_end_l 2
+    100756: ring_end_l_end
+    100758: ring_end_l_end 1
+    100760: ring_end_l_end 2
+    100762: ring_end_l_end_end
+    100764: ring_end_l_end_end 1
+    100766: ring_end_l_end_end 2
+    100768: ring_end_l_end_end_end
+    100770: ring_end_l_end_end_end_end
+    100772: ring_end_r
+    100774: ring_end_r 1
+    100776: ring_end_r 2
+    100778: ring_end_r_end
+    100780: ring_end_r_end 1
+    100782: ring_end_r_end 2
+    100784: ring_end_r_end_end
+    100786: ring_end_r_end_end 1
+    100788: ring_end_r_end_end 2
+    100790: ring_end_r_end_end_end
+    100792: ring_end_r_end_end_end_end
+    100794: root
+    100796: root 1
+    100798: root 2
+    100800: rp_claudia_rigged_002
+    100802: rp_claudia_rigged_002.001
+    100804: rp_claudia_rigged_002_geo
+    100806: rp_eric_rigged_001
+    100808: rp_eric_rigged_001_geo.001
+    100810: shoulder_l
+    100812: shoulder_l 1
+    100814: shoulder_l 2
+    100816: shoulder_r
+    100818: shoulder_r 1
+    100820: shoulder_r 2
+    100822: spine_01
+    100824: spine_01 1
+    100826: spine_01 2
+    100828: spine_02
+    100830: spine_02 1
+    100832: spine_02 2
+    100834: spine_03
+    100836: spine_03 1
+    100838: spine_03 2
+    100840: thumb_01_l
+    100842: thumb_01_l 1
+    100844: thumb_01_l 2
+    100846: thumb_01_r
+    100848: thumb_01_r 1
+    100850: thumb_01_r 2
+    100852: thumb_02_l
+    100854: thumb_02_l 1
+    100856: thumb_02_l 2
+    100858: thumb_02_r
+    100860: thumb_02_r 1
+    100862: thumb_02_r 2
+    100864: thumb_03_l
+    100866: thumb_03_l 1
+    100868: thumb_03_l 2
+    100870: thumb_03_r
+    100872: thumb_03_r 1
+    100874: thumb_03_r 2
+    100876: thumb_end_l
+    100878: thumb_end_l 1
+    100880: thumb_end_l 2
+    100882: thumb_end_l_end
+    100884: thumb_end_l_end 1
+    100886: thumb_end_l_end 2
+    100888: thumb_end_l_end_end
+    100890: thumb_end_l_end_end 1
+    100892: thumb_end_l_end_end 2
+    100894: thumb_end_l_end_end_end
+    100896: thumb_end_l_end_end_end_end
+    100898: thumb_end_r
+    100900: thumb_end_r 1
+    100902: thumb_end_r 2
+    100904: thumb_end_r_end
+    100906: thumb_end_r_end 1
+    100908: thumb_end_r_end 2
+    100910: thumb_end_r_end_end
+    100912: thumb_end_r_end_end 1
+    100914: thumb_end_r_end_end 2
+    100916: thumb_end_r_end_end_end
+    100918: thumb_end_r_end_end_end_end
+    100920: upperarm_l
+    100922: upperarm_l 1
+    100924: upperarm_l 2
+    100926: upperarm_r
+    100928: upperarm_r 1
+    100930: upperarm_r 2
+    100932: upperarm_twist_l
+    100934: upperarm_twist_l 1
+    100936: upperarm_twist_l 2
+    100938: upperarm_twist_l_end
+    100940: upperarm_twist_l_end 1
+    100942: upperarm_twist_l_end 2
+    100944: upperarm_twist_l_end_end
+    100946: upperarm_twist_l_end_end 1
+    100948: upperarm_twist_l_end_end 2
+    100950: upperarm_twist_l_end_end_end
+    100952: upperarm_twist_l_end_end_end_end
+    100954: upperarm_twist_r
+    100956: upperarm_twist_r 1
+    100958: upperarm_twist_r 2
+    100960: upperarm_twist_r_end
+    100962: upperarm_twist_r_end 1
+    100964: upperarm_twist_r_end 2
+    100966: upperarm_twist_r_end_end
+    100968: upperarm_twist_r_end_end 1
+    100970: upperarm_twist_r_end_end 2
+    100972: upperarm_twist_r_end_end_end
+    100974: upperarm_twist_r_end_end_end_end
+    100976: upperleg_l
+    100978: upperleg_l 1
+    100980: upperleg_l 2
+    100982: upperleg_r
+    100984: upperleg_r 1
+    100986: upperleg_r 2
+    100988: upperleg_twist_l
+    100990: upperleg_twist_l 1
+    100992: upperleg_twist_l 2
+    100994: upperleg_twist_l_end
+    100996: upperleg_twist_l_end 1
+    100998: upperleg_twist_l_end 2
+    101000: upperleg_twist_l_end_end
+    101002: upperleg_twist_l_end_end 1
+    101004: upperleg_twist_l_end_end 2
+    101006: upperleg_twist_l_end_end_end
+    101008: upperleg_twist_l_end_end_end_end
+    101010: upperleg_twist_r
+    101012: upperleg_twist_r 1
+    101014: upperleg_twist_r 2
+    101016: upperleg_twist_r_end
+    101018: upperleg_twist_r_end 1
+    101020: upperleg_twist_r_end 2
+    101022: upperleg_twist_r_end_end
+    101024: upperleg_twist_r_end_end 1
+    101026: upperleg_twist_r_end_end 2
+    101028: upperleg_twist_r_end_end_end
+    101030: upperleg_twist_r_end_end_end_end
+    101032: video button
+    400000: ball_l
+    400002: ball_l 1
+    400004: ball_l 2
+    400006: ball_r
+    400008: ball_r 1
+    400010: ball_r 2
+    400012: box
+    400014: box 1
+    400016: brochure button
+    400018: eye_end_l
+    400020: eye_end_l 1
+    400022: eye_end_l 2
+    400024: eye_end_l_end
+    400026: eye_end_l_end 1
+    400028: eye_end_l_end 2
+    400030: eye_end_l_end_end
+    400032: eye_end_l_end_end 1
+    400034: eye_end_l_end_end 2
+    400036: eye_end_l_end_end_end
+    400038: eye_end_l_end_end_end_end
+    400040: eye_end_r
+    400042: eye_end_r 1
+    400044: eye_end_r 2
+    400046: eye_end_r_end
+    400048: eye_end_r_end 1
+    400050: eye_end_r_end 2
+    400052: eye_end_r_end_end
+    400054: eye_end_r_end_end 1
+    400056: eye_end_r_end_end 2
+    400058: eye_end_r_end_end_end
+    400060: eye_end_r_end_end_end_end
+    400062: eye_l
+    400064: eye_l 1
+    400066: eye_l 2
+    400068: eye_r
+    400070: eye_r 1
+    400072: eye_r 2
+    400074: eyebrow_l
+    400076: eyebrow_l 1
+    400078: eyebrow_l 2
+    400080: eyebrow_l_end
+    400082: eyebrow_l_end 1
+    400084: eyebrow_l_end 2
+    400086: eyebrow_l_end_end
+    400088: eyebrow_l_end_end 1
+    400090: eyebrow_l_end_end 2
+    400092: eyebrow_l_end_end_end
+    400094: eyebrow_l_end_end_end_end
+    400096: eyebrow_r
+    400098: eyebrow_r 1
+    400100: eyebrow_r 2
+    400102: eyebrow_r_end
+    400104: eyebrow_r_end 1
+    400106: eyebrow_r_end 2
+    400108: eyebrow_r_end_end
+    400110: eyebrow_r_end_end 1
+    400112: eyebrow_r_end_end 2
+    400114: eyebrow_r_end_end_end
+    400116: eyebrow_r_end_end_end_end
+    400118: eyelid_end_l
+    400120: eyelid_end_l 1
+    400122: eyelid_end_l 2
+    400124: eyelid_end_l_end
+    400126: eyelid_end_l_end 1
+    400128: eyelid_end_l_end 2
+    400130: eyelid_end_l_end_end
+    400132: eyelid_end_l_end_end 1
+    400134: eyelid_end_l_end_end 2
+    400136: eyelid_end_l_end_end_end
+    400138: eyelid_end_l_end_end_end_end
+    400140: eyelid_end_r
+    400142: eyelid_end_r 1
+    400144: eyelid_end_r 2
+    400146: eyelid_end_r_end
+    400148: eyelid_end_r_end 1
+    400150: eyelid_end_r_end 2
+    400152: eyelid_end_r_end_end
+    400154: eyelid_end_r_end_end 1
+    400156: eyelid_end_r_end_end 2
+    400158: eyelid_end_r_end_end_end
+    400160: eyelid_end_r_end_end_end_end
+    400162: eyelid_l
+    400164: eyelid_l 1
+    400166: eyelid_l 2
+    400168: eyelid_r
+    400170: eyelid_r 1
+    400172: eyelid_r 2
+    400174: foot_end_l
+    400176: foot_end_l 1
+    400178: foot_end_l 2
+    400180: foot_end_l_end
+    400182: foot_end_l_end 1
+    400184: foot_end_l_end 2
+    400186: foot_end_l_end_end
+    400188: foot_end_l_end_end 1
+    400190: foot_end_l_end_end 2
+    400192: foot_end_l_end_end_end
+    400194: foot_end_l_end_end_end_end
+    400196: foot_end_r
+    400198: foot_end_r 1
+    400200: foot_end_r 2
+    400202: foot_end_r_end
+    400204: foot_end_r_end 1
+    400206: foot_end_r_end 2
+    400208: foot_end_r_end_end
+    400210: foot_end_r_end_end 1
+    400212: foot_end_r_end_end 2
+    400214: foot_end_r_end_end_end
+    400216: foot_end_r_end_end_end_end
+    400218: foot_l
+    400220: foot_l 1
+    400222: foot_l 2
+    400224: foot_r
+    400226: foot_r 1
+    400228: foot_r 2
+    400230: hand_l
+    400232: hand_l 1
+    400234: hand_l 2
+    400236: hand_r
+    400238: hand_r 1
+    400240: hand_r 2
+    400242: head
+    400244: head 1
+    400246: head 2
+    400248: head_end
+    400250: head_end 1
+    400252: head_end 2
+    400254: head_end_end
+    400256: head_end_end 1
+    400258: head_end_end 2
+    400260: head_end_end_end
+    400262: head_end_end_end 1
+    400264: head_end_end_end 2
+    400266: head_end_end_end_end
+    400268: head_end_end_end_end_end
+    400270: hip
+    400272: hip 1
+    400274: hip 2
+    400276: index_01_l
+    400278: index_01_l 1
+    400280: index_01_l 2
+    400282: index_01_r
+    400284: index_01_r 1
+    400286: index_01_r 2
+    400288: index_02_l
+    400290: index_02_l 1
+    400292: index_02_l 2
+    400294: index_02_r
+    400296: index_02_r 1
+    400298: index_02_r 2
+    400300: index_03_l
+    400302: index_03_l 1
+    400304: index_03_l 2
+    400306: index_03_r
+    400308: index_03_r 1
+    400310: index_03_r 2
+    400312: index_end_l
+    400314: index_end_l 1
+    400316: index_end_l 2
+    400318: index_end_l_end
+    400320: index_end_l_end 1
+    400322: index_end_l_end 2
+    400324: index_end_l_end_end
+    400326: index_end_l_end_end 1
+    400328: index_end_l_end_end 2
+    400330: index_end_l_end_end_end
+    400332: index_end_l_end_end_end_end
+    400334: index_end_r
+    400336: index_end_r 1
+    400338: index_end_r 2
+    400340: index_end_r_end
+    400342: index_end_r_end 1
+    400344: index_end_r_end 2
+    400346: index_end_r_end_end
+    400348: index_end_r_end_end 1
+    400350: index_end_r_end_end 2
+    400352: index_end_r_end_end_end
+    400354: index_end_r_end_end_end_end
+    400356: info button
+    400358: //RootNode
+    400360: jaw
+    400362: jaw 1
+    400364: jaw 2
+    400366: jaw_end
+    400368: jaw_end 1
+    400370: jaw_end 2
+    400372: jaw_end_end
+    400374: jaw_end_end 1
+    400376: jaw_end_end 2
+    400378: jaw_end_end_end
+    400380: jaw_end_end_end 1
+    400382: jaw_end_end_end 2
+    400384: jaw_end_end_end_end
+    400386: jaw_end_end_end_end_end
+    400388: Leafs
+    400390: lowerarm_l
+    400392: lowerarm_l 1
+    400394: lowerarm_l 2
+    400396: lowerarm_r
+    400398: lowerarm_r 1
+    400400: lowerarm_r 2
+    400402: lowerarm_twist_l
+    400404: lowerarm_twist_l 1
+    400406: lowerarm_twist_l 2
+    400408: lowerarm_twist_l_end
+    400410: lowerarm_twist_l_end 1
+    400412: lowerarm_twist_l_end 2
+    400414: lowerarm_twist_l_end_end
+    400416: lowerarm_twist_l_end_end 1
+    400418: lowerarm_twist_l_end_end 2
+    400420: lowerarm_twist_l_end_end_end
+    400422: lowerarm_twist_l_end_end_end_end
+    400424: lowerarm_twist_r
+    400426: lowerarm_twist_r 1
+    400428: lowerarm_twist_r 2
+    400430: lowerarm_twist_r_end
+    400432: lowerarm_twist_r_end 1
+    400434: lowerarm_twist_r_end 2
+    400436: lowerarm_twist_r_end_end
+    400438: lowerarm_twist_r_end_end 1
+    400440: lowerarm_twist_r_end_end 2
+    400442: lowerarm_twist_r_end_end_end
+    400444: lowerarm_twist_r_end_end_end_end
+    400446: lowerleg_l
+    400448: lowerleg_l 1
+    400450: lowerleg_l 2
+    400452: lowerleg_r
+    400454: lowerleg_r 1
+    400456: lowerleg_r 2
+    400458: lowerleg_twist_l
+    400460: lowerleg_twist_l 1
+    400462: lowerleg_twist_l 2
+    400464: lowerleg_twist_l_end
+    400466: lowerleg_twist_l_end 1
+    400468: lowerleg_twist_l_end 2
+    400470: lowerleg_twist_l_end_end
+    400472: lowerleg_twist_l_end_end 1
+    400474: lowerleg_twist_l_end_end 2
+    400476: lowerleg_twist_l_end_end_end
+    400478: lowerleg_twist_l_end_end_end_end
+    400480: lowerleg_twist_r
+    400482: lowerleg_twist_r 1
+    400484: lowerleg_twist_r 2
+    400486: lowerleg_twist_r_end
+    400488: lowerleg_twist_r_end 1
+    400490: lowerleg_twist_r_end 2
+    400492: lowerleg_twist_r_end_end
+    400494: lowerleg_twist_r_end_end 1
+    400496: lowerleg_twist_r_end_end 2
+    400498: lowerleg_twist_r_end_end_end
+    400500: lowerleg_twist_r_end_end_end_end
+    400502: middle_01_l
+    400504: middle_01_l 1
+    400506: middle_01_l 2
+    400508: middle_01_r
+    400510: middle_01_r 1
+    400512: middle_01_r 2
+    400514: middle_02_l
+    400516: middle_02_l 1
+    400518: middle_02_l 2
+    400520: middle_02_r
+    400522: middle_02_r 1
+    400524: middle_02_r 2
+    400526: middle_03_l
+    400528: middle_03_l 1
+    400530: middle_03_l 2
+    400532: middle_03_r
+    400534: middle_03_r 1
+    400536: middle_03_r 2
+    400538: middle_end_l
+    400540: middle_end_l 1
+    400542: middle_end_l 2
+    400544: middle_end_l_end
+    400546: middle_end_l_end 1
+    400548: middle_end_l_end 2
+    400550: middle_end_l_end_end
+    400552: middle_end_l_end_end 1
+    400554: middle_end_l_end_end 2
+    400556: middle_end_l_end_end_end
+    400558: middle_end_l_end_end_end_end
+    400560: middle_end_r
+    400562: middle_end_r 1
+    400564: middle_end_r 2
+    400566: middle_end_r_end
+    400568: middle_end_r_end 1
+    400570: middle_end_r_end 2
+    400572: middle_end_r_end_end
+    400574: middle_end_r_end_end 1
+    400576: middle_end_r_end_end 2
+    400578: middle_end_r_end_end_end
+    400580: middle_end_r_end_end_end_end
+    400582: mouth_l
+    400584: mouth_l 1
+    400586: mouth_l 2
+    400588: mouth_l_end
+    400590: mouth_l_end 1
+    400592: mouth_l_end 2
+    400594: mouth_l_end_end
+    400596: mouth_l_end_end 1
+    400598: mouth_l_end_end 2
+    400600: mouth_l_end_end_end
+    400602: mouth_l_end_end_end_end
+    400604: mouth_r
+    400606: mouth_r 1
+    400608: mouth_r 2
+    400610: mouth_r_end
+    400612: mouth_r_end 1
+    400614: mouth_r_end 2
+    400616: mouth_r_end_end
+    400618: mouth_r_end_end 1
+    400620: mouth_r_end_end 2
+    400622: mouth_r_end_end_end
+    400624: mouth_r_end_end_end_end
+    400626: neck
+    400628: neck 1
+    400630: neck 2
+    400632: pinky_01_l
+    400634: pinky_01_l 1
+    400636: pinky_01_l 2
+    400638: pinky_01_r
+    400640: pinky_01_r 1
+    400642: pinky_01_r 2
+    400644: pinky_02_l
+    400646: pinky_02_l 1
+    400648: pinky_02_l 2
+    400650: pinky_02_r
+    400652: pinky_02_r 1
+    400654: pinky_02_r 2
+    400656: pinky_03_l
+    400658: pinky_03_l 1
+    400660: pinky_03_l 2
+    400662: pinky_03_r
+    400664: pinky_03_r 1
+    400666: pinky_03_r 2
+    400668: pinky_end_l
+    400670: pinky_end_l 1
+    400672: pinky_end_l 2
+    400674: pinky_end_l_end
+    400676: pinky_end_l_end 1
+    400678: pinky_end_l_end 2
+    400680: pinky_end_l_end_end
+    400682: pinky_end_l_end_end 1
+    400684: pinky_end_l_end_end 2
+    400686: pinky_end_l_end_end_end
+    400688: pinky_end_l_end_end_end_end
+    400690: pinky_end_r
+    400692: pinky_end_r 1
+    400694: pinky_end_r 2
+    400696: pinky_end_r_end
+    400698: pinky_end_r_end 1
+    400700: pinky_end_r_end 2
+    400702: pinky_end_r_end_end
+    400704: pinky_end_r_end_end 1
+    400706: pinky_end_r_end_end 2
+    400708: pinky_end_r_end_end_end
+    400710: pinky_end_r_end_end_end_end
+    400712: pot
+    400714: ring_01_l
+    400716: ring_01_l 1
+    400718: ring_01_l 2
+    400720: ring_01_r
+    400722: ring_01_r 1
+    400724: ring_01_r 2
+    400726: ring_02_l
+    400728: ring_02_l 1
+    400730: ring_02_l 2
+    400732: ring_02_r
+    400734: ring_02_r 1
+    400736: ring_02_r 2
+    400738: ring_03_l
+    400740: ring_03_l 1
+    400742: ring_03_l 2
+    400744: ring_03_r
+    400746: ring_03_r 1
+    400748: ring_03_r 2
+    400750: ring_end_l
+    400752: ring_end_l 1
+    400754: ring_end_l 2
+    400756: ring_end_l_end
+    400758: ring_end_l_end 1
+    400760: ring_end_l_end 2
+    400762: ring_end_l_end_end
+    400764: ring_end_l_end_end 1
+    400766: ring_end_l_end_end 2
+    400768: ring_end_l_end_end_end
+    400770: ring_end_l_end_end_end_end
+    400772: ring_end_r
+    400774: ring_end_r 1
+    400776: ring_end_r 2
+    400778: ring_end_r_end
+    400780: ring_end_r_end 1
+    400782: ring_end_r_end 2
+    400784: ring_end_r_end_end
+    400786: ring_end_r_end_end 1
+    400788: ring_end_r_end_end 2
+    400790: ring_end_r_end_end_end
+    400792: ring_end_r_end_end_end_end
+    400794: root
+    400796: root 1
+    400798: root 2
+    400800: rp_claudia_rigged_002
+    400802: rp_claudia_rigged_002.001
+    400804: rp_claudia_rigged_002_geo
+    400806: rp_eric_rigged_001
+    400808: rp_eric_rigged_001_geo.001
+    400810: shoulder_l
+    400812: shoulder_l 1
+    400814: shoulder_l 2
+    400816: shoulder_r
+    400818: shoulder_r 1
+    400820: shoulder_r 2
+    400822: spine_01
+    400824: spine_01 1
+    400826: spine_01 2
+    400828: spine_02
+    400830: spine_02 1
+    400832: spine_02 2
+    400834: spine_03
+    400836: spine_03 1
+    400838: spine_03 2
+    400840: thumb_01_l
+    400842: thumb_01_l 1
+    400844: thumb_01_l 2
+    400846: thumb_01_r
+    400848: thumb_01_r 1
+    400850: thumb_01_r 2
+    400852: thumb_02_l
+    400854: thumb_02_l 1
+    400856: thumb_02_l 2
+    400858: thumb_02_r
+    400860: thumb_02_r 1
+    400862: thumb_02_r 2
+    400864: thumb_03_l
+    400866: thumb_03_l 1
+    400868: thumb_03_l 2
+    400870: thumb_03_r
+    400872: thumb_03_r 1
+    400874: thumb_03_r 2
+    400876: thumb_end_l
+    400878: thumb_end_l 1
+    400880: thumb_end_l 2
+    400882: thumb_end_l_end
+    400884: thumb_end_l_end 1
+    400886: thumb_end_l_end 2
+    400888: thumb_end_l_end_end
+    400890: thumb_end_l_end_end 1
+    400892: thumb_end_l_end_end 2
+    400894: thumb_end_l_end_end_end
+    400896: thumb_end_l_end_end_end_end
+    400898: thumb_end_r
+    400900: thumb_end_r 1
+    400902: thumb_end_r 2
+    400904: thumb_end_r_end
+    400906: thumb_end_r_end 1
+    400908: thumb_end_r_end 2
+    400910: thumb_end_r_end_end
+    400912: thumb_end_r_end_end 1
+    400914: thumb_end_r_end_end 2
+    400916: thumb_end_r_end_end_end
+    400918: thumb_end_r_end_end_end_end
+    400920: upperarm_l
+    400922: upperarm_l 1
+    400924: upperarm_l 2
+    400926: upperarm_r
+    400928: upperarm_r 1
+    400930: upperarm_r 2
+    400932: upperarm_twist_l
+    400934: upperarm_twist_l 1
+    400936: upperarm_twist_l 2
+    400938: upperarm_twist_l_end
+    400940: upperarm_twist_l_end 1
+    400942: upperarm_twist_l_end 2
+    400944: upperarm_twist_l_end_end
+    400946: upperarm_twist_l_end_end 1
+    400948: upperarm_twist_l_end_end 2
+    400950: upperarm_twist_l_end_end_end
+    400952: upperarm_twist_l_end_end_end_end
+    400954: upperarm_twist_r
+    400956: upperarm_twist_r 1
+    400958: upperarm_twist_r 2
+    400960: upperarm_twist_r_end
+    400962: upperarm_twist_r_end 1
+    400964: upperarm_twist_r_end 2
+    400966: upperarm_twist_r_end_end
+    400968: upperarm_twist_r_end_end 1
+    400970: upperarm_twist_r_end_end 2
+    400972: upperarm_twist_r_end_end_end
+    400974: upperarm_twist_r_end_end_end_end
+    400976: upperleg_l
+    400978: upperleg_l 1
+    400980: upperleg_l 2
+    400982: upperleg_r
+    400984: upperleg_r 1
+    400986: upperleg_r 2
+    400988: upperleg_twist_l
+    400990: upperleg_twist_l 1
+    400992: upperleg_twist_l 2
+    400994: upperleg_twist_l_end
+    400996: upperleg_twist_l_end 1
+    400998: upperleg_twist_l_end 2
+    401000: upperleg_twist_l_end_end
+    401002: upperleg_twist_l_end_end 1
+    401004: upperleg_twist_l_end_end 2
+    401006: upperleg_twist_l_end_end_end
+    401008: upperleg_twist_l_end_end_end_end
+    401010: upperleg_twist_r
+    401012: upperleg_twist_r 1
+    401014: upperleg_twist_r 2
+    401016: upperleg_twist_r_end
+    401018: upperleg_twist_r_end 1
+    401020: upperleg_twist_r_end 2
+    401022: upperleg_twist_r_end_end
+    401024: upperleg_twist_r_end_end 1
+    401026: upperleg_twist_r_end_end 2
+    401028: upperleg_twist_r_end_end_end
+    401030: upperleg_twist_r_end_end_end_end
+    401032: video button
+    2100000: rp_eric_rigged_001_mat
+    2100002: Material.009
+    2100004: Material.008
+    2100006: PBR_Plant_leafs.001
+    2100008: PBR_plant_pot.001
+    2100010: emission green.001
+    2100012: emission yellow.001
+    2100014: emission blue.001
+    2300000: box
+    2300002: box 1
+    2300004: brochure button
+    2300006: info button
+    2300008: Leafs
+    2300010: pot
+    2300012: rp_claudia_rigged_002_geo
+    2300014: rp_eric_rigged_001_geo.001
+    2300016: video button
+    3300000: box
+    3300002: box 1
+    3300004: brochure button
+    3300006: info button
+    3300008: Leafs
+    3300010: pot
+    3300012: rp_claudia_rigged_002_geo
+    3300014: rp_eric_rigged_001_geo.001
+    3300016: video button
+    4300000: rp_eric_rigged_001_geo.001
+    4300002: box
+    4300004: rp_claudia_rigged_002_geo
+    4300006: Leafs
+    4300008: pot
+    4300010: box 1
+    4300012: info button
+    4300014: brochure button
+    4300016: video button
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: ebd946f3e445dac4aabe00e0819948a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.009
+    second: {fileID: 2100000, guid: 8e1a39dacf5bba645ad79c020fffcf5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PBR_Plant_leafs.001
+    second: {fileID: 2100000, guid: 0641bdeb351aafe4ba834a3dd0aafd8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PBR_plant_pot.001
+    second: {fileID: 2100000, guid: d20b4ac726b43a1449cfc3997b230c7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emission blue.001
+    second: {fileID: 2100000, guid: 753902a6347696348b4f27027362d906, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emission green.001
+    second: {fileID: 2100000, guid: 19bfa36b44d317a4cabc5b3fcbc96ce6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emission yellow.001
+    second: {fileID: 2100000, guid: 4390166c073eb464db10ccb3f7cf82d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rp_eric_rigged_001_mat
+    second: {fileID: 2100000, guid: f0fafb4678111bb4c842239c52890986, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

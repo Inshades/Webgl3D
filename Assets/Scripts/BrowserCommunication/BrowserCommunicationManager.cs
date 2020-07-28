@@ -21,6 +21,13 @@ public class BrowserCommunicationManager : MonoBehaviour
     public Text genderText;
     public Text tokenText;
 
+    private void Start()
+    {
+        Invoke("callLogin", 2f);
+    }
+
+
+
     // Import the JSLib as following. Make sure the
     // names match with the JSLib file we've just created.
 
@@ -49,16 +56,94 @@ public class BrowserCommunicationManager : MonoBehaviour
 
     public void login(string jsonString)
     {
-        Dictionary<string, object> registerUserDataDict = new Dictionary<string, object>();
-        registerUserDataDict = MiniJSON.Json.Deserialize(jsonString) as Dictionary<string, object>;
+        if (jsonString != "")
+        {
+            Dictionary<string, object> registerUserDataDict = new Dictionary<string, object>();
+            registerUserDataDict = MiniJSON.Json.Deserialize(jsonString) as Dictionary<string, object>;
 
-        Debug.Log("Name :  " + registerUserDataDict["name"]);
+            Debug.Log("Name :  " + registerUserDataDict["name"]);
 
-        nameText.text = registerUserDataDict["name"].ToString();
-        eventIdText.text = registerUserDataDict["eventID"].ToString();
-        userIdText.text = registerUserDataDict["userID"].ToString();
-        genderText.text = registerUserDataDict["gender"].ToString();
-        tokenText.text = registerUserDataDict["token"].ToString();
+            //nameText.text = registerUserDataDict["name"].ToString();
+            //eventIdText.text = registerUserDataDict["eventID"].ToString();
+            //userIdText.text = registerUserDataDict["userID"].ToString();
+            //genderText.text = registerUserDataDict["gender"].ToString();
+            //tokenText.text = registerUserDataDict["token"].ToString();
+
+            ApiHandler.instance.userTokeId = registerUserDataDict["token"].ToString();
+
+            StartCoroutine(ApiHandler.instance.stallDetaitsParser((stallDetailsCallBack) =>
+            {
+                switch (stallDetailsCallBack._apiResponseType)
+                {
+                    case apiResponseType.SUCCESS:
+                        StartCoroutine(Manager.instance.GenarateStalls(stallDetailsCallBack._metaDataUrlData));
+                        break;
+
+                    case apiResponseType.FAIL:
+
+                        break;
+                    case apiResponseType.SEVER_ERROR:
+
+                        break;
+                }
+            }));
+        }
+        else
+        {
+            StartCoroutine(ApiHandler.instance.authenticateUser((authenticateCallBack) =>
+            {
+                switch (authenticateCallBack._apiResponseType)
+                {
+                    case apiResponseType.SUCCESS:
+
+                        StartCoroutine(ApiHandler.instance.stallDetaitsParser((stallDetailsCallBack) =>
+                        {
+                            switch (stallDetailsCallBack._apiResponseType)
+                            {
+                                case apiResponseType.SUCCESS:
+                                    StartCoroutine(ApiHandler.instance.LuckyDrawExhibhitorList((LuckyDrawExhibhitorCallBack) =>
+                                    {
+                                        switch (LuckyDrawExhibhitorCallBack._apiResponseType)
+                                        {
+                                            case apiResponseType.SUCCESS:
+                                                StartCoroutine(Manager.instance.GenarateStalls(stallDetailsCallBack._metaDataUrlData));
+                                                break;
+
+                                            case apiResponseType.FAIL:
+
+                                                break;
+                                            case apiResponseType.SEVER_ERROR:
+
+                                                break;
+                                        }
+                                    }));
+                                   
+                                    break;
+
+                                case apiResponseType.FAIL:
+
+                                    break;
+                                case apiResponseType.SEVER_ERROR:
+
+                                    break;
+                            }
+                        }));
+
+                        break;
+                    case apiResponseType.FAIL:
+
+                        break;
+                    case apiResponseType.SEVER_ERROR:
+
+                        break;
+                }
+            }));
+        }
+    }
+
+    void callLogin()
+    {
+        login("");
     }
 }
 

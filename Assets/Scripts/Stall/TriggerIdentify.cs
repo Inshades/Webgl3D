@@ -59,6 +59,20 @@ public class TriggerIdentify : MonoBehaviour
     }
     void setUserActivity(userActivityType _userActivity, string activityData, string boothName, string boothId, string exhibitorId)
     {
-        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId, exhibitorId));
+        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId, exhibitorId, (callBack) =>
+        {
+            switch (callBack._apiResponseType)
+            {
+                case apiResponseType.SUCCESS:
+                    break;
+
+                case apiResponseType.FAIL:
+
+                    break;
+                case apiResponseType.SEVER_ERROR:
+
+                    break;
+            }
+        }));
     }
 }

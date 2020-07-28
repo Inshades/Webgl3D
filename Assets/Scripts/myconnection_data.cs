@@ -12,7 +12,8 @@ public class myconnection_data : MonoBehaviour
     private Text ActivityType;
 
     public UiManager UiManager;
-   
+
+    public GameObject emailPanel;
 
 
     private string myKeystring;
@@ -22,7 +23,7 @@ public class myconnection_data : MonoBehaviour
       //  myKeystring = int.Parse( Boothid);
         myKeystring = Boothid;
         
-        this.ActivityType.text = ActivityType;
+        this.ActivityType.text = ActivityType; // Not 
        this.BoothName.text = BoothName;
             
 
@@ -47,6 +48,20 @@ public class myconnection_data : MonoBehaviour
          
     }
 
+    public void email_buttonClick()
+    {
+        //H1-2
+        string triggerName = myKeystring;
+        triggerName = triggerName.Substring(triggerName.IndexOf("-") + 1, triggerName.Length - (triggerName.IndexOf("-") + 1));
+        int key = int.Parse(triggerName);
+        key = key - 1;
 
-     
+        UiManager.Email_ConnectionPanel(key);
+    }
+
+    public void EmailPanelOpen()
+    {
+        emailPanel.SetActive(true);
+
+    }
 }

@@ -14,6 +14,12 @@ public enum userActivityType
     CHAT,
 }
 
+public enum apiResponseType
+{
+    SUCCESS,
+    FAIL,
+    SEVER_ERROR
+}
 
 public class ApiHandler : MonoBehaviour
 {
@@ -44,7 +50,7 @@ public class ApiHandler : MonoBehaviour
 
 
     [SerializeField]
-    private string userTokeId;
+    public string userTokeId;
 
     [SerializeField]
     private string registerUserUrl = "https://vxrvenue.herokuapp.com/v1/registerUser";
@@ -53,7 +59,7 @@ public class ApiHandler : MonoBehaviour
     private string getRefferalCode = urlHeader + "/v1/getRefferalCode";
 
     [SerializeField]
-    public metaDataUlData _metaDataUrlContent;
+    public metaDataUrlData _metaDataUrlContent;
 
     [SerializeField]
     public List<UserActivity> _userActivityList = new List<UserActivity>();
@@ -83,7 +89,7 @@ public class ApiHandler : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(authenticateUser());
+
         // StartCoroutine(ApiHandler.instance.GetUserActivity());
 
         //for (int i = 0; i < ApiHandler.instance._userActivityList.Count; i++)
@@ -93,7 +99,7 @@ public class ApiHandler : MonoBehaviour
         // StartCoroutine(stallDetaitsParser());
     }
 
-        IEnumerator RegisterNewUser()
+    IEnumerator RegisterNewUser()
     {
         Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
         urlHeaderKeys.Add("name", "VigneshG");
@@ -123,8 +129,11 @@ public class ApiHandler : MonoBehaviour
     }
 
 
-    IEnumerator authenticateUser()
+    public IEnumerator authenticateUser(Action<APICallHandlerResponse> callBack)
     {
+        APICallHandlerResponse _apiCallHandlerResponse = new APICallHandlerResponse();
+
+
         Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
         urlHeaderKeys.Add("userId", "vickynexus.5@gmail.com");
         urlHeaderKeys.Add("password", "welcome1");
@@ -135,6 +144,10 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+
+            _apiCallHandlerResponse._apiResponseType = apiResponseType.SEVER_ERROR;
+            _apiCallHandlerResponse.responseMessage = "Server failed to process this info";
+            callBack(_apiCallHandlerResponse);
         }
         else
         {
@@ -143,25 +156,40 @@ public class ApiHandler : MonoBehaviour
             Dictionary<string, object> authenticationDataDict = new Dictionary<string, object>();
             authenticationDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
 
-            //if (authenticationDataDict["isAuthenticated"].ToString() == "true")
+            if ((authenticationDataDict["success"].ToString()).ToLower() == "true")
             {
-                userTokeId = authenticationDataDict["token"].ToString();
+                if ((authenticationDataDict["isAuthenticated"].ToString()).ToLower() == "true")
+                {
+                    userTokeId = authenticationDataDict["token"].ToString();
+                    _apiCallHandlerResponse._apiResponseType = apiResponseType.SUCCESS;
+                    _apiCallHandlerResponse.responseMessage = "User is Authenticated";
+                    callBack(_apiCallHandlerResponse);
+                }
+                else
+                {
+                    _apiCallHandlerResponse._apiResponseType = apiResponseType.FAIL;
+                    _apiCallHandlerResponse.responseMessage = "User is not Authenticated";
+                    callBack(_apiCallHandlerResponse);
+                }
             }
-            StartCoroutine(LuckyDrawExhibhitorList());
-            StartCoroutine(stallDetaitsParser());
-
-            //  StartCoroutine(SaveUserActivity(userActivityType.DOWNLOAD_BROUCHER, "https://helpx.adobe.com/acrobat/using/links-attachments-pdfs.html", "Brochure Download", "https://helpx.adobe.com/acrobat/using/links-attachments-pdfs.html"));
-            StartCoroutine(GetUserActivity());
-
+            else
+            {
+                _apiCallHandlerResponse._apiResponseType = apiResponseType.FAIL;
+                _apiCallHandlerResponse.responseMessage = "Server failed to complete the process at this time.";
+                callBack(_apiCallHandlerResponse);
+            }
         }
     }
 
-    public IEnumerator SaveUserActivity(userActivityType activityType, string activityData, string boothName, string boothId, string exhibitorId)
+    public IEnumerator SaveUserActivity(userActivityType activityType, string activityData, string boothName, string boothId, string exhibitorId, Action<setUserDataResponse> callBack)
     {
-      //  string str = userTokeId + activityType + boothName;
-      //  if (!usersActivityMaintainList.Contains(str))
+        setUserDataResponse _setUserDataResponse = new setUserDataResponse();
+
+
+        //  string str = userTokeId + activityType + boothName;
+        //  if (!usersActivityMaintainList.Contains(str))
         {
-         //   usersActivityMaintainList.Add(userTokeId + activityType + boothName);
+            //   usersActivityMaintainList.Add(userTokeId + activityType + boothName);
             Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
             urlHeaderKeys.Add("activityType", activityType.ToString());
             urlHeaderKeys.Add("activityData", activityData);
@@ -179,6 +207,10 @@ public class ApiHandler : MonoBehaviour
             if (apiRequest.isNetworkError || apiRequest.isHttpError)
             {
                 Debug.Log(apiRequest.error);
+
+                _setUserDataResponse._apiResponseType = apiResponseType.SEVER_ERROR;
+                _setUserDataResponse.responseMessage = apiRequest.error;
+                callBack(_setUserDataResponse);
             }
             else
             {
@@ -186,16 +218,26 @@ public class ApiHandler : MonoBehaviour
                 registrationResponse = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
                 Debug.Log(registrationResponse["successs"]);
 
-
+                if ((registrationResponse["successs"].ToString()).ToLower() == "true")
+                {
+                    _setUserDataResponse._apiResponseType = apiResponseType.SUCCESS;
+                    _setUserDataResponse.responseMessage = (registrationResponse["successs"].ToString()).ToLower();
+                    callBack(_setUserDataResponse);
+                }
+                else
+                {
+                    _setUserDataResponse._apiResponseType = apiResponseType.FAIL;
+                    _setUserDataResponse.responseMessage = (registrationResponse["successs"].ToString()).ToLower();
+                    callBack(_setUserDataResponse);
+                }
             }
-
         }
-
-        
     }
 
-    public IEnumerator GetUserActivity()
+    public IEnumerator GetUserActivity(Action<getUserActivityResponse> callBack)
     {
+        getUserActivityResponse _getUserActivityResponse = new getUserActivityResponse();
+
         UnityWebRequest apiRequest = UnityWebRequest.Get(getUserActivityUrl);
         apiRequest.SetRequestHeader("Content-Type", "application/json");
         apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
@@ -204,42 +246,61 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+            _getUserActivityResponse._apiResponseType = apiResponseType.SEVER_ERROR;
+            _getUserActivityResponse.responseMessage = apiRequest.error;
+            callBack(_getUserActivityResponse);
         }
         else
         {
-            _userActivityList = new List<UserActivity>();
-
             Debug.Log(apiRequest.downloadHandler.text);
             Dictionary<string, object> registrationResponse = new Dictionary<string, object>();
             registrationResponse = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
 
             Debug.Log(registrationResponse["success"]);
 
-            List<object> innerListObj = new List<object>();
-            innerListObj = registrationResponse["useractivities"] as List<object>;
-            Dictionary<string, object> innerDict;
-            foreach (object obj in innerListObj)
+            if ((registrationResponse["success"].ToString()).ToLower() == "true")
             {
-                innerDict = new Dictionary<string, object>();
-                innerDict = obj as Dictionary<string, object>;
+                _userActivityList = new List<UserActivity>();
 
-                UserActivity _userActivity = new UserActivity();
-                _userActivity.activityType = innerDict["activityType"].ToString();
-                _userActivity.activityData = innerDict["activityData"].ToString();
-                _userActivity.boothName = innerDict["boothName"].ToString();
-                _userActivity.boothId = innerDict["boothId"].ToString();
-                _userActivity.userToken = innerDict["token"].ToString();
-                _userActivity.userId = innerDict["userId"].ToString();
-                _userActivity.eventName = innerDict["eventName"].ToString();
-                _userActivity.activityTime = innerDict["activityTime"].ToString();
+                List<object> innerListObj = new List<object>();
+                innerListObj = registrationResponse["useractivities"] as List<object>;
+                Dictionary<string, object> innerDict;
+                foreach (object obj in innerListObj)
+                {
+                    innerDict = new Dictionary<string, object>();
+                    innerDict = obj as Dictionary<string, object>;
 
-                _userActivityList.Add(_userActivity);
+                    UserActivity _userActivity = new UserActivity();
+                    _userActivity.activityType = innerDict["activityType"].ToString();
+                    _userActivity.activityData = innerDict["activityData"].ToString();
+                    _userActivity.boothName = innerDict["boothName"].ToString();
+                    _userActivity.boothId = innerDict["boothId"].ToString();
+                    _userActivity.userToken = innerDict["token"].ToString();
+                    _userActivity.userId = innerDict["userId"].ToString();
+                    _userActivity.eventName = innerDict["eventName"].ToString();
+                    _userActivity.activityTime = innerDict["activityTime"].ToString();
+
+                    _userActivityList.Add(_userActivity);
+                }
+
+                _getUserActivityResponse._apiResponseType = apiResponseType.SUCCESS;
+                _getUserActivityResponse.responseMessage = "success";
+                _getUserActivityResponse._userActivityList = _userActivityList;
+                callBack(_getUserActivityResponse);
+            }
+            else
+            {
+                _getUserActivityResponse._apiResponseType = apiResponseType.FAIL;
+                _getUserActivityResponse.responseMessage = "Cannot Get User Activity Right Now.";
+                callBack(_getUserActivityResponse);
             }
         }
     }
     //Get luckydraw stalls
-    public IEnumerator LuckyDrawExhibhitorList()
+    public IEnumerator LuckyDrawExhibhitorList(Action<luckyDrawExhibitorResponse> callBack)
     {
+        luckyDrawExhibitorResponse _luckyDrawExhibitorResponse = new luckyDrawExhibitorResponse();
+
         UnityWebRequest apiRequest = UnityWebRequest.Get(getLuckyDrayExhibitorsUrl);
         apiRequest.SetRequestHeader("Content-Type", "application/json");
         apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
@@ -248,6 +309,9 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+            _luckyDrawExhibitorResponse._apiResponseType = apiResponseType.SEVER_ERROR;
+            _luckyDrawExhibitorResponse.responseMessage = apiRequest.error;
+            callBack(_luckyDrawExhibitorResponse);
         }
         else
         {
@@ -275,11 +339,18 @@ public class ApiHandler : MonoBehaviour
                 _luckyDrawDetails.boothId = innerDict["boothId"].ToString();
                 _listLuckyDrawExhibitorCollege.Add(_luckyDrawDetails);
             }
+
+            _luckyDrawExhibitorResponse._apiResponseType = apiResponseType.SUCCESS;
+            _luckyDrawExhibitorResponse.responseMessage = "success";
+            _luckyDrawExhibitorResponse._luckyDrawExhibitorList = _listLuckyDrawExhibitorCollege;
+            callBack(_luckyDrawExhibitorResponse);
         }
     }
     // Generate Cupon once all stalls reached
-    public IEnumerator GenerateLuckyCupon(Action<string> cuponCode)
+    public IEnumerator GenerateLuckyCupon(Action<generateLuckyDrawCode> cuponCode)
     {
+        generateLuckyDrawCode _generateLuckyDrawCode = new generateLuckyDrawCode();
+
         UnityWebRequest apiRequest = UnityWebRequest.Get(generateTokenUrl);
         apiRequest.SetRequestHeader("Content-Type", "application/json");
         apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
@@ -288,6 +359,9 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+            _generateLuckyDrawCode._apiResponseType = apiResponseType.SEVER_ERROR;
+            _generateLuckyDrawCode.responseMessage = apiRequest.error;
+            cuponCode(_generateLuckyDrawCode);
         }
         else
         {
@@ -296,17 +370,32 @@ public class ApiHandler : MonoBehaviour
 
             Debug.Log("Logout  " + registerUserDataDict["success"]);
 
-            luckyCupon = registerUserDataDict["couponCode"].ToString();
+            if ((registerUserDataDict["success"].ToString().ToLower() == "true"))
+            {
+                luckyCupon = registerUserDataDict["couponCode"].ToString();
 
-            cuponCode(luckyCupon);
+                _generateLuckyDrawCode._apiResponseType = apiResponseType.SEVER_ERROR;
+                _generateLuckyDrawCode.responseMessage = luckyCupon;
+                cuponCode(_generateLuckyDrawCode);
+            }
+            else
+            {
+                _generateLuckyDrawCode._apiResponseType = apiResponseType.FAIL;
+                _generateLuckyDrawCode.responseMessage = "Code not generated at this time.";
+                cuponCode(_generateLuckyDrawCode);
+            }
+
+
 
 
             Debug.Log("luckyCupon  " + luckyCupon);
         }
     }
 
-    public IEnumerator GenerateRefferalCode(Action<string> refferalCode)
+    public IEnumerator GenerateRefferalCode(Action<generateRefferalCode> callBack)
     {
+        generateRefferalCode generateRefferalCode = new generateRefferalCode();
+
         UnityWebRequest apiRequest = UnityWebRequest.Get(getRefferalCode);
         apiRequest.SetRequestHeader("Content-Type", "application/json");
         apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
@@ -315,6 +404,9 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+            generateRefferalCode._apiResponseType = apiResponseType.SEVER_ERROR;
+            generateRefferalCode.responseMessage = apiRequest.error;
+            callBack(generateRefferalCode);
         }
         else
         {
@@ -323,12 +415,18 @@ public class ApiHandler : MonoBehaviour
 
             Debug.Log("Logout  " + registerUserDataDict["success"]);
 
-            string GeneratedRefferalCode = registerUserDataDict["refferalCode"].ToString();
-
-            refferalCode(GeneratedRefferalCode);
-
-
-            Debug.Log("refferalCode  " + GeneratedRefferalCode);
+            if ((registerUserDataDict["success"].ToString()).ToLower() == "true")
+            {
+                generateRefferalCode._apiResponseType = apiResponseType.SUCCESS;
+                generateRefferalCode.responseMessage = registerUserDataDict["refferalCode"].ToString();
+                callBack(generateRefferalCode);
+            }
+            else
+            {
+                generateRefferalCode._apiResponseType = apiResponseType.FAIL;
+                generateRefferalCode.responseMessage = "Refferal Code uable to generate at this time";
+                callBack(generateRefferalCode);
+            }
         }
 
         //Use this method to call 
@@ -339,8 +437,10 @@ public class ApiHandler : MonoBehaviour
         //}));
     }
 
-    public IEnumerator logoutApiCall()
+    public IEnumerator logoutApiCall(Action<logoutResponse> callBack)
     {
+        logoutResponse _logoutResponse = new logoutResponse();
+
         UnityWebRequest apiRequest = UnityWebRequest.Get(logoutUrl);
         apiRequest.SetRequestHeader("Content-Type", "application/json");
         apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
@@ -349,6 +449,9 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+            _logoutResponse._apiResponseType = apiResponseType.SEVER_ERROR;
+            _logoutResponse.responseMessage = apiRequest.error;
+            callBack(_logoutResponse);
         }
         else
         {
@@ -356,11 +459,26 @@ public class ApiHandler : MonoBehaviour
             registerUserDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
 
             Debug.Log("Logout  " + registerUserDataDict["success"]);
+
+            if ((registerUserDataDict["success"].ToString()).ToLower() == "true")
+            {
+                _logoutResponse._apiResponseType = apiResponseType.SUCCESS;
+                _logoutResponse.responseMessage = (registerUserDataDict["success"].ToString()).ToLower();
+                callBack(_logoutResponse);
+            }
+            else
+            {
+                _logoutResponse._apiResponseType = apiResponseType.FAIL;
+                _logoutResponse.responseMessage = (registerUserDataDict["success"].ToString()).ToLower();
+                callBack(_logoutResponse);
+            }
         }
     }
 
-    public IEnumerator sendEmail(string emailSubject, string emailMessage, string eventId, string exhibitorId)
+    public IEnumerator sendEmail(string emailSubject, string emailMessage, string eventId, string exhibitorId, Action<mailSendResponse> callBack)
     {
+        mailSendResponse _mailSendResponse = new mailSendResponse();
+
         Dictionary<string, string> urlHeaderKeys = new Dictionary<string, string>();
         urlHeaderKeys.Add("subject", emailSubject);
         urlHeaderKeys.Add("message", emailMessage);
@@ -375,6 +493,9 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+            _mailSendResponse._apiResponseType = apiResponseType.SEVER_ERROR;
+            _mailSendResponse.responseMessage = apiRequest.error;
+            callBack(_mailSendResponse);
         }
         else
         {
@@ -382,10 +503,26 @@ public class ApiHandler : MonoBehaviour
             registerUserDataDict = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
 
             Debug.Log("RegisterUSer  " + registerUserDataDict["success"]);
+            if ((registerUserDataDict["success"].ToString()).ToLower() == "true")
+            {
+                _mailSendResponse._apiResponseType = apiResponseType.SUCCESS;
+                _mailSendResponse.responseMessage = (registerUserDataDict["success"].ToString()).ToLower();
+                callBack(_mailSendResponse);
+            }
+            else
+            {
+                _mailSendResponse._apiResponseType = apiResponseType.FAIL;
+                _mailSendResponse.responseMessage = (registerUserDataDict["success"].ToString()).ToLower();
+                callBack(_mailSendResponse);
+            }
+
         }
     }
-    IEnumerator stallDetaitsParser()
+
+    public IEnumerator stallDetaitsParser(Action<getMetaDataResponse> callBack)
     {
+        getMetaDataResponse _getMetaDataResponse = new getMetaDataResponse();
+
         UnityWebRequest apiRequest = UnityWebRequest.Get(metaDataUrl);
         apiRequest.SetRequestHeader("Content-Type", "application/json");
         apiRequest.SetRequestHeader("Authorization", "Bearer " + userTokeId);
@@ -394,6 +531,9 @@ public class ApiHandler : MonoBehaviour
         if (apiRequest.isNetworkError || apiRequest.isHttpError)
         {
             Debug.Log(apiRequest.error);
+            _getMetaDataResponse._apiResponseType = apiResponseType.SEVER_ERROR;
+            _getMetaDataResponse.responseMessage = apiRequest.error;
+            callBack(_getMetaDataResponse);
         }
         else
         {
@@ -401,7 +541,7 @@ public class ApiHandler : MonoBehaviour
 
             Dictionary<string, object> registrationResponse = new Dictionary<string, object>();
             registrationResponse = MiniJSON.Json.Deserialize(apiRequest.downloadHandler.text) as Dictionary<string, object>;
-            _metaDataUrlContent = new metaDataUlData();
+            _metaDataUrlContent = new metaDataUrlData();
 
             _metaDataUrlContent.eventName = registrationResponse["name"].ToString();
             _metaDataUrlContent.eventId = registrationResponse["eventId"].ToString();
@@ -472,6 +612,9 @@ public class ApiHandler : MonoBehaviour
                 _collegeDataClass.exhibhitorsName = innerDict["name"].ToString();
                 _collegeDataClass.exhibhitorsEventId = innerDict["eventId"].ToString();
                 _collegeDataClass.exhibhitorsId = innerDict["exhibitorId"].ToString();
+
+                //  _collegeDataClass.exhibhitorsWebsiteUrl = innerDict["website"].ToString();
+
                 _collegeDataClass.exhibhitorsType = innerDict["type"].ToString();
                 _collegeDataClass.exhibhitorsDescription = innerDict["description"].ToString();
                 _collegeDataClass.exhibhitorsPhoneNumber = innerDict["phoneNo"].ToString();
@@ -558,8 +701,12 @@ public class ApiHandler : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
         BrowserCommunicationManager.instance.callLoaded();
 #endif
+        _getMetaDataResponse._apiResponseType = apiResponseType.SUCCESS;
+        _getMetaDataResponse.responseMessage = "Success";
+        _getMetaDataResponse._metaDataUrlData = _metaDataUrlContent;
+        callBack(_getMetaDataResponse);
 
-        StartCoroutine(Manager.instance.GenarateStalls());
+
         // StartCoroutine(Manager.instance.GenarateHall_1_Stalls());
         //StartCoroutine(Manager.instance.GenarateHall_2_Stalls());
         //StartCoroutine(Manager.instance.GenarateHall_3_Stalls());
@@ -602,6 +749,9 @@ public class collegeDatas
     public string exhibhitorsName;
     public string exhibhitorsEventId;
     public string exhibhitorsId;
+
+    public string exhibhitorsWebsiteUrl;
+
     public string exhibhitorsType;
     public string exhibhitorsDescription;
     public string exhibhitorsPhoneNumber;
@@ -634,7 +784,7 @@ public class collegeDatas
 }
 
 [System.Serializable]
-public class metaDataUlData
+public class metaDataUrlData
 {
     public string eventName;
     public string eventId;
@@ -661,9 +811,73 @@ public class metaDataUlData
     [SerializeField]
     public List<collegeDatas> _collegeDataClassList = new List<collegeDatas>();
 }
+
 [System.Serializable]
 public class LuckyDrawExhibitorCollege
 {
     public string luckyDrawExhibitorId;
     public string boothId;
+}
+
+public class APICallHandlerResponse
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+    public bool isAuthenticated;
+}
+
+public class getMetaDataResponse
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+    public metaDataUrlData _metaDataUrlData;
+}
+
+public class luckyDrawExhibitorResponse
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+    public List<LuckyDrawExhibitorCollege> _luckyDrawExhibitorList;
+}
+
+
+public class mailSendResponse
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+}
+
+
+public class logoutResponse
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+}
+
+public class generateRefferalCode
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+}
+
+
+public class generateLuckyDrawCode
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+}
+
+
+public class getUserActivityResponse
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
+    public List<UserActivity> _userActivityList;
+}
+
+
+public class setUserDataResponse
+{
+    public apiResponseType _apiResponseType;
+    public string responseMessage;
 }

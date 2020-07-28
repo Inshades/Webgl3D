@@ -81,9 +81,9 @@ public class StallUIManager : MonoBehaviour
     public Image slideShowImage;
     //public GameObject webPanel;
 
-    
 
-
+    [Header("Call Back")]
+    public GameObject callBackPanel;
     public void start()
     {
         uiManager = GameObject.Find("UI_Manager").GetComponent<UiManager>();
@@ -261,9 +261,27 @@ public class StallUIManager : MonoBehaviour
 
     public void emailSendButton()
     {
+        
         subject = subjectField.text;
         bodyText = bodyField.text;
-        StartCoroutine(ApiHandler.instance.sendEmail(subject, bodyText, ApiHandler.instance._metaDataUrlContent.eventId, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId));
+
+        StartCoroutine(ApiHandler.instance.sendEmail(subject, bodyText, ApiHandler.instance._metaDataUrlContent.eventId, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId, (callBack) =>
+        {
+            switch (callBack._apiResponseType)
+            {
+                case apiResponseType.SUCCESS:
+
+                    break;
+
+                case apiResponseType.FAIL:
+
+                    break;
+                case apiResponseType.SEVER_ERROR:
+
+                    break;
+            }
+        }));
+
         Debug.Log(subject);
 
         clearText();
@@ -310,7 +328,14 @@ public class StallUIManager : MonoBehaviour
 
     }
 
-
+    public void CallBackPanelOpen()
+    {
+        callBackPanel.SetActive(true);
+    }
+    public void CallBackButton()
+    {
+      //  callBackPanel.SetActive(true);
+    }
     public void CloseTriggerButton()
     {
         businessCardPanel.SetActive(false);
@@ -321,11 +346,26 @@ public class StallUIManager : MonoBehaviour
         emailPanel.SetActive(false);
         chatPanel.SetActive(false);
         slideShowPanel.SetActive(false);
+        callBackPanel.SetActive(false);
 
     }
 
     void setUserActivity(userActivityType _userActivity, string activityData, string boothName, string boothId, string exhibitorId)
     {
-        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId, exhibitorId));
+        StartCoroutine(ApiHandler.instance.SaveUserActivity(_userActivity, activityData, boothName, boothId, exhibitorId, (callBack) =>
+         {
+             switch (callBack._apiResponseType)
+             {
+                 case apiResponseType.SUCCESS:
+                     break;
+
+                 case apiResponseType.FAIL:
+
+                     break;
+                 case apiResponseType.SEVER_ERROR:
+
+                     break;
+             }
+         }));
     }
 }

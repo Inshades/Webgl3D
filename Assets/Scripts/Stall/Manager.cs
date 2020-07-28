@@ -80,7 +80,7 @@ public class Manager : MonoBehaviour
     ///// <summary>
     /// Generate stalls in the position of shopPositionContainer
     /// </summary>
-    public IEnumerator GenarateStalls()
+    public IEnumerator GenarateStalls(metaDataUrlData _metaDataUrl)
     {
 
         for (int i = 0; i < shopPositionContainer.transform.childCount; i++)
@@ -88,9 +88,9 @@ public class Manager : MonoBehaviour
             foreach (Transform item in shopPositionContainer.transform)
             {
                 //Debug.Log("Item Name " + item.name + " Booth Id  " + ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[0]);
-                if (item.name == ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothId[0])
+                if (item.name == _metaDataUrl._collegeDataClassList[i].exhibhitorsBoothId[0])
                 {
-                    stallType _stlType = (stallType)Enum.Parse(typeof(stallType), ApiHandler.instance._metaDataUrlContent._collegeDataClassList[i].exhibhitorsBoothModel[0]);
+                    stallType _stlType = (stallType)Enum.Parse(typeof(stallType), _metaDataUrl._collegeDataClassList[i].exhibhitorsBoothModel[0]);
                     GameObject obj = Instantiate(stalls[(int)_stlType], shopPositionContainer.transform.GetChild(item.GetSiblingIndex()).position, shopPositionContainer.transform.GetChild(item.GetSiblingIndex()).rotation) as GameObject;
                     obj.transform.parent = h1_Holder.transform;
                     obj.transform.GetComponent<StallManager>().currentIndex = item.GetSiblingIndex().ToString();

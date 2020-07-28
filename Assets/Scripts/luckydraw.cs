@@ -15,48 +15,46 @@ public class luckydraw : MonoBehaviour
     [SerializeField]
     private GameObject[] images = new GameObject[6];
 
+    [SerializeField]
+    private Text[] collegeLuckydrawlist = new Text[6];
 
 
-    private List<string> RandomList = new List<string>();
 
-    private int count = 0;
+  
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //GenerateRandomList();
-        
+       
+
     }
 
     // Update is called once per frame
     public void GenerateRandomList()
     {
+        for (int i = 0; i < ApiHandler.instance._listLuckyDrawExhibitorCollege.Count; i++)
+        {
+            collegeLuckydrawlist[i].text = ApiHandler.instance._listLuckyDrawExhibitorCollege[i].boothId.ToString();
+        }
 
-        //RandomList.Add("Columbia University");
-        //RandomList.Add("Duke University");
-        //RandomList.Add("McGill University");
-        //RandomList.Add("Princeton University");
-        //RandomList.Add("Stanford University");
-        //RandomList.Add("UC Berkeley");
-        //Debug.Log(RandomList);
     }
     List<string> luckyDrawVisitedList = new List<string>();
-    public void checker(string CurrentExhibhitorId)
+    public void checker(string CurrentexhibhitorsName)
     {
-        if (!luckyDrawVisitedList.Contains(CurrentExhibhitorId))
+        if (!luckyDrawVisitedList.Contains(CurrentexhibhitorsName))
         {
 
-            Debug.Log("triggg" + CurrentExhibhitorId);
+            Debug.Log("triggg" + CurrentexhibhitorsName);
             for (int i = 0; i < ApiHandler.instance._listLuckyDrawExhibitorCollege.Count; i++)
             {
-                if (ApiHandler.instance._listLuckyDrawExhibitorCollege[i].boothId == CurrentExhibhitorId)
+                if (ApiHandler.instance._listLuckyDrawExhibitorCollege[i].boothId == CurrentexhibhitorsName)
                 {
-                    luckyDrawVisitedList.Add(CurrentExhibhitorId);
+                    luckyDrawVisitedList.Add(CurrentexhibhitorsName);
 
-                    images[count].SetActive(false);
-                    count++;
-                    Debug.Log(CurrentExhibhitorId);
+                    images[i].SetActive(false);
+
+                    Debug.Log(CurrentexhibhitorsName);
                 }
             }
         }
@@ -75,10 +73,23 @@ public class luckydraw : MonoBehaviour
     public void buttonLuckyDraw()
     {
         Debug.Log("You are eligible for lucky draw");
+       
+
         StartCoroutine(ApiHandler.instance.GenerateLuckyCupon((callBack) =>
         {
-            Debug.Log("My Lucky Cupon is :  " + callBack);
+            switch (callBack._apiResponseType)
+            {
+                case apiResponseType.SUCCESS:
+                    Debug.Log("Generated luckyDraw code is : "+ callBack.responseMessage);
+                    break;
 
+                case apiResponseType.FAIL:
+
+                    break;
+                case apiResponseType.SEVER_ERROR:
+
+                    break;
+            }
         }));
     }
 

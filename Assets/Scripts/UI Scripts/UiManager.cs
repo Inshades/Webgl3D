@@ -47,8 +47,13 @@ public class UiManager : MonoBehaviour
     public Text businessAddress;
 
     public GameObject emailPanel;
-    public InputField subject;
-    public InputField bodyText;
+    [SerializeField]
+    private InputField subjectField;
+    [SerializeField]
+    private InputField bodyField;
+
+    
+   
 
 
     public GameObject documentsPanel;
@@ -111,8 +116,30 @@ public class UiManager : MonoBehaviour
     //In logout panel, yes clicked to close application
     public void Yes_LogoutButton()
     {
+        StartCoroutine(ApiHandler.instance.logoutApiCall((callBack) =>
+        {
+            switch (callBack._apiResponseType)
+            {
+                case apiResponseType.SUCCESS:
+
+                    break;
+
+                case apiResponseType.FAIL:
+
+                    break;
+                case apiResponseType.SEVER_ERROR:
+
+                    break;
+            }
+        }));
+
+#if UNITY_WEBGL && !UNITY_EDITOR
         BrowserCommunicationManager.instance.CallLogout();
-        StartCoroutine(ApiHandler.instance.logoutApiCall());
+#endif
+        // StartCoroutine(ApiHandler.instance.logoutApiCall());
+
+
+
         //Application.Quit();
     }
     //In Logout panel, no clicked to continue the application
@@ -315,50 +342,66 @@ public class UiManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
 
-        StartCoroutine(ApiHandler.instance.GetUserActivity());    //1300
-
-        if (ApiHandler.instance._userActivityList.Count != userActivityObjs.Count)
+        StartCoroutine(ApiHandler.instance.GetUserActivity((callBack) =>
         {
-            // userActivityObjs = new List<GameObject>();   //0
-
-            int ind = userActivityObjs.Count;
-            for (int i = ind; i < ApiHandler.instance._userActivityList.Count; i++)
+            switch (callBack._apiResponseType)
             {
+                case apiResponseType.SUCCESS:
 
-                Debug.Log("Switch Check : " + ApiHandler.instance._userActivityList[i].activityType);
-                switch (ApiHandler.instance._userActivityList[i].activityType)
-                {
-                    case "VIEW_BUSINESSCARD":
-                    case "VISIT_BOOTH":
-                    case "CHAT":
-                        GameObject listitem = Instantiate(userActivityObj) as GameObject;
-                        userActivityObjs.Add(listitem);
-                        listitem.SetActive(true);
-                        listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
-                        listitem.transform.parent = usrActiveMyConnect.transform;
-                        // listitem.transform.SetParent(Listtemplate.transform.parent, false);
-                        break;
-                    case "DOWNLOAD_BROUCHER":
-                        listitem = Instantiate(userActivityObjBrouch) as GameObject;
-                        userActivityObjs.Add(listitem);
-                        listitem.SetActive(true);
-                        listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
-                        listitem.transform.parent = usrActiveMyDocument.transform;
-                        // listitem.transform.SetParent(Listtemplate.transform.parent, false);
-                        break;
-                    case "VIEW_VIDEO":
-                        listitem = Instantiate(userActivityObjBrouch) as GameObject;
-                        userActivityObjs.Add(listitem);
-                        listitem.SetActive(true);
-                        listitem.GetComponent<myconnection_data>().setData(ApiHandler.instance._userActivityList[i].boothId, ApiHandler.instance._userActivityList[i].boothName, ApiHandler.instance._userActivityList[i].activityType);
-                        listitem.transform.parent = usrActiveMyVideo.transform;
-                        // listitem.transform.SetParent(Listtemplate.transform.parent, false);
-                        break;
-                }
+                    if (callBack._userActivityList.Count != userActivityObjs.Count)
+                    {
+                        // userActivityObjs = new List<GameObject>();   //0
+
+                        int ind = userActivityObjs.Count;
+                        for (int i = ind; i < callBack._userActivityList.Count; i++)
+                        {
+                            Debug.Log("Switch Check : " + callBack._userActivityList[i].activityType);
+                            switch (callBack._userActivityList[i].activityType)
+                            {
+                                case "VIEW_BUSINESSCARD":
+                                case "VISIT_BOOTH":
+                                case "CHAT":
+                                    GameObject listitem = Instantiate(userActivityObj) as GameObject;
+                                    userActivityObjs.Add(listitem);
+                                    listitem.SetActive(true);
+                                    listitem.GetComponent<myconnection_data>().setData(callBack._userActivityList[i].boothId, callBack._userActivityList[i].boothName, callBack._userActivityList[i].activityType);
+                                    listitem.transform.parent = usrActiveMyConnect.transform;
+                                    // listitem.transform.SetParent(Listtemplate.transform.parent, false);
+                                    break;
+                                case "DOWNLOAD_BROUCHER":
+                                    listitem = Instantiate(userActivityObjBrouch) as GameObject;
+                                    userActivityObjs.Add(listitem);
+                                    listitem.SetActive(true);
+                                    listitem.GetComponent<myconnection_data>().setData(callBack._userActivityList[i].boothId, callBack._userActivityList[i].boothName, callBack._userActivityList[i].activityType);
+                                    listitem.transform.parent = usrActiveMyDocument.transform;
+                                    // listitem.transform.SetParent(Listtemplate.transform.parent, false);
+                                    break;
+                                case "VIEW_VIDEO":
+                                    listitem = Instantiate(userActivityObjBrouch) as GameObject;
+                                    userActivityObjs.Add(listitem);
+                                    listitem.SetActive(true);
+                                    listitem.GetComponent<myconnection_data>().setData(callBack._userActivityList[i].boothId, callBack._userActivityList[i].boothName, callBack._userActivityList[i].activityType);
+                                    listitem.transform.parent = usrActiveMyVideo.transform;
+                                    // listitem.transform.SetParent(Listtemplate.transform.parent, false);
+                                    break;
+                            }
 
 
+                        }
+                    }
+
+                    break;
+
+                case apiResponseType.FAIL:
+
+                    break;
+                case apiResponseType.SEVER_ERROR:
+
+                    break;
             }
-        }
+        }));    //1300
+
+
     }
 
     public void MyConnectionButton()
@@ -378,6 +421,37 @@ public class UiManager : MonoBehaviour
         businessEmail.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressStreet.ToString();
         businessWeb.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressCity.ToString();
         businessAddress.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressState.ToString();
+    }
+
+
+    
+
+    public void Email_ConnectionPanel(int key)
+    {
+       
+        Debug.Log(key);
+        string subject = subjectField.text;
+        string bodyText = bodyField.text;
+        StartCoroutine(ApiHandler.instance.sendEmail(subject, bodyText, ApiHandler.instance._metaDataUrlContent.eventId, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId, (callBack) =>
+        {
+            switch (callBack._apiResponseType)
+            {
+                case apiResponseType.SUCCESS:
+
+                    break;
+
+                case apiResponseType.FAIL:
+
+                    break;
+                case apiResponseType.SEVER_ERROR:
+
+                    break;
+            }
+        }));
+
+        Debug.Log(subject);
+        subjectField.text = "";
+        bodyField.text = "";
     }
     public void DocumentsButton()
     {
@@ -402,9 +476,12 @@ public class UiManager : MonoBehaviour
     public void LuckyDrawButton()
     {
         luckydrawpanel.SetActive(true);
+
         logoutPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
+
+        
     }
 
     public void LuckyDrawCloseButton()
