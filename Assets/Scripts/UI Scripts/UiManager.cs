@@ -76,6 +76,7 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     private GameObject usrActiveMyConnect, usrActiveMyDocument, usrActiveMyVideo;
 
+    public luckydraw luckydraw_;
     bool x = true;
     //Logout Button is clicked to open Logout Panel
 
@@ -98,6 +99,10 @@ public class UiManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+    }
+    private void OnEnable()
+    {
+        luckydraw_ = GameObject.Find("StallUIManager").GetComponent<luckydraw>();
     }
     public void Start()
     {
@@ -137,8 +142,6 @@ public class UiManager : MonoBehaviour
         BrowserCommunicationManager.instance.CallLogout();
 #endif
         // StartCoroutine(ApiHandler.instance.logoutApiCall());
-
-
 
         //Application.Quit();
     }
@@ -202,6 +205,7 @@ public class UiManager : MonoBehaviour
             }
         }
     }
+
     public void ExhibitorButton()
     {
         exhibitorPanel.SetActive(true);
@@ -209,10 +213,7 @@ public class UiManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
 
-
         ExhibitorDataPopulate();
-
-
 
     }
 
@@ -334,8 +335,6 @@ public class UiManager : MonoBehaviour
     }
     public void MyBoxButton() //virtual bag
     {
-
-
         myvirtualBagPanel.SetActive(true);
         MyConnectionButton();
         logoutPanel.SetActive(false);
@@ -400,8 +399,6 @@ public class UiManager : MonoBehaviour
                     break;
             }
         }));    //1300
-
-
     }
 
     public void MyConnectionButton()
@@ -453,6 +450,7 @@ public class UiManager : MonoBehaviour
         subjectField.text = "";
         bodyField.text = "";
     }
+
     public void DocumentsButton()
     {
         documentsPanel.SetActive(true);
@@ -476,12 +474,10 @@ public class UiManager : MonoBehaviour
     public void LuckyDrawButton()
     {
         luckydrawpanel.SetActive(true);
-
+        luckydraw_.GenerateRandomList();
         logoutPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
         menuSelectPanel.SetActive(false);
-
-        
     }
 
     public void LuckyDrawCloseButton()

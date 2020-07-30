@@ -87,6 +87,22 @@ public class ApiHandler : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
+    public IEnumerator internetcheck(Action<bool> callBack)
+    {
+        UnityWebRequest internetcheckurl = UnityWebRequest.Get("https://www.google.com/");
+
+        yield return internetcheckurl.SendWebRequest();
+
+        if (internetcheckurl.isNetworkError || internetcheckurl.isHttpError)
+        {
+            Debug.Log(internetcheckurl.error);
+            callBack(false);
+        }
+        else
+        {
+            callBack(true);
+        }
+    }
     private void Start()
     {
 
@@ -825,6 +841,7 @@ public class APICallHandlerResponse
     public string responseMessage;
     public bool isAuthenticated;
 }
+
 
 public class getMetaDataResponse
 {

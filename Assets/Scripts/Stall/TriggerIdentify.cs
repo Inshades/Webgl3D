@@ -38,9 +38,17 @@ public class TriggerIdentify : MonoBehaviour
         // int key = int.Parse(triggerName);
         //   key = key - 1;
         stall_uimanager.Setkey(key);
-        setUserActivity(userActivityType.VISIT_BOOTH, "Visit Booth", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+     //   setUserActivity(userActivityType.VISIT_BOOTH, "Visit Booth", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
 
+        StartCoroutine(ApiHandler.instance.internetcheck((callBack) =>
+        {
+            if(callBack)
+            {
 
+                setUserActivity(userActivityType.VISIT_BOOTH, "Visit Booth", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+
+            }
+        }));
     }
 
     private void OnTriggerExit(Collider other)
@@ -54,7 +62,17 @@ public class TriggerIdentify : MonoBehaviour
         stall_uimanager.broucherPanel.SetActive(false);
         int key = transform.parent.GetSiblingIndex();
         stall_uimanager.Setkey(key);
-        setUserActivity(userActivityType.VISIT_BOOTH, "Booth Exit", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+
+      //  setUserActivity(userActivityType.VISIT_BOOTH, "Booth Exit", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+
+        StartCoroutine(ApiHandler.instance.internetcheck((callBack) =>
+        {
+            if (callBack)
+            {
+                setUserActivity(userActivityType.VISIT_BOOTH, "Booth Exit", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+
+            }
+        }));
 
     }
     void setUserActivity(userActivityType _userActivity, string activityData, string boothName, string boothId, string exhibitorId)

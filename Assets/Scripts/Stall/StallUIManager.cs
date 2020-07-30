@@ -214,7 +214,15 @@ public class StallUIManager : MonoBehaviour
         //Application.OpenURL(ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl);
         Debug.Log(myKeystring + "BroucherButtonClicked");
 
-        setUserActivity(userActivityType.DOWNLOAD_BROUCHER, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+        StartCoroutine(ApiHandler.instance.internetcheck((callBack) =>
+        {
+            if (callBack)
+            {
+                setUserActivity(userActivityType.DOWNLOAD_BROUCHER, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+
+            }
+        }));
+      //  setUserActivity(userActivityType.DOWNLOAD_BROUCHER, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeystring]._collegeAmenities[0].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
     }
 
     public void videoButton()
@@ -241,8 +249,17 @@ public class StallUIManager : MonoBehaviour
         videoPlayPanel.SetActive(true);
         videoPlayer.url = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl;
         videoPlayer.Play();
+        StartCoroutine(ApiHandler.instance.internetcheck((callBack) =>
+        {
+            if (callBack)
+            {
+                setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
 
-        setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+            }
+        }));
+
+
+        //setUserActivity(userActivityType.VIEW_VIDEO, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[myKeyString]._collegeAmenities[2].exhibhitorsBoothAmenitiesSourceUrl, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
     }
     public void SlideShowButton()
     {
@@ -264,6 +281,14 @@ public class StallUIManager : MonoBehaviour
         
         subject = subjectField.text;
         bodyText = bodyField.text;
+        //StartCoroutine(ApiHandler.instance.internetcheck((callBack) =>
+        //{
+        //    if (callBack)
+        //    {
+
+        //    }
+        //}));
+
 
         StartCoroutine(ApiHandler.instance.sendEmail(subject, bodyText, ApiHandler.instance._metaDataUrlContent.eventId, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId, (callBack) =>
         {
@@ -281,6 +306,7 @@ public class StallUIManager : MonoBehaviour
                     break;
             }
         }));
+
 
         Debug.Log(subject);
 
@@ -324,7 +350,17 @@ public class StallUIManager : MonoBehaviour
         businessCardWeb.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressCity.ToString();
         businessCardAddress.text = ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsAddressState.ToString();
 
-        setUserActivity(userActivityType.VIEW_BUSINESSCARD, "Businesscard viewed", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+       // setUserActivity(userActivityType.VIEW_BUSINESSCARD, "Businesscard viewed", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+        StartCoroutine(ApiHandler.instance.internetcheck((callBack) =>
+        {
+            if (callBack)
+            {
+
+             setUserActivity(userActivityType.VIEW_BUSINESSCARD, "Businesscard viewed", ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsName, ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsBoothId[0], ApiHandler.instance._metaDataUrlContent._collegeDataClassList[key].exhibhitorsId);
+
+
+            }
+        }));
 
     }
 
